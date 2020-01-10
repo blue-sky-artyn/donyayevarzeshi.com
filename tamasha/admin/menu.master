@@ -1,0 +1,73 @@
+﻿    <%@ Master Language="C#" MasterPageFile="~/admin/topTile.master" AutoEventWireup="true" CodeFile="menu.master.cs" Inherits="admin_menu" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+    <!--/sidebar-menu-->
+				<div class="sidebar-menu">
+					<header class="logo1">
+						<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> 
+					</header>
+						<div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+                           <div class="menu">
+									<ul id="menu" >
+										<li><a href="default.aspx"><i class="fa fa-tachometer"></i> <span>Home</span></a></li>
+										<li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> News</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+										    <li id="menu-academico" style="width: 115px;" ><a href="#"><span> Groups</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                                                <ul id="menu-academico-sub" >
+                                                    <li id="menu-academico-avaliacoes" ><a href="group-sport.aspx" style="width: 110px;">Sport</a></li>
+                                                    <li id="menu-academico-avaliacoes" ><a href="group-art.aspx" style="width: 110px;">Art</a></li>
+                                                </ul>
+										    </li>
+										    <li id="menu-academico" style="width: 115px;" ><a href="#"><span> News</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                                                <ul id="menu-academico-sub" >
+                                                    <li id="menu-academico-avaliacoes" ><a href="news-add-sport.aspx" style="width: 110px;">Sport</a></li>
+                                                    <li id="menu-academico-avaliacoes" ><a href="news-add-art.aspx" style="width: 110px;">Art</a></li>
+                                                </ul>
+                                            </li>
+                                            <li id="menu-academico" style="width: 115px;" ><a href="#"><span> Speacial</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                                                <ul id="menu-academico-sub" >
+                                                    <li id="menu-academico-avaliacoes" ><a href="news-flagged-sport.aspx" style="width: 110px;">Sport</a></li>
+                                                    <li id="menu-academico-avaliacoes" ><a href="news-flagged-art.aspx" style="width: 110px;">Art</a></li>
+                                                </ul>
+                                            </li>
+                                            <li id="menu-academico" style="width: 115px;" ><a href="#"><span> Slider</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                                                <ul id="menu-academico-sub" >
+                                                    <li id="menu-academico-avaliacoes" ><a href="news-slider-sport.aspx" style="width: 110px;">Sport</a></li>
+                                                    <li id="menu-academico-avaliacoes" ><a href="news-slider-art.aspx" style="width: 110px;">Art</a></li>
+                                                </ul>
+                                            </li>
+											<%--<li id="menu-academico-boletim" ><a href="slider.aspx">Slider</a></li>--%>
+										  </ul>
+										</li>
+									
+									<li id="menu-academico" ><a href="ad.aspx"><i class="lnr lnr-book"></i> <span>Advertisments</span></a></li>
+									 <li><a href="socials.aspx"><i class="lnr lnr-envelope"></i> <span>Socials</span></a></li>
+									<li><a href="faq.aspx"><i class="lnr lnr-chart-bars"></i> <span>FAQ</span></a></li>
+									<li><a href="need-to-know.aspx"><i class="lnr lnr-chart-bars"></i> <span>Need to know</span></a></li>
+									<li><a href="company-details.aspx"><i class="lnr lnr-chart-bars"></i> <span>Company Details</span></a></li>
+							        <li id="menu-academico" ><a href="#"><i class="lnr lnr-layers"></i> <span>Users</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										 <ul id="menu-academico-sub" >
+											<li id="menu-academico-avaliacoes" ><a href="subscriber.aspx">subscriber</a></li>
+											<li id="menu-academico-boletim" ><a href="subscriber-review.html">subscriber reviews</a></li>
+
+										  </ul>
+									 </li>
+                                     <%--<li id="menu-academico" ><a href="#"><i class="lnr lnr-layers"></i> <span>Sales</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										 <ul id="menu-academico-sub" >
+											<li id="menu-academico-avaliacoes" ><a href="tabs.html">Invoices</a></li>
+											<li id="menu-academico-boletim" ><a href="calender.html">Reports</a></li>
+											<li id="menu-academico-boletim" ><a href="calender.html">Issue recepts</a></li>
+
+										  </ul>
+									 </li>--%>
+									
+								  </ul>
+								</div>
+							  </div>
+							  <div class="clearfix"></div>		
+							</div>
+</asp:Content>
+
