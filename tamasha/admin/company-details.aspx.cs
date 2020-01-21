@@ -5,97 +5,133 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Cruder.Core;
+using bluesky.artyn;
 
 public partial class admin_company_details : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //tblCompanyDetailCollection coDetails = new tblCompanyDetailCollection();
-        //coDetails.ReadList();
+        tblCompanyCollection coDetails = new tblCompanyCollection();
+        coDetails.ReadList();
 
-        //if (coDetails.Count > 0)
-        //{
-        //    txtCoName.Text = coDetails[0].CompanyName;
-        //    txtCoOwner.Text = coDetails[0].CompanyOwner;
-        //    txtLat.Text = coDetails[0].CompanyLocA;
-        //    txtLong.Text = coDetails[0].CompanyLocB;
-        //    txtAddr.Text = coDetails[0].CompanyAddr;
-        //    txtPhone.Text = coDetails[0].CompanyTel;
-        //    txtFax.Text = coDetails[0].CompanyFax;
-        //    txtEmail.Text = coDetails[0].CompanyEmail;
-        //    txtWebsite.Text = coDetails[0].CompanyWebsite;
-        //    txtDetails.Text = coDetails[0].CompanyDetails;
-        //}
+        if (!IsPostBack)
+        {
+            if (coDetails.Count > 0)
+            {
+                txtCoName.Text = coDetails[0].CoName;
+                txtCoOwner.Text = coDetails[0].CoOwner;
+                txtCoOwnerWords.Text = coDetails[0].CoOwnerWord;
+
+                txtLat.Text = coDetails[0].CoLocA;
+                txtLong.Text = coDetails[0].CoLocB;
+
+                txtAddr.Text = coDetails[0].CoAddr;
+                txtPhone.Text = coDetails[0].Tel;
+                txtFax.Text = coDetails[0].Phone;
+
+                txtInstagram.Text = coDetails[0].Instagram;
+                txtTwitter.Text = coDetails[0].Twitter;
+                txtLinkedin.Text = coDetails[0].Linkedin;
+                txtFabook.Text = coDetails[0].Facebook;
+                txtYoutube.Text = coDetails[0].youtube;
+
+                txtEmail.Text = coDetails[0].Email;
+                txtWebsite.Text = coDetails[0].website;
+                txtDetails.Text = coDetails[0].CoDetail;
+            }
+        }
     }
 
     protected void btnSave_Click(object sender, EventArgs e)
     {
         string errorMsg = string.Empty;
 
-        //tblCompanyDetailCollection compDetailsTbl = new tblCompanyDetailCollection();
-        //compDetailsTbl.ReadList();
+        tblCompany companyNewTbl = new tblCompany();
 
-        ////try
-        ////{
-        //if (txtCoName.Text.Length > 0)
-        //        compDetailsTbl[0].CompanyName = txtCoName.Text;
-        //    else
-        //        errorMsg = "* Please fill out the company name <br />";
+        tblCompanyCollection compDetailsTbl = new tblCompanyCollection();
+        compDetailsTbl.ReadList();
 
-        //    if (txtCoOwner.Text.Length > 0)
-        //        compDetailsTbl[0].CompanyOwner = txtCoOwner.Text;
-        //    else
-        //        compDetailsTbl[0].CompanyOwner = "";
+        try
+        {
+            if (compDetailsTbl.Count > 0)
+            {
+                if (txtCoName.Text.Length > 0)
+                    compDetailsTbl[0].CoName = txtCoName.Text;
+                else
+                    errorMsg = "* Please fill out the company name <br />";
 
-        //    if (txtLat.Text.Length > 0)
-        //        compDetailsTbl[0].CompanyLocA = txtLat.Text;
-        //    else
-        //        errorMsg += "* Please fill out the latitude <br />";
+                if (txtAddr.Text.Length > 0)
+                    compDetailsTbl[0].CoAddr = txtAddr.Text;
+                else
+                    errorMsg += "* Please fill out the address <br />";
 
-        //    if (txtLong.Text.Length > 0)
-        //        compDetailsTbl[0].CompanyLocB = txtLong.Text;
-        //    else
-        //        errorMsg += "* Please fill out the longitude <br />";
+                compDetailsTbl[0].CoOwner = txtCoOwner.Text;
+                compDetailsTbl[0].CoOwnerWord = txtCoOwnerWords.Text;
+                compDetailsTbl[0].CoLocA = txtLat.Text;
+                compDetailsTbl[0].CoLocB = txtLong.Text;
 
-        //    if (txtAddr.Text.Length > 0)
-        //        compDetailsTbl[0].CompanyAddr = txtAddr.Text;
-        //    else
-        //        errorMsg += "* Please fill out the address <br />";
+                compDetailsTbl[0].Tel = txtPhone.Text;
+                compDetailsTbl[0].Phone = txtFax.Text;
+                compDetailsTbl[0].SocialNumber = txtSocialNo.Text;
+                compDetailsTbl[0].Email = txtEmail.Text;
+                compDetailsTbl[0].Instagram = txtInstagram.Text;
+                compDetailsTbl[0].youtube = txtYoutube.Text;
+                compDetailsTbl[0].Twitter = txtTwitter.Text;
+                compDetailsTbl[0].Linkedin = txtLinkedin.Text;
+                compDetailsTbl[0].Facebook = txtFabook.Text;
+                compDetailsTbl[0].GooglePlus = txtGoogle.Text;
+                compDetailsTbl[0].website = txtWebsite.Text;
+                compDetailsTbl[0].CoDetail = txtDetails.Text;
 
-        //    if (txtPhone.Text.Length > 0)
-        //        compDetailsTbl[0].CompanyTel = txtPhone.Text;
-        //    else
-        //        errorMsg += "* Please fill out the phone number <br />";
+                //compDetailsTbl.UpdateList(true);
+                if (errorMsg.Length <= 0)
+                    compDetailsTbl[0].Update();
+                else
+                    errorMsg = "Please fill out requred filds";
+            }
+            else
+            {
+                if (txtCoName.Text.Length > 0)
+                    companyNewTbl.CoName = txtCoName.Text;
+                else
+                    errorMsg = "* Please fill out the company name <br />";
 
-        //    if (txtFax.Text.Length > 0)
-        //        compDetailsTbl[0].CompanyFax = txtFax.Text;
-        //    else
-        //        errorMsg += "* Please fill out the Fax <br />";
+                if (txtAddr.Text.Length > 0)
+                    companyNewTbl.CoAddr = txtAddr.Text;
+                else
+                    errorMsg += "* Please fill out the address <br />";
+                    
+                companyNewTbl.CoOwner = txtCoOwner.Text;
+                companyNewTbl.CoLocA = txtLat.Text;
+                companyNewTbl.CoLocB = txtLong.Text;
 
-        //    if (txtEmail.Text.Length > 0)
-        //        compDetailsTbl[0].CompanyEmail = txtEmail.Text;
-        //    else
-        //        errorMsg += "* Please fill out the Email <br />";
+                companyNewTbl.Tel = txtPhone.Text;
+                companyNewTbl.Phone = txtFax.Text;
+                companyNewTbl.SocialNumber = txtSocialNo.Text;
+                companyNewTbl.Email = txtEmail.Text;
+                companyNewTbl.Instagram = txtInstagram.Text;
+                companyNewTbl.youtube = txtYoutube.Text;
+                companyNewTbl.Twitter = txtTwitter.Text;
+                companyNewTbl.Linkedin = txtLinkedin.Text;
+                companyNewTbl.Facebook = txtFabook.Text;
+                companyNewTbl.GooglePlus = txtGoogle.Text;
+                companyNewTbl.website = txtWebsite.Text;
+                companyNewTbl.CoDetail = txtDetails.Text;
 
-        //    if (txtWebsite.Text.Length > 0)
-        //        compDetailsTbl[0].CompanyWebsite = txtWebsite.Text;
-        //    else
-        //        compDetailsTbl[0].CompanyWebsite = "";
+                //compDetailsTbl.UpdateList(true);
+                if (errorMsg.Length <= 0)
+                    companyNewTbl.Create();
+                else
+                    errorMsg = "Please fill out requred filds";
+            }
+            ErrorMassage.InnerHtml = "Update is successfully done";
 
-        //    if (txtDetails.Text.Length > 0)
-        //        compDetailsTbl[0].CompanyDetails = txtDetails.Text;
-        //    else
-        //        compDetailsTbl[0].CompanyDetails = "";
-
-        //    compDetailsTbl.UpdateList(true);
-        //ErrorMassage.InnerHtml = "Update is successfully done";
-
-        //}
-        //catch (Exception)
-        //{
-        //    ErrorMassage.InnerHtml = errorMsg;
-        //    throw;
-        //}
+        }
+        catch (Exception ex)
+        {
+            ErrorMassage.InnerHtml = errorMsg + " (" + ex + " )";
+            //throw;
+        }
 
     }
 }

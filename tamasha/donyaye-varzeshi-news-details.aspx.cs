@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Cruder.Core;
-using BlueSky.Artin;
+using bluesky.artyn;
 
 public partial class tamasha_news_details : System.Web.UI.Page
 {
@@ -29,15 +29,15 @@ public partial class tamasha_news_details : System.Web.UI.Page
             Response.Redirect("default.aspx");
 
         string newsDetailString = "", picThumbString = "";
-        tblNewsDetailsSportCollection newsDetailsTbl = new tblNewsDetailsSportCollection();
-        newsDetailsTbl.ReadList(Criteria.NewCriteria(tblNewsDetailsSport.Columns.id, CriteriaOperators.Equal, itemGet));
+        tblNewsDetailsCollection newsDetailsTbl = new tblNewsDetailsCollection();
+        newsDetailsTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, itemGet));
 
-        tblNewsPicSportCollection newsPicTbl = new tblNewsPicSportCollection();
-        newsPicTbl.ReadList(Criteria.NewCriteria(tblNewsPicSport.Columns.newsId, CriteriaOperators.Equal, itemGet));
+        tblNewsPicCollection newsPicTbl = new tblNewsPicCollection();
+        newsPicTbl.ReadList(Criteria.NewCriteria(tblNewsPic.Columns.newsId, CriteriaOperators.Equal, itemGet));
         
         #region increment number of review a news
-        tblNewsDetailsSportCollection newsDetailsIncTbl = new tblNewsDetailsSportCollection();
-        newsDetailsIncTbl.ReadList(Criteria.NewCriteria(tblNewsDetailsSport.Columns.id, CriteriaOperators.Equal, itemGet));
+        tblNewsDetailsCollection newsDetailsIncTbl = new tblNewsDetailsCollection();
+        newsDetailsIncTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, itemGet));
 
         int numberOfReview = Convert.ToInt32(newsDetailsTbl[0].incReview) + 1;
         int idGrp = newsDetailsTbl[0].idGroup;

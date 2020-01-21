@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Cruder.Core;
-using BlueSky.Artin;
+using bluesky.artyn;
 
 public partial class archive : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        tblNewsDetailsSportCollection newsDetailsSportTbl = new tblNewsDetailsSportCollection();
+        tblNewsDetailsCollection newsDetailsSportTbl = new tblNewsDetailsCollection();
         newsDetailsSportTbl.ReadList();
 
         #region archive News

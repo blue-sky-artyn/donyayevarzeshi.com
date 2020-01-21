@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Cruder.Core;
-using BlueSky.Artin;
+using bluesky.artyn;
 
 public partial class admin_need_to_know : System.Web.UI.Page
 {

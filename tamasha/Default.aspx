@@ -24,6 +24,11 @@
             /* text-decoration: underline; */
             border-bottom: #ef233c solid 1px;
         }
+        .title-block {
+            display: block;
+            font-size: 12px;
+            margin: 5px 0px;
+        }
     </style>
 
 </asp:Content>
@@ -99,8 +104,39 @@
         <div class="container">
             <!-- ROW -->
             <div class="row">
+                <div class="col-md-4">
+                    <div class="farsi-position section-title">
+                        <h2 class="farsi-font title">اخبار برجسته</h2>
+                        <!-- tab nav -->
+                        <ul class="farsi-font farsi-float tab-nav pull-left">
+                            <li><a data-toggle="tab" href="#tabNews2">پربازدید</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tabNews1">جدبدترین ها</a></li>
+                        </ul>
+                        <!-- /tab nav -->
+                    </div>
+
+                    <div id="sideNewsHtml" runat="server" class="tab-content">
+                        <!-- tab1 -->
+                        <div id="tabNews2" class="tab-pane fade in">
+                            <div id="popularNewsSideHtml" runat="server" class="row">
+                                <!-- Column 1 -->
+                                            <a class="title-block farsi-font farsi-position article-title" href="#">Testtttttt</a>
+                            </div>
+                        </div>
+
+                        <div id="tabNews1" class="tab-pane fade in active">
+                            <!-- row -->
+                            <div id="recentNewsSideHtml" runat="server" class="row">
+                              
+                            </div>
+                            <!-- /row -->
+                        </div>
+                        <!-- /tab1 -->
+                    </div>
+
+                </div>
                 <!-- Main Column -->
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <!-- section title -->
                     <div class="farsi-position section-title">
                         <h2 class="farsi-font title">اخبار مهم</h2>

@@ -534,10 +534,11 @@
 						<div class="our-left">
 							<h4>Details</h4>
 						</div>
-						
+						<ul id="coDetHtml" runat="server">
 							<li><i class="add"> </i>yonge Ontario Canada</li>
 							<li><i class="phone"> </i>+1 (123) 456 7890</li>
 							<li><a href="mailto:info@halisen.ca"><i class="mail"> </i>info@tamasha.ca </a></li>
+						</ul>
 					</div>
 					<div class="clearfix"> </div>
 						<p>All Rights Reserved | Design by <a href="mailto:i8net2000@yahoo.com">Farhad Taheri</a></p>

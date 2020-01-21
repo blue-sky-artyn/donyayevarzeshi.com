@@ -1,6 +1,7 @@
-﻿    <%@ Master Language="C#" MasterPageFile="~/admin/topTile.master" AutoEventWireup="true" CodeFile="menu.master.cs" Inherits="admin_menu" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/admin/topTile.master" AutoEventWireup="true" CodeFile="menu.master.cs" Inherits="admin_menu" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <asp:ContentPlaceHolder ID="head1" runat="server"></asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
@@ -15,42 +16,90 @@
 										<li><a href="default.aspx"><i class="fa fa-tachometer"></i> <span>Home</span></a></li>
 										<li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> News</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 										  <ul id="menu-academico-sub" >
-										    <li id="menu-academico" style="width: 115px;" ><a href="#"><span> Groups</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-                                                <ul id="menu-academico-sub" >
-                                                    <li id="menu-academico-avaliacoes" ><a href="group-sport.aspx" style="width: 110px;">Sport</a></li>
-                                                    <li id="menu-academico-avaliacoes" ><a href="group-art.aspx" style="width: 110px;">Art</a></li>
-                                                </ul>
-										    </li>
-										    <li id="menu-academico" style="width: 115px;" ><a href="#"><span> News</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-                                                <ul id="menu-academico-sub" >
-                                                    <li id="menu-academico-avaliacoes" ><a href="news-add-sport.aspx" style="width: 110px;">Sport</a></li>
-                                                    <li id="menu-academico-avaliacoes" ><a href="news-add-art.aspx" style="width: 110px;">Art</a></li>
-                                                </ul>
-                                            </li>
-                                            <li id="menu-academico" style="width: 115px;" ><a href="#"><span> Speacial</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-                                                <ul id="menu-academico-sub" >
-                                                    <li id="menu-academico-avaliacoes" ><a href="news-flagged-sport.aspx" style="width: 110px;">Sport</a></li>
-                                                    <li id="menu-academico-avaliacoes" ><a href="news-flagged-art.aspx" style="width: 110px;">Art</a></li>
-                                                </ul>
-                                            </li>
-                                            <li id="menu-academico" style="width: 115px;" ><a href="#"><span> Slider</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-                                                <ul id="menu-academico-sub" >
-                                                    <li id="menu-academico-avaliacoes" ><a href="news-slider-sport.aspx" style="width: 110px;">Sport</a></li>
-                                                    <li id="menu-academico-avaliacoes" ><a href="news-slider-art.aspx" style="width: 110px;">Art</a></li>
-                                                </ul>
-                                            </li>
-											<%--<li id="menu-academico-boletim" ><a href="slider.aspx">Slider</a></li>--%>
+											<li id="menu-academico-boletim" ><a href="news-groups.aspx">News Groups</a></li>
+											<li id="menu-academico-boletim" ><a href="news-add.aspx">News</a></li>
+											<li id="menu-academico-boletim" ><a href="news-flagged.aspx">Top News</a></li>
+											<li id="menu-academico-boletim" ><a href="news-rss.aspx">RSS feed</a></li>
+											<li id="menu-academico-boletim" ><a href="event-add.aspx">ٍEvents</a></li>
 										  </ul>
 										</li>
 									
-									<li id="menu-academico" ><a href="ad.aspx"><i class="lnr lnr-book"></i> <span>Advertisments</span></a></li>
-									 <li><a href="socials.aspx"><i class="lnr lnr-envelope"></i> <span>Socials</span></a></li>
-									<li><a href="faq.aspx"><i class="lnr lnr-chart-bars"></i> <span>FAQ</span></a></li>
-									<li><a href="need-to-know.aspx"><i class="lnr lnr-chart-bars"></i> <span>Need to know</span></a></li>
-									<li><a href="company-details.aspx"><i class="lnr lnr-chart-bars"></i> <span>Company Details</span></a></li>
+                                        <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Information</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+											<li id="menu-academico-boletim" ><a href="information-group.aspx">Information Groups</a></li>
+											<li id="menu-academico-boletim" ><a href="information-add.aspx">Information</a></li>
+										  </ul>
+										</li>
+
+										<li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Products</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+											<li id="menu-academico-boletim" ><a href="product-group.aspx">Products Groups</a></li>
+											<li id="menu-academico-boletim" ><a href="product-add.aspx">Products</a></li>
+										  </ul>
+										</li>
+
+										<li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Portfolio</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+											<li id="menu-academico-boletim" ><a href="portfolio-group.aspx">Portfolio Groups</a></li>
+											<li id="menu-academico-boletim" ><a href="portfolio-company-add.aspx">Company Portfolio</a></li>
+											<li id="menu-academico-boletim" ><a href="portfolio-member-add.aspx">Members' Portfolio</a></li>
+										  </ul>
+										</li>
+
+                                        <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Services</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+											<li id="menu-academico-boletim" ><a href="services-group.aspx">Services Groups</a></li>
+											<li id="menu-academico-boletim" ><a href="services-add.aspx">Services</a></li>
+										  </ul>
+										</li>
+
+										<li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Staff</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+											<li id="menu-academico-boletim" ><a href="services-group.aspx">Company Roles</a></li>
+											<li id="menu-academico-boletim" ><a href="staff.aspx">Company Staff</a></li>
+										  </ul>
+										</li>
+
+										<li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Galleries</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+											<li id="menu-academico-boletim" ><a href="main-bg.aspx">Main Page</a></li>
+											<li id="menu-academico-boletim" ><a href="other-bg.aspx">Other Pages</a></li>
+											<li id="menu-academico-boletim" ><a href="slider.aspx">Slider</a></li>
+										  </ul>
+										</li>
+
+									<li id="menu-academico" ><a href="#"><i class="lnr lnr-chart-bars"></i> <span> Stage</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+											<li id="menu-academico-boletim" ><a href="stage.aspx">Create a stage</a></li>
+											<li id="menu-academico-boletim" ><a href="company-details-user.aspx">user deatils</a></li>
+										  </ul>
+										</li>
+
+                                        <li id="menu-academico" ><a href="#"><i class="lnr lnr-chart-bars"></i> <span> Company Details</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+											<li id="menu-academico-boletim" ><a href="company-details.aspx">Company details</a></li>
+											<li id="menu-academico-boletim" ><a href="company-details-user.aspx">user deatils</a></li>
+										  </ul>
+										</li>
+										<li id="menu-academico" ><a href="#"><i class="lnr lnr-chart-bars"></i> <span> MISC</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+											<li id="menu-academico-boletim" ><a href="socials.aspx">Social Links</a></li>
+											<li id="menu-academico-boletim" ><a href="ad.aspx">Advertisments</a></li>
+											<li id="menu-academico-boletim" ><a href="working-hours.aspx">Working Hours</a></li>
+											<li id="menu-academico-boletim" ><a href="popuppage.aspx">Popup Page</a></li>
+											<li id="menu-academico-boletim" ><a href="faq.aspx">FAQ</a></li>
+											<li id="menu-academico-boletim" ><a href="need-to-know.aspx">Need to know</a></li>
+										  </ul>
+										</li>
+
+
+
 							        <li id="menu-academico" ><a href="#"><i class="lnr lnr-layers"></i> <span>Users</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 										 <ul id="menu-academico-sub" >
+											<li id="menu-academico-avaliacoes" ><a href="volunteer.aspx">Volunteers</a></li>
+											<li id="menu-academico-avaliacoes" ><a href="sponsors.aspx">Sponsors</a></li>
 											<li id="menu-academico-avaliacoes" ><a href="subscriber.aspx">subscriber</a></li>
+											<li id="menu-academico-avaliacoes" ><a href="subscription-plans.aspx">subscribtion Plans</a></li>
 											<li id="menu-academico-boletim" ><a href="subscriber-review.html">subscriber reviews</a></li>
 
 										  </ul>

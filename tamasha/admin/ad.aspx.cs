@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BlueSky.Artin;
+using bluesky.artyn;
 using Cruder.Core;
 public partial class admin_gallery_normal : System.Web.UI.Page
 {

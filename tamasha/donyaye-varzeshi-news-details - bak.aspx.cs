@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Cruder.Core;
-using BlueSky.Artin;
+using bluesky.artyn;
 
 public partial class tamasha_news_details : System.Web.UI.Page
 {
@@ -21,8 +21,8 @@ public partial class tamasha_news_details : System.Web.UI.Page
 
 
         string newsDetailString = "", picThumbString = "";
-        tblNewsDetailsSportCollection newsDetailsTbl = new tblNewsDetailsSportCollection();
-        newsDetailsTbl.ReadList(Criteria.NewCriteria(tblNewsDetailsSport.Columns.id, CriteriaOperators.Equal, itemGet));
+        tblNewsDetailsCollection newsDetailsTbl = new tblNewsDetailsCollection();
+        newsDetailsTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, itemGet));
 
         int idCounter = 0;
         //news image
@@ -46,8 +46,8 @@ public partial class tamasha_news_details : System.Web.UI.Page
 
         idCounter++;
         
-        tblNewsPicSportCollection newsPicTbl = new tblNewsPicSportCollection();
-        newsPicTbl.ReadList(Criteria.NewCriteria(tblNewsPicSport.Columns.newsId, CriteriaOperators.Equal, itemGet));
+        tblNewsPicCollection newsPicTbl = new tblNewsPicCollection();
+        newsPicTbl.ReadList(Criteria.NewCriteria(tblNewsPic.Columns.newsId, CriteriaOperators.Equal, itemGet));
 
         for (int i = 0; i < newsPicTbl.Count; i++)
         {
@@ -56,8 +56,8 @@ public partial class tamasha_news_details : System.Web.UI.Page
             idCounter++;
         }
 
-        tblNewsMovieSportCollection newsMovieTbl = new tblNewsMovieSportCollection();
-        newsMovieTbl.ReadList(Criteria.NewCriteria(tblNewsMovieSport.Columns.newsId, CriteriaOperators.Equal, itemGet));
+        tblNewsMovieCollection newsMovieTbl = new tblNewsMovieCollection();
+        newsMovieTbl.ReadList(Criteria.NewCriteria(tblNewsMovie.Columns.newsId, CriteriaOperators.Equal, itemGet));
 
         for (int i = 0; i < newsMovieTbl.Count; i++)
         {
@@ -66,8 +66,8 @@ public partial class tamasha_news_details : System.Web.UI.Page
             idCounter++;
         }
 
-        tblNewsHyperlinkSportCollection newsLinksTbl = new tblNewsHyperlinkSportCollection();
-        newsLinksTbl.ReadList(Criteria.NewCriteria(tblNewsHyperlinkSport.Columns.newsId, CriteriaOperators.Equal, itemGet));
+        tblNewsHyperlinkCollection newsLinksTbl = new tblNewsHyperlinkCollection();
+        newsLinksTbl.ReadList(Criteria.NewCriteria(tblNewsHyperlink.Columns.newsId, CriteriaOperators.Equal, itemGet));
 
         for (int i = 0; i < newsLinksTbl.Count; i++)
         {

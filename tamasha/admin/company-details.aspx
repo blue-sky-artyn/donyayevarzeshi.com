@@ -13,7 +13,7 @@
 						<div class="col-md-6">
 							<div class="panel panel-widget">
 								<div class="my-div">
-									<form method="post" action="" class="valida" autocomplete="off" novalidate="novalidate">
+									<div class="valida">
 										<div class="input-info">
 											<h3>Basic Details:</h3>
 										</div>
@@ -27,6 +27,10 @@
                                             <asp:TextBox ID="txtCoOwner" name="field-1-2" runat="server" class="form-control" Placeholder="Eg. Mr.Name"></asp:TextBox>
 										</div>
 
+										<label for="field-1-2">Company Owner words: </label>
+										<div class="form-group">
+                                            <asp:TextBox ID="txtCoOwnerWords" name="field-1-2" runat="server" class="form-control" Placeholder="Slogan for company"></asp:TextBox>
+										</div>
                                         <hr>
 
 										<h4>Google location:</h4>
@@ -63,7 +67,7 @@
 
 									
 										
-									</form>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -77,12 +81,47 @@
 										<div data-toggle="validator" novalidate="true">
 										    <label for="field-4">Tel: &nbsp;<span class="at-required-highlight">*</span></label>
 											<div class="form-group valid-form">
-                                                <asp:TextBox ID="txtPhone" class="form-control" runat="server" placeholder="Eg. 416 111 11111"></asp:TextBox>
+                                                <asp:TextBox ID="txtPhone" class="form-control" runat="server" ClientIDMode="Static" placeholder="Eg. 416 111 11111"></asp:TextBox>
 											</div>
 
                                             <label for="field-4">Fax: &nbsp;<span class="at-required-highlight">*</span></label>
 											<div class="form-group valid-form">
-                                                <asp:TextBox ID="txtFax" class="form-control" runat="server" placeholder="Eg. 416 111 11111"></asp:TextBox>
+                                                <asp:TextBox ID="txtFax" class="form-control" runat="server" ClientIDMode="Static" placeholder="Eg. 416 111 11111"></asp:TextBox>
+											</div>
+
+											<label for="field-4">Social Number: &nbsp;<span class="at-required-highlight">*</span></label>
+											<div class="form-group valid-form">
+                                                <asp:TextBox ID="txtSocialNo" class="form-control" runat="server" ClientIDMode="Static" placeholder="Eg. 416 111 11111"></asp:TextBox>
+											</div>
+
+                                            <label for="field-4">Inestagram: &nbsp;<span class="at-required-highlight">*</span></label>
+											<div class="form-group valid-form">
+                                                <asp:TextBox ID="txtInstagram" class="form-control" runat="server" placeholder="Eg. Your instagram ID"></asp:TextBox>
+											</div>
+
+                                                <label for="field-4">Facebook: &nbsp;<span class="at-required-highlight">*</span></label>
+											<div class="form-group valid-form">
+                                                <asp:TextBox ID="txtFabook" class="form-control" runat="server" placeholder="Eg. Your Facebook ID"></asp:TextBox>
+											</div>
+
+                                                <label for="field-4">Twitter: &nbsp;<span class="at-required-highlight">*</span></label>
+											<div class="form-group valid-form">
+                                                <asp:TextBox ID="txtTwitter" class="form-control" runat="server" placeholder="Eg. Your Twitter ID"></asp:TextBox>
+											</div>
+
+                                                <label for="field-4">LinkedIn: &nbsp;<span class="at-required-highlight">*</span></label>
+											<div class="form-group valid-form">
+                                                <asp:TextBox ID="txtLinkedin" class="form-control" runat="server" placeholder="Eg. Your LinkedIn ID"></asp:TextBox>
+											</div>
+
+                                                <label for="field-4">youtube: &nbsp;<span class="at-required-highlight">*</span></label>
+											<div class="form-group valid-form">
+                                                <asp:TextBox ID="txtYoutube" class="form-control" runat="server" placeholder="Eg. Your Youtube ID"></asp:TextBox>
+											</div>
+
+											<label for="field-4">Google Plus: &nbsp;<span class="at-required-highlight">*</span></label>
+											<div class="form-group valid-form">
+                                                <asp:TextBox ID="txtGoogle" class="form-control" runat="server" placeholder="Eg. Your google plus ID"></asp:TextBox>
 											</div>
 
 										    <label for="field-4">Email: &nbsp;<span class="at-required-highlight">*</span></label>
@@ -106,9 +145,8 @@
 											
 											<div class="form-group">
                                                 <span id="ErrorMassage" runat="server" style="color: #B52E31;"></span>
-                                                
                                                 <asp:Button ID="btnSave" runat="server" class="btn btn-primary" Text="UPDATE" OnClick="btnSave_Click" />
-											</div><asp:Button ID="Button1" runat="server" Text="Button" OnClick="btnSave_Click"/>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -130,5 +168,28 @@
 
 </div>
 			<!--content-->
+
+
+    <script>
+        //$(document).ready(function () {
+        //    var tempVal = $("#txtPhone").val();
+        //    $("#txtPhone").focus(function () {
+        //        if ($("#txtPhone").val().length >= 1) {
+        //            var temp = $("#txtPhone").val();
+
+        //            temp = temp.substring(0, 1) + "-" + temp.substring(1, temp.length);
+
+
+
+        //            $("#txtPhone").val(temp);
+        //            //$("#txtPhone").css("background-color", "red");
+
+        //        }
+        //    });
+        //    $("#txtPhone").focusout(function () {
+        //        $("#txtPhone").val(tempVal);
+        //    });
+        //});        
+    </script>
 </asp:Content>
 
