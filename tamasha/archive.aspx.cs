@@ -44,6 +44,8 @@ public partial class archive : System.Web.UI.Page
         }
         else
         {
+            if (newsDetailsSportTbl.Count > 0)
+            {
 
             newsString += "<div class='col-md-6 col-sm-6'><article class='article'><div class='article-img'>" +
                          "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>";
@@ -65,7 +67,7 @@ public partial class archive : System.Web.UI.Page
                          "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul>" +
                          "<p>" + newsDetailsSportTbl[0].newsDetDetails + "</p></div>" +
                          "</article></div>";
-
+            }
         }
         newsHtml.InnerHtml = newsString;
         //small news

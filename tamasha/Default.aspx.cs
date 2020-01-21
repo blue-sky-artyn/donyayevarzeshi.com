@@ -160,24 +160,24 @@ public partial class _Default : System.Web.UI.Page
         }
 
         int lengthTable = 0;
-        switch (newsHitSportTbl.Count)
-        {
-            case 1:
-                lengthTable = 1;
-                break;
-            case 2:
-                lengthTable = 0;
-                break;
-            case 3:
-                lengthTable = 1;
-                break;
-            case 4:
-                lengthTable = 2;
-                break;
-            default:
-                lengthTable = newsHitSportTbl.Count - 5;
-                break;
-        }
+        //switch (newsHitSportTbl.Count)
+        //{
+        //    case 1:
+        //        lengthTable = 1;
+        //        break;
+        //    case 2:
+        //        lengthTable = 0;
+        //        break;
+        //    case 3:
+        //        lengthTable = 1;
+        //        break;
+        //    case 4:
+        //        lengthTable = 2;
+        //        break;
+        //    default:
+        //        lengthTable = newsHitSportTbl.Count - 5;
+        //        break;
+        //}
 
 
         for (int i = newsHitSportTbl.Count - 2; i >= lengthTable; i--)
@@ -221,26 +221,9 @@ public partial class _Default : System.Web.UI.Page
         }
 
         lengthTable = 0;
-        switch (newsDetailsSportTbl.Count)
-        {
-            case 1:
-                lengthTable = 1;
-                break;
-            case 2:
-                lengthTable = 0;
-                break;
-            case 3:
-                lengthTable = 1;
-                break;
-            case 4:
-                lengthTable = 2;
-                break;
-            default:
-                lengthTable = newsDetailsSportTbl.Count - 5;
-                break;
-        }
+        
 
-        for (int i = newsHitSportTbl.Count - 1; i > lengthTable; i--)
+        for (int i = newsHitSportTbl.Count - 1; i > 0; i--)
         {
             newsDetailsSportTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, newsHitSportTbl[i].newsId));
 
@@ -338,27 +321,30 @@ public partial class _Default : System.Web.UI.Page
         else
         {
 
-            newsString += "<div class='col-md-6 col-sm-6'><article class='article'><div class='article-img'>" +
-                         "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>";
+            if (newsDetailsSportTbl.Count > 0)
+            {
 
-            if (newsDetailsSportTbl[0].topPageFileType == 0)
-                newsString += "<img src='./images/news/top/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[0].topPageFileAddr + "'>" +
-                                "</a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div>";
-            else if (newsDetailsSportTbl[0].topPageFileType == 1)
-                newsString += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[0].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>" +
-                              "</a><ul class='article-info'><li class='article-type'><i class='fa fa-video-camera'></i></li></ul></div>";
-            else
-                newsString += newsDetailsSportTbl[0].topPageFileAddr +
-                              "</a><ul class='article-info'><li class='article-type'><i class='fa fa-link'></i></li></ul></div>";
+                newsString += "<div class='col-md-6 col-sm-6'><article class='article'><div class='article-img'>" +
+                             "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>";
+
+                if (newsDetailsSportTbl[0].topPageFileType == 0)
+                    newsString += "<img src='./images/news/top/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[0].topPageFileAddr + "'>" +
+                                    "</a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div>";
+                else if (newsDetailsSportTbl[0].topPageFileType == 1)
+                    newsString += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[0].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>" +
+                                  "</a><ul class='article-info'><li class='article-type'><i class='fa fa-video-camera'></i></li></ul></div>";
+                else
+                    newsString += newsDetailsSportTbl[0].topPageFileAddr +
+                                  "</a><ul class='article-info'><li class='article-type'><i class='fa fa-link'></i></li></ul></div>";
 
 
 
-            newsString += "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
-                         "<h3 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>" + newsDetailsSportTbl[0].newsDetTitle + "</a></h3>" +
-                         "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul>" +
-                         "<p>" + newsDetailsSportTbl[0].newsDetDetails + "</p></div>" +
-                         "</article></div>";
-
+                newsString += "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
+                             "<h3 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>" + newsDetailsSportTbl[0].newsDetTitle + "</a></h3>" +
+                             "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul>" +
+                             "<p>" + newsDetailsSportTbl[0].newsDetDetails + "</p></div>" +
+                             "</article></div>";
+            }
         }
         newsHtml.InnerHtml = newsString;
         //small news
