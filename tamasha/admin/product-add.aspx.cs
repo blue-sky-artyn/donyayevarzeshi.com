@@ -72,7 +72,10 @@ public partial class admin_need_to_know : System.Web.UI.Page
             #region Add product
 
             detTbl.productName = txtTitle.Text;
-            detTbl.productDet = txtDetail.Text;
+            
+            string str = ckDetails.Text;
+            detTbl.productDet = Server.HtmlDecode(str);
+            
             detTbl.productPrice = Convert.ToInt32(txtPrice.Text);
             detTbl.productGrpId = Int32.Parse(ddlNewsGroup.SelectedValue);
 

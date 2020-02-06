@@ -73,7 +73,10 @@ public partial class admin_gallery_normal_detail : System.Web.UI.Page
                 txtTitle.Text = DetailsTbl[0].ServiceTitle;
 
             if (DetailsTbl[0].ServiceDetail.Length > 0)
-                txtDetail.Text = DetailsTbl[0].ServiceDetail;
+            {
+                string str = ckDetails.Text;
+                ckDetails.Text = Server.HtmlDecode(str);
+            }
 
             for (int i = 0; i < GroupTbl.Count; i++)
                 ddlNewsGroup.Items.Add(new ListItem(GroupTbl[i].ServiceGroupTitle, GroupTbl[i].id.ToString()));
@@ -137,7 +140,9 @@ public partial class admin_gallery_normal_detail : System.Web.UI.Page
         if (txtTitle.Text.Trim().Length > 0)
         {
             detTbl[0].ServiceTitle = txtTitle.Text;
-            detTbl[0].ServiceDetail = txtDetail.Text;
+            
+            string str = ckDetails.Text;
+            detTbl[0].ServiceDetail = Server.HtmlDecode(str);
 
             detTbl[0].idServiceGroup = Int32.Parse(ddlNewsGroup.SelectedValue);
 

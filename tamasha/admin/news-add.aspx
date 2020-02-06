@@ -1,4 +1,6 @@
-﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/admin/menu.master" AutoEventWireup="true" CodeFile="news-add.aspx.cs" Inherits="admin_need_to_know" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/menu.master" AutoEventWireup="true" CodeFile="news-add.aspx.cs" Inherits="admin_need_to_know" %>
+
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <style>
@@ -66,7 +68,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Description: </label>
-                                    <asp:TextBox ID="txtDetail" runat="server" TextMode="MultiLine" Width="100%"></asp:TextBox>
+                                    <CKEditor:CKEditorControl ID="ckNews" runat="server" Width="100%"></CKEditor:CKEditorControl>
                                 </div>
 
                                 <div class="form-group">

@@ -64,6 +64,8 @@
 										  <ul id="menu-academico-sub" >
 											<li id="menu-academico-boletim" ><a href="main-bg.aspx">Main Page</a></li>
 											<li id="menu-academico-boletim" ><a href="other-bg.aspx">Other Pages</a></li>
+											<li id="menu-academico-boletim" ><a href="video-gallery.aspx">Video Gallery</a></li>
+											<li id="menu-academico-boletim" ><a href="picture-gallery.aspx">Picture Gallery</a></li>
 											<li id="menu-academico-boletim" ><a href="slider.aspx">Slider</a></li>
 										  </ul>
 										</li>

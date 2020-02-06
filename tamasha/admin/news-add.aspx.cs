@@ -84,8 +84,11 @@ public partial class admin_need_to_know : System.Web.UI.Page
             #region add news
             newsTbl.newsDetTitle = txtTitle.Text;
 
-            if (txtDetail.Text.Trim().Length > 0)
-                newsTbl.newsDetDetails = txtDetail.Text;
+            if (ckNews.Text.Trim().Length > 0)
+            {
+                string str = ckNews.Text;
+                newsTbl.newsDetDetails = Server.HtmlDecode(str);
+            }
             else
                 newsTbl.newsDetDetails = "";
 

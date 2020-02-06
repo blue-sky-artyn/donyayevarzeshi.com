@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/menu.master" AutoEventWireup="true" CodeFile="service-details.aspx.cs" Inherits="admin_gallery_normal_detail" %>
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <style>
@@ -149,7 +150,7 @@
 
                                         <div class="form-group" style="width: 35%;line-height: 34px;float: left;margin-right: 5px;"> 
                                             <label for="exampleInputPassword1" style="float: left;">Details: </label>
-                                            <asp:TextBox ID="txtDetail" class="form-control" runat="server" placeholder="A short detail" TextMode="MultiLine"></asp:TextBox>
+                                            <CKEditor:CKEditorControl ID="ckDetails" class="form-control"  runat="server" placeholder="A short detail" Width="100%"></CKEditor:CKEditorControl>
                                         </div>
 
                                         <div class="form-group" style="float: left;width:100%;">

@@ -48,11 +48,11 @@ public partial class admin_Default : System.Web.UI.Page
         //        txtUpdateDetail.Text = sliderTbl[0].SliderDetail;
         //    }
         //}
-        tblGalleryPicturesCollection picsTbl = new tblGalleryPicturesCollection();
-        picsTbl.ReadList();
+        //tblGalleryPicturesCollection picsTbl = new tblGalleryPicturesCollection();
+        //picsTbl.ReadList();
 
-        img1.Src = "../images/" + picsTbl[0].GalleryPicName;
-        img2.Src = "../images/" + picsTbl[1].GalleryPicName;
+        //img1.Src = "../images/" + picsTbl[0].GalleryPicName;
+        //img2.Src = "../images/" + picsTbl[1].GalleryPicName;
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)

@@ -81,8 +81,11 @@ public partial class admin_need_to_know : System.Web.UI.Page
         {
             detTbl.ServiceTitle = txtTitle.Text;
 
-            if (txtDetail.Text.Trim().Length > 0)
-                detTbl.ServiceDetail = txtDetail.Text;
+            if (ckDetails.Text.Trim().Length > 0)
+            {
+                string str = ckDetails.Text;
+                detTbl.ServiceDetail = Server.HtmlDecode(str);
+            }
             else
                 detTbl.ServiceDetail = "";
 

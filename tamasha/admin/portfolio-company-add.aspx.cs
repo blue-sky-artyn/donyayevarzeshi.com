@@ -72,7 +72,10 @@ public partial class admin_need_to_know : System.Web.UI.Page
         if (txtTitle.Text.Trim().Length > 0)
         {
             detTbl.title = txtTitle.Text;
-            detTbl.details = txtDetail.Text;
+
+            string str = ckDetails.Text;
+            detTbl.details = Server.HtmlDecode(str);
+            
             detTbl.idCompany = idCompanyTbl[0].id;
             detTbl.implimentationDate = Convert.ToInt32(txtImplementDate.Text);
             

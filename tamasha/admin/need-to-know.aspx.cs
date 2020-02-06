@@ -27,6 +27,11 @@ public partial class admin_need_to_know : System.Web.UI.Page
 
         needHtml.InnerHtml = needString;
 
+
+
+        //////////////////string str = ckDetails.Text;
+        //////////////////popoupTbl.adDetails = Server.HtmlDecode(str);
+
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)

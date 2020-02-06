@@ -59,7 +59,9 @@ public partial class admin_gallery_normal_detail : System.Web.UI.Page
             #region filling text boxes 
 
             txtTitle.Text = adTbl[0].adTitle;
-            txtDetail.Text = adTbl[0].adDetails;
+
+            ckDetails.Text = adTbl[0].adDetails;
+
             txtStart.Text = adTbl[0].dateStart;
 
             if (adTbl[0].periodOfShow > 0)
@@ -122,7 +124,10 @@ public partial class admin_gallery_normal_detail : System.Web.UI.Page
         {
             //int dateIns = Convert.ToInt32(adTbl[0].dateInsert.Trim());
             adTbl[0].adTitle = txtTitle.Text;
-            adTbl[0].adDetails = txtDetail.Text;
+
+            string str = ckDetails.Text;
+            adTbl[0].adDetails = Server.HtmlDecode(str);
+
             adTbl[0].dateStart = txtStart.Text;
             adTbl[0].dateInsert = adTbl[0].dateInsert;
             if (ddlExp.Enabled == true)
@@ -190,7 +195,9 @@ public partial class admin_gallery_normal_detail : System.Web.UI.Page
 
             adPicTbl[0].idAd = itemGet;
             adPicTbl[0].picAddr = "../images/ad/";
-            adPicTbl[0].picDetail = txtDetail.Text;
+
+            adPicTbl[0].picDetail = Server.HtmlDecode(str);
+
             adPicTbl[0].allow = "1";
 
             adPicTbl[0].Update();

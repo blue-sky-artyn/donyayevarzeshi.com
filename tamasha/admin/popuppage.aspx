@@ -1,4 +1,5 @@
-﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/admin/menu.master" AutoEventWireup="true" CodeFile="popuppage.aspx.cs" Inherits="admin_need_to_know" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/menu.master" AutoEventWireup="true" CodeFile="popuppage.aspx.cs" Inherits="admin_need_to_know" %>
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <style>
@@ -49,7 +50,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Description: </label>
-                                    <asp:TextBox ID="txtDetail" runat="server" TextMode="MultiLine" Width="100%"></asp:TextBox>
+                                    <CKEditor:CKEditorControl ID="ckDetails" class="form-control"  runat="server" placeholder="A short detail" Width="100%"></CKEditor:CKEditorControl>
                                     <asp:RadioButtonList ID="rbStyle" ClientIDMode="Static" runat="server" Width="100%">
                                         <asp:ListItem Value="text-top" Selected="True">Shows Top</asp:ListItem>
                                         <asp:ListItem value="text-center">Shows Center</asp:ListItem>

@@ -80,7 +80,10 @@ public partial class admin_need_to_know : System.Web.UI.Page
         if (txtTitle.Text.Trim().Length > 0)
         {
             detTbl.infDetailTitle = txtTitle.Text;
-            detTbl.infDetailDescription = txtDetail.Text;
+            
+            string str = ckDetails.Text;
+            detTbl.infDetailDescription = Server.HtmlDecode(str);
+            
             detTbl.infWriter = 2;
             detTbl.infDetailInsertDate = dateInsert;
             

@@ -69,7 +69,7 @@ public partial class admin_gallery_normal_detail : System.Web.UI.Page
                 txtTitle.Text = DetailsTbl[0].infDetailTitle;
 
             if (DetailsTbl[0].infDetailDescription.Length > 0)
-                txtDetail.Text = DetailsTbl[0].infDetailDescription;
+                ckDetails.Text = DetailsTbl[0].infDetailDescription;
 
             for (int i = 0; i < GroupTbl.Count; i++)
                 ddlNewsGroup.Items.Add(new ListItem(GroupTbl[i].infGroupTitle, GroupTbl[i].id.ToString()));
@@ -129,10 +129,12 @@ public partial class admin_gallery_normal_detail : System.Web.UI.Page
         //    fileNameUpdate = newsPicTbl[0].picName;
 
 
-        if (txtTitle.Text.Trim().Length > 0 && txtDetail.Text.Trim().Length > 0)
+        if (txtTitle.Text.Trim().Length > 0 && ckDetails.Text.Trim().Length > 0)
         {
             detTbl[0].infDetailTitle = txtTitle.Text;
-            detTbl[0].infDetailDescription = txtDetail.Text;
+
+            string str = ckDetails.Text;
+            detTbl[0].infDetailDescription = Server.HtmlDecode(str);
 
             detTbl[0].idInfoGroup = Int32.Parse(ddlNewsGroup.SelectedValue);
 

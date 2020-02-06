@@ -8,70 +8,84 @@ using Cruder.Core;
 using bluesky.artyn;
 public partial class admin_gallery_normal : System.Web.UI.Page
 {
+    public bool addFlag = false;
     protected void Page_Load(object sender, EventArgs e)
     {
         //place pictures
-        string addStaff = string.Empty;
-        tblStaffCollection staffTbl = new tblStaffCollection();
-        staffTbl.ReadList();
-        
-        addStaff += "<div class='grids_of_4'>";
-        for (int i = 0; i < staffTbl.Count; i++)
+        string addStage = string.Empty;
+        tblStagesCollection stageTbl = new tblStagesCollection();
+        stageTbl.ReadList();
+        tblStagesPicsCollection stagePicTbl = new tblStagesPicsCollection();
+
+        addStage += "<div class='grids_of_4'>";
+        for (int i = 0; i < stageTbl.Count; i++)
         {
-            addStaff += "<div class='grid1_of_4'><div class='content_box'><a href='staff-details.aspx?item=" + staffTbl[i].id + "'>" +
-                            "<img src='../images/staff/" + staffTbl[i].StaffPicName + "' class='img-responsive' alt='" + staffTbl[i].id + "' /></a>" +
-                            "<h4><a> " + staffTbl[i].StaffName + " "  + staffTbl[i].StaffFamily + " </a></h4>" +
-                            "<h4>" + staffTbl[i].StaffCertificate + "</h4>" +
-                            "<p>" + staffTbl[i].StaffDetail + "</p>" +
+            stagePicTbl.ReadList(Criteria.NewCriteria(tblStagesPics.Columns.stageId, CriteriaOperators.Equal, stageTbl[i].id));
+            addStage += "<div class='grid1_of_4'><div class='content_box'><a href='stage-details.aspx?item=" + stageTbl[i].id + "'>" +
+                            "<img src='.." + stagePicTbl[0].picAddr + stagePicTbl[0].picName + "' class='img-responsive' alt='" + stagePicTbl[0].id + "' /></a>" +
+                            "<h4><a> " + stageTbl[i].stageName + " </a></h4>" +
+                            "<p>" + stageTbl[i].stagePhone + "</p>" +
                             "<div class='grid_1 simpleCart_shelfItem'>" +
-                            "<div class='item_add'><span class='item_price'><h6>" + staffTbl[i].StaffJobPosition + "</h6></span></div>" +
-                            "<div class='item_add'><span class='item_price'><a href='staff-details.aspx?item=" + staffTbl[i].id + "'>EDIT</a></span></div>" +
+                            "<div class='item_add'><span class='item_price'><h6>" + stageTbl[i].stageRowTotal + "</h6></span></div>" +
+                            "<div class='item_add'><span class='item_price'><a href='stage-details.aspx?item=" + stageTbl[i].id + "'>EDIT</a></span></div>" +
                             "</div></div></div>";
             if ((i - 1) % 4 == 0)
             {
-                addStaff += "<div class='clearfix'></div></div>";
-                addStaff += "<div class='grids_of_4'>";
+                addStage += "<div class='clearfix'></div></div>";
+                addStage += "<div class='grids_of_4'>";
             }
         }
 
-        addStaffHtml.InnerHtml = addStaff;
+        addStaffHtml.InnerHtml = addStage;
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         string errorString = string.Empty;
         lblError.Visible = false;
-        tblStaff staffTbl = new tblStaff();
+        tblStages stageTbl = new tblStages();
+        tblStagesPics stagesPicTbl = new tblStagesPics();
+        tblStagesSeats stagesSeatStatusTbl = new tblStagesSeats();
+        tblStagesSeats stagesSeatTbl = new tblStagesSeats();
+
+        tblStagesCollection stagesReadIdTbl = new tblStagesCollection();
+        int idStage = 0;
+
+        int rowNo = Convert.ToInt32(ddlStageRow.SelectedValue);
+
+
         try
         {
 
-
-            if (true)//(txtJobPosition.Text.Trim().Length > 0 && txtName.Text.Trim().Length > 0 && txtFamily.Text.Trim().Length > 0)
+            if (txtStageName.Text.Trim().Length > 0)
             {
-                staffTbl.idCompany = 1;
 
-                //staffTbl.StaffName = txtName.Text;
-                //staffTbl.StaffFamily = txtFamily.Text;
-                //staffTbl.StaffJobPosition = txtJobPosition.Text;
-                //staffTbl.idStaffRole = 1;
-                //staffTbl.StaffBirthdate = "";
-                //staffTbl.StaffHiringDate = "";
-                //staffTbl.StaffStartDate = "";
-                //staffTbl.StaffEndDate = "";
-                //staffTbl.StaffUsername = "";
-                //staffTbl.StaffPassword = "";
+                #region tblStage 
 
-                //if (txtBithdate.Text.Length > 0)
-                //    staffTbl.StaffBirthdate = txtBithdate.Text;
-                //else
-                //    staffTbl.StaffBirthdate = "";
+                stageTbl.stageName = txtStageName.Text;
+                stageTbl.stageAddress = txtAddress.Text;
+                stageTbl.stagePhone = txtPhone.Text;
+                stageTbl.stageDetails = txtDetail.Text;
+                stageTbl.stageRowTotal = Convert.ToInt32(ddlStageRow.SelectedValue);
+                stageTbl.allow = "1";
+
+                //stageTbl.Create();
+
+                #endregion
+
+                //Read the last id for other related tables
+                stagesReadIdTbl.ReadList();
+                if (stagesReadIdTbl.Count > 0)
+                    idStage = stagesReadIdTbl[stagesReadIdTbl.Count - 1].id;
+            
+                #region tblStagePic
 
                 // file upload start 
                 string filename = string.Empty;
                 if (IsPostBack)
                 {
                     Boolean fileOK = false;
-                    String path = Server.MapPath("~/images/staff/");
+                    String path = Server.MapPath("~/images/stage/");
                     if (fuGallery.HasFile)
                     {
                         String fileExtension = System.IO.Path.GetExtension(fuGallery.FileName).ToLower();
@@ -105,58 +119,53 @@ public partial class admin_gallery_normal : System.Web.UI.Page
 
                 // file upload end
 
-                //staffTbl.StaffPicAddr = "images/staff/";
-                //if (filename.Length > 0)
-                //    staffTbl.StaffPicName = filename;
-                //else
-                //    lblError.Visible = true;
+                stagesPicTbl.picAddr = "images/stage/";
+                stagesPicTbl.stageId = idStage;
+                stagesPicTbl.allow = "1";
+                
 
-                //if (txtHiringDate.Text.Trim().Length > 0)
-                //    staffTbl.StaffHiringDate = txtHiringDate.Text;
-                //else
-                //    staffTbl.StaffHiringDate = "";
+                if (filename.Length > 0)
+                    stagesPicTbl.picName = filename;
+                else
+                    stagesPicTbl.picName = "default.jpg";
 
-                //if (txtMajor.Text.Trim().Length > 0)
-                //    staffTbl.StaffMajor = txtMajor.Text;
-                //else
-                //    staffTbl.StaffMajor = "";
-
-                //if (txtCertificate.Text.Trim().Length > 0)
-                //    staffTbl.StaffCertificate = txtCertificate.Text;
-                //else
-                //    staffTbl.StaffCertificate = "";
-
-                //if (txtWord.Text.Trim().Length > 0)
-                //    staffTbl.StaffWords = txtWord.Text;
-                //else
-                //    staffTbl.StaffWords = "";
-
-                //staffTbl.allow = "1";
-
-                //if (txtDetail.Text.Trim().Length > 0)
-                //    staffTbl.StaffDetail = txtDetail.Text;
-                //else
-                //    staffTbl.StaffDetail = "";
-
-                //if (txtEmail.Text.Trim().Length > 0)
-                //    staffTbl.StaffEmail = txtEmail.Text;
-                //else
-                //    staffTbl.StaffEmail = "";
-
-                //if (txtTel.Text.Trim().Length > 0)
-                //    staffTbl.SatffTel = txtTel.Text;
-                //else
-                //    staffTbl.SatffTel = "";
-
-                //if (txtMob.Text.Trim().Length > 0)
-                //    staffTbl.StaffMobile = txtMob.Text;
-                //else
-                //    staffTbl.StaffMobile = "";
-
+                
                 //if (lblError.Visible == false)
-                //    staffTbl.Create();
+                    //stagesPicTbl.Create();
+                #endregion
 
-                Response.Redirect("staff.aspx");
+                #region tblStagesSeats
+                int lengthOfReadingRow = Convert.ToInt32(ddlStageRow.SelectedValue);
+                //read cookie
+                string cookieVal = "";
+                if (Request.Cookies["rowsNo"] != null)
+                {
+                    cookieVal = Request.Cookies["rowsNo"].Value;
+                }
+
+                //reading values in splited text
+                string[] rowItem;string[] seperator = { "-" };
+                rowItem = cookieVal.Split(seperator, lengthOfReadingRow + 1, StringSplitOptions.RemoveEmptyEntries);
+                
+                for (int i = 1; i <= lengthOfReadingRow; i++)
+                {
+                    stagesSeatStatusTbl.StagesId = idStage;
+                    stagesSeatStatusTbl.rowNo = i;
+                    stagesSeatStatusTbl.seatsForRow = Convert.ToInt32(rowItem[i]);
+                    stagesSeatStatusTbl.allow = "1";
+                    //stagesSeatStatusTbl.Create();
+                }
+                
+                #endregion
+
+                #region tblStagesSeatsStatus
+
+                #endregion
+
+
+
+
+                //Response.Redirect("staff.aspx");
             }
             else
             {
@@ -172,30 +181,49 @@ public partial class admin_gallery_normal : System.Web.UI.Page
         }
     }
 
+    protected void btnTst_Click(object sender, EventArgs e)
+    {
+       
+
+        //txtStageName.Text = "out of range";
+    }
     protected void btnAddRows_Click(object sender, EventArgs e)
     {
         string rowNoStr = string.Empty;
         int rowNo = Convert.ToInt32(ddlStageRow.SelectedValue);
 
-
+        //for (int i = 0; i < 42; i++)
+        //{
+        //    rowNoStr += "<div class='mainseat' style='float: left;'><span class='rowNumber'>" + i + "</span></div>";
+        //}
+        //rowNoStr += "<div class='clearfix'></div>";
         for (int i = 0; i < rowNo; i++)
         {
-            rowNoStr += "<div class='mainseat' style='float: left;'><span class='rowNumber'>" + i + "</span></div>" +
-                        "<label>Seats:</label><select>";
-            for (int j = 0; j < 43; j++)
+            rowNoStr += "<div class='mainseat' style='float: left;'><span class='rowNumber'>" + (i+1).ToString() + "</span></div>" +
+                        "<label class='seat-no-font'>Seats:</label><select class='seat-no-font seats-row' id='row" + i + "'>";
+            for (int j = 43; j >= 0; j--)
             {
                 rowNoStr += "<option value='" + j + "'>" + j + "</option>";
             }
-            rowNoStr += "</select>";
+            rowNoStr += "</select><div id='" + i + "' class='row-in-line'>";
             for (int j = 0; j < 43; j++)
             {
-                rowNoStr+="<div class='mainseat' style='float: left;'><span class='icon-sofa is-clone'><i class='fa fa-user-o' aria-hidden='true'></i></div>";
+                rowNoStr += "<div id='" + (i + 1).ToString() + "-" + (j + 1).ToString() + "' class='mainseat' style=';'><a href='#' class='tool-tip-seat icon-sofa is-clone'><i class='fa fa-user-o' aria-hidden='true'></i></a>" +
+                    "<div class='popup-items'>" +
+                    "<input type='radio' name='" + (i + 1).ToString() + "-" + (j + 1).ToString() + "' value='normal' checked='true' > Normal   <br>" +
+                    "<input type='radio' name='" + (i + 1).ToString() + "-" + (j + 1).ToString() + "' value='Disables'> Disables<br>" +
+                    "<input type='radio' name='" + (i + 1).ToString() + "-" + (j + 1).ToString() + "' value='Unavailable'> Unavailable<br>" +
+                    "<input type='radio' name='" + (i + 1).ToString() + "-" + (j + 1).ToString() + "' value='VIP'> VIP<br>" +
+                    "<input type='button' id='" + (i + 1).ToString() + "-" + (j + 1).ToString() + "' class='btn-update' value='update' /><br /></div></div>";
             }
-            rowNoStr += "<div class='mainseat' style='float: left;'><span class='rowNumber'>" + i + "</span></div>" +
+            rowNoStr += "</div><div class='mainseat' style='float: left;'><span class='rowNumber'>" + (i+1).ToString() + "</span></div>" +
                         "<div class='clearfix'></div>";
 
         }
 
         rowNoHtml.InnerHtml = rowNoStr;
+
+        //to check any row has been added or no
+        addFlag = true;
     }
 }

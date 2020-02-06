@@ -169,6 +169,37 @@
         .textarea-margin-top {
             margin-top: 5px;
         }
+        /* tool tip for seat reservation */
+        .tool-tip-seat {}
+        .popup-items {
+            display:none;
+            z-index: 99;
+            text-align: left;
+            position: absolute;
+            bottom: 100%;
+            background-color: black;
+            color: white;
+            width: 125px;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .btn-update {
+            padding: 12px 12px;
+            margin: 15% 14% 0px;
+            color: black;
+            border-radius: 2px;
+        }
+        .display-tooltip {
+            -webkit-transition: 2s;
+            transition: 2s;
+        }
+        .display-tooltip .popup-items {display:block;}
+        .color-seats {}
+        .color-seats  .tool-tip-seat i {color: orange;zoom: 1.2;}
+        .row-in-line {float:left;width: 88%;}
+        .seat-no-font {font-size: 12px;}
+        
     </style>
 </asp:Content>
 
@@ -200,7 +231,7 @@
                                         <div class="form-group">
                                             <label for="inputEmail3" class="col-sm-2 control-label">* Rows of seats: </label>
                                             <div class="col-sm-9">
-                                                <asp:DropDownList ID="ddlStageRow" runat="server">
+                                                <asp:DropDownList ClientIDMode="Static" ID="ddlStageRow" runat="server">
                                                    
                                                     <asp:ListItem Text="1" Value="1" />
                                                     <asp:ListItem Text="2" Value="2" />
@@ -237,25 +268,26 @@
                                                 <asp:Button ID="btnAddRows" runat="server" Text="Add" OnClick="btnAddRows_Click" />
                                             </div>
                                         </div>
-
-                                        <div class="form-group">
+                                        <hr />
+                                        <div class="form-group" style="margin-top: 5%;">
                                             <div id="form1" runat="server">
                                                 <div id="App">
                                                     <div class="seats">
                                                         <div class="seats-wrap">
                                                             <div id="seats">
                                                                 
+                                                                <div id="stages"></div>
                                                                 <div style="clear: both;"></div>
                                                                 <div id="rowNoHtml" runat="server" class="row">
                                                                     
                                                                 </div>
                                                                 <div class="clearfix"></div>
-                                                                <div id="stages"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <script>!function (l) { function e(e) { for (var r, t, n = e[0], o = e[1], u = e[2], f = 0, i = []; f < n.length; f++)t = n[f], p[t] && i.push(p[t][0]), p[t] = 0; for (r in o) Object.prototype.hasOwnProperty.call(o, r) && (l[r] = o[r]); for (s && s(e); i.length;)i.shift()(); return c.push.apply(c, u || []), a() } function a() { for (var e, r = 0; r < c.length; r++) { for (var t = c[r], n = !0, o = 1; o < t.length; o++) { var u = t[o]; 0 !== p[u] && (n = !1) } n && (c.splice(r--, 1), e = f(f.s = t[0])) } return e } var t = {}, p = { 2: 0 }, c = []; function f(e) { if (t[e]) return t[e].exports; var r = t[e] = { i: e, l: !1, exports: {} }; return l[e].call(r.exports, r, r.exports, f), r.l = !0, r.exports } f.m = l, f.c = t, f.d = function (e, r, t) { f.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, f.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, f.t = function (r, e) { if (1 & e && (r = f(r)), 8 & e) return r; if (4 & e && "object" == typeof r && r && r.__esModule) return r; var t = Object.create(null); if (f.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: r }), 2 & e && "string" != typeof r) for (var n in r) f.d(t, n, function (e) { return r[e] }.bind(null, n)); return t }, f.n = function (e) { var r = e && e.__esModule ? function () { return e.default } : function () { return e }; return f.d(r, "a", r), r }, f.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, f.p = "/"; var r = window.webpackJsonp = window.webpackJsonp || [], n = r.push.bind(r); r.push = e, r = r.slice(); for (var o = 0; o < r.length; o++)e(r[o]); var s = n; a() }([])</script>
 
 
@@ -265,18 +297,25 @@
                                             <asp:TextBox ID="txtCertificate" class="textarea-margin-top form-control" runat="server" Width="25%" placeholder="Enter field of study" Visible="false"></asp:TextBox>
                                         </div>
 
-
-
-                                        <div class="form-group" style="width: 35%; line-height: 34px; float: left; margin-right: 5px;">
-                                            <label for="exampleInputPassword1" style="float: left;">Staff word: </label>
-                                            <asp:TextBox ID="txtWord" class="form-control" runat="server" placeholder="A short words of staff" TextMode="MultiLine"></asp:TextBox>
+                                        <hr />
+                                        <h2>Stage information:</h2>
+                                        <div class="form-group">
+                                            <label for="txtStageName">Stage name: </label>
+                                            <asp:TextBox ID="txtStageName" class="form-control" runat="server" placeholder="Enter stage name..." ></asp:TextBox>
                                         </div>
-
-                                        <div class="form-group" style="width: 35%; line-height: 34px; float: left; margin-right: 5px;">
-                                            <label for="exampleInputPassword1" style="float: left;">Details: </label>
+                                        <div class="form-group">
+                                            <label for="txtAddress">Stage address: </label>
+                                            <asp:TextBox ID="txtAddress" class="form-control" runat="server" placeholder="Enter stage address..." ></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtPhone">Stage phone: </label>
+                                            <asp:TextBox ID="txtPhone" class="form-control" runat="server" placeholder="8801234567" Width="25%" ></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtDetail">Details: </label>
                                             <asp:TextBox ID="txtDetail" class="form-control" runat="server" placeholder="A short detail" TextMode="MultiLine"></asp:TextBox>
                                         </div>
-
+                                
                                         <div class="form-group" style="float: left; width: 100%;">
                                             <fieldset class="div_top">
                                                 <legend>* File input</legend>
@@ -286,7 +325,8 @@
                                         </div>
                                         <div class="form-group" style="float: left;">
                                             <asp:Label ID="lblError" runat="server" Text="" Visible="false" ForeColor="#B52E31"></asp:Label>
-                                            <asp:Button ID="btnAdd" runat="server" class="btn btn-default" Text="ADD ITEM" OnClick="btnAdd_Click" />
+                                            <asp:Button ID="btnAdd" runat="server" class="btn btn-default" Text="ADD ITEM" OnClientClick="return readData()" OnClick="btnAdd_Click" />
+                                            <asp:Button ID="Button1" runat="server" Text="Button" OnClientClick="return readData()" OnClick="btnTst_Click" />
                                         </div>
                                     </div>
                                 </div>
@@ -294,8 +334,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
 
                 <!-- end grids_of_4 -->
@@ -306,5 +344,107 @@
             <!-- end content -->
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        /* popup page for type of seats */
+        $(document).ready(function () {
+            $(".mainseat").hover(
+                // Mouse Over
+                function () {
+                    $(this).addClass("display-tooltip");
+                    $(this).addClass("color-seats");
+                },
+                // Mouse Out
+                function () {
+                    $(this).removeClass("display-tooltip");
+                    $(this).removeClass("color-seats");
+                });
+        });
+    </script>
+    <script>
+        /* Change seat icon */
+        function seatIcon() {
+            //Read this item ID
+            var itemId = this.id;
+            //fine the selected radio button and read the value
+            var itemGeneratedName = "input[name='" + itemId + "']:checked";
+            //Read selected item in radio button group 
+            var value1 = $(itemGeneratedName).val();
+            //select ID of seat to chage icon
+            var aTag = "#" + itemId + " a";
+
+            //$(aTag).html("<i class='fa fa-wheelchair' aria-hidden='true'></i>");
+
+            //Change font awsome icon
+            if (value1 == "normal") {
+                $(aTag).html("<i class='fa fa-user-o' aria-hidden='true'></i>");
+            }
+            else if (value1 == "Disables") {
+                $(aTag).html("<i class='fa fa-wheelchair' aria-hidden='true'></i>");
+            }
+            else if (value1 == "Unavailable") {
+                $(aTag).html("<i class='fa fa-user' aria-hidden='true'></i>");
+            }
+            else if (value1 == "VIP") {
+                $(aTag).html("<i class='fa fa-check-square-o' aria-hidden='true'></i>");
+            }
+        }
+        $(".btn-update").on("click", seatIcon );
+    </script>
+
+    <script>
+        /* row seats numbers */
+        function changeNoRow() {
+            // Read this item ID
+            var itemId = this.id;
+            //split name to find row ID
+            var rowId = parseInt(itemId.substring(3, itemId.length));
+            //Read drop down list value
+            var rowLen = parseInt($(this).val());
+
+            //reset to apply hide item again
+            for (var i = 0; i < 44; i++) {
+                $("#" + (rowId + 1).toString() + "-" + i.toString()).show();
+            }
+
+            //Remove extera items base on the selected number
+            for (var i = 43; i > rowLen; i--) {
+                $("#" + (rowId + 1).toString() + "-" + i.toString()).hide();
+            }
+
+
+
+            ////read HTML content
+            //var content = $("#" + (rowId).toString()).html();
+            ////variable to save free space
+            //var loopAddContent = "";
+            ////step of loop to add free space
+            //var loopLength = loopLength = ((43 - rowLen) / 2) + 1;
+            ////Add free space 
+            //for (var i = 0; i < loopLength; i++) {
+            //    loopAddContent += '<div class="mainseat" style="float: left;"></div>';
+            //}
+            ////addig free space and then seats to the row
+            //$("#" + (rowId).toString()).html(loopAddContent + content);
+        }
+
+        $(".seats-row").on("change", changeNoRow);
+    </script>
+
+    <script>
+        function readData() {
+            //Read data for saving
+
+            //read rows number
+            var rowsNo = parseInt($("#ddlStageRow").val());
+            var itemId; var rowsNoSend = "";
+            for (var i = 0; i < rowsNo; i++) {
+                itemId = "row" + i;
+                rowsNoSend += $("#" + itemId).val() + "-";
+            }
+            document.cookie = "rowsNo=" + rowsNoSend;
+            
+        }
+    </script>
 </asp:Content>
 

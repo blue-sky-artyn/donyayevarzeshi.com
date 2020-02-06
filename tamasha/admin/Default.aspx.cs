@@ -14,14 +14,16 @@ public partial class admin_Default : System.Web.UI.Page
     {
         tblCompanyCollection coDetTbl = new tblCompanyCollection();
         coDetTbl.ReadList();
-        if (coDetTbl[0].CoAddr.Trim().Length > 0)
-            coDetHtml.InnerHtml = "<li><i class='add'></i>"+coDetTbl[0].CoAddr+"</li>";
+        if (coDetTbl.Count > 0)
+        {
+            if (coDetTbl[0].CoAddr.Trim().Length > 0)
+                coDetHtml.InnerHtml = "<li><i class='add'></i>" + coDetTbl[0].CoAddr + "</li>";
 
-        if (coDetTbl[0].Tel.Trim().Length > 0)
-            coDetHtml.InnerHtml += "<li><i class='phone'></i>" + coDetTbl[0].Tel + "</li>";
+            if (coDetTbl[0].Tel.Trim().Length > 0)
+                coDetHtml.InnerHtml += "<li><i class='phone'></i>" + coDetTbl[0].Tel + "</li>";
 
-        if (coDetTbl[0].Email.Trim().Length > 0)
-            coDetHtml.InnerHtml += "<li><a href='mailto:info@halisen.ca'><i class='mail'> </i>" + coDetTbl[0].Email + "</a></li>";
-
+            if (coDetTbl[0].Email.Trim().Length > 0)
+                coDetHtml.InnerHtml += "<li><a href='mailto:info@halisen.ca'><i class='mail'> </i>" + coDetTbl[0].Email + "</a></li>";
+        }
     }
 }

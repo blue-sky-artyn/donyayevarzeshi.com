@@ -62,7 +62,10 @@ public partial class admin_need_to_know : System.Web.UI.Page
         if (txtTitle.Text.Trim().Length > 0)
         {
             eventsTbl.OccasionTitle = txtTitle.Text;
-            eventsTbl.OccasionDetails = txtDetail.Text;
+
+            string str = ckNews.Text;
+            eventsTbl.OccasionDetails = Server.HtmlDecode(str);
+            
             eventsTbl.MakeDate = dateInsert;
             eventsTbl.StartDate = Convert.ToInt32(txtStartDeal.Text);
             eventsTbl.EndDate = Convert.ToInt32(txtEndDeal.Text);

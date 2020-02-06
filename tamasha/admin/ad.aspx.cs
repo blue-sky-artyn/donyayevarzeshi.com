@@ -61,7 +61,10 @@ public partial class admin_gallery_normal : System.Web.UI.Page
 
 
                 adTbl.adTitle = txtTitle.Text;
-                adTbl.adDetails = txtDetail.Text;
+
+                string str = ckDetails.Text;
+                adTbl.adDetails = Server.HtmlDecode(str);
+
                 adTbl.dateInsert = dateInsert;
                 adTbl.dateStart = txtStart.Text;
                 if (ddlExp.Enabled == true)
@@ -124,7 +127,7 @@ public partial class admin_gallery_normal : System.Web.UI.Page
                 adPicTbl.idAd = adIdTbl[adIdTbl.Count - 1].id;
                 adPicTbl.picName = filename;
                 adPicTbl.picAddr = "~/images/ad/";
-                adPicTbl.picDetail = txtDetail.Text;
+                adPicTbl.picDetail = Server.HtmlDecode(str);
                 adPicTbl.allow = "1";
 
                 adPicTbl.Create();

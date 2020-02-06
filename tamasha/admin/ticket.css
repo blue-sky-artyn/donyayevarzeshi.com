@@ -158,7 +158,8 @@
 .seats #seats {
     margin: 0 auto;
     display: table;
-    min-width: 500px
+    width: 100%;
+    /*min-width: 500px*/
 }
 
     .seats #seats #stages {
@@ -570,3 +571,8 @@
         background: hsla(0,0%,100%,.1)
     }
 /*# sourceMappingURL=main.4f1a9a7d.chunk.css.map */
+
+/* Media queries */
+@media only screen and (min-width: 1600px) {
+    .mainseat {width: 2.3%;}
+}

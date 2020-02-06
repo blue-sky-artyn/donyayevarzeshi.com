@@ -24,10 +24,34 @@
             /* text-decoration: underline; */
             border-bottom: #ef233c solid 1px;
         }
+
         .title-block {
             display: block;
             font-size: 12px;
             margin: 5px 0px;
+            line-height: 25px;
+            border-bottom: 1px solid #80808040;
+            padding: 0 5% 0 0;
+        }
+
+        .article-body-top {
+            height: 281px;
+            overflow: hidden;
+        }
+
+        .article-body-2 {
+            height: 360px;
+            overflow: hidden;
+        }
+
+        .article-body-3 {
+            height: 450px;
+            overflow: hidden;
+        }
+
+        .article-body-4 {
+            height: 450px;
+            overflow: hidden;
         }
     </style>
 
@@ -115,19 +139,18 @@
                         <!-- /tab nav -->
                     </div>
 
-                    <div id="sideNewsHtml" runat="server" class="tab-content">
+                    <div id="sideNewsHtml" runat="server" class="tab-content" style="border: 1px solid #80808047; overflow: hidden;">
                         <!-- tab1 -->
                         <div id="tabNews2" class="tab-pane fade in">
                             <div id="popularNewsSideHtml" runat="server" class="row">
                                 <!-- Column 1 -->
-                                            <a class="title-block farsi-font farsi-position article-title" href="#">Testtttttt</a>
+                                <a class="title-block farsi-font farsi-position article-title" href="#">Testtttttt</a>
                             </div>
                         </div>
 
                         <div id="tabNews1" class="tab-pane fade in active">
                             <!-- row -->
                             <div id="recentNewsSideHtml" runat="server" class="row">
-                              
                             </div>
                             <!-- /row -->
                         </div>
@@ -763,7 +786,7 @@
                     <!-- /Ad widget -->
 
                     <!-- social widget -->
-                    <div class="widget social-widget">
+                    <%--<div class="widget social-widget">
                         <div class="widget-title">
                             <h2 class="farsi-font title">با ما در ارتباط باشید</h2>
                         </div>
@@ -787,7 +810,7 @@
                                 <br>
                                 <span>RSS</span></a></li>
                         </ul>
-                    </div>
+                    </div>--%>
                     <!-- /social widget -->
 
                     <!-- subscribe widget -->
@@ -809,49 +832,49 @@
                         </div>
 
                         <div id="moreReadSideHtml" runat="server">
-                        <!-- owl carousel 3 -->
-                        <div id="owl-carousel-3" class="owl-carousel owl-theme center-owl-nav">
-                            <!-- ARTICLE -->
-                            <article class="article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-md-3.jpg" alt="">
-                                    </a>
-                                    <ul class="article-info">
-                                        <li class="article-type"><i class="fa fa-file-text"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="article-body">
-                                    <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
+                            <!-- owl carousel 3 -->
+                            <div id="owl-carousel-3" class="owl-carousel owl-theme center-owl-nav">
+                                <!-- ARTICLE -->
+                                <article class="article">
+                                    <div class="article-img">
+                                        <a href="#">
+                                            <img src="./img/img-md-3.jpg" alt="">
+                                        </a>
+                                        <ul class="article-info">
+                                            <li class="article-type"><i class="fa fa-file-text"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="article-body">
+                                        <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
+                                        <ul class="article-meta">
+                                            <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
+                                            <li><i class="fa fa-comments"></i>33</li>
+                                        </ul>
+                                    </div>
+                                </article>
+                                <!-- /ARTICLE -->
 
-                            <!-- ARTICLE -->
-                            <article class="article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-md-4.jpg" alt="">
-                                    </a>
-                                    <ul class="article-info">
-                                        <li class="article-type"><i class="fa fa-file-text"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="article-body">
-                                    <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-                        </div>
-                        <!-- /owl carousel 3 -->
+                                <!-- ARTICLE -->
+                                <article class="article">
+                                    <div class="article-img">
+                                        <a href="#">
+                                            <img src="./img/img-md-4.jpg" alt="">
+                                        </a>
+                                        <ul class="article-info">
+                                            <li class="article-type"><i class="fa fa-file-text"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="article-body">
+                                        <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
+                                        <ul class="article-meta">
+                                            <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
+                                            <li><i class="fa fa-comments"></i>33</li>
+                                        </ul>
+                                    </div>
+                                </article>
+                                <!-- /ARTICLE -->
+                            </div>
+                            <!-- /owl carousel 3 -->
                         </div>
                         <!-- ARTICLE -->
                         <article class="article widget-article">

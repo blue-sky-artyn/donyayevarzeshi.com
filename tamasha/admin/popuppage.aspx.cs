@@ -55,8 +55,11 @@ public partial class admin_need_to_know : System.Web.UI.Page
         {
             popoupTbl.adTitle = txtTitle.Text;
 
-            if (txtDetail.Text.Trim().Length > 0)
-                popoupTbl.adDetails = txtDetail.Text;
+            if (ckDetails.Text.Trim().Length > 0)
+            {
+                string str = ckDetails.Text;
+                popoupTbl.adDetails = Server.HtmlDecode(str);
+            }
             else
                 popoupTbl.adDetails = "";
 

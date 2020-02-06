@@ -47,9 +47,9 @@ public partial class _Default : System.Web.UI.Page
 
         tblNewsGroupCollection newsGroupSportTbl = new tblNewsGroupCollection();
         newsGroupSportTbl.ReadList();
-        
+
         tblNewsDetailsCollection newsDetailsSportTbl = new tblNewsDetailsCollection();
-        
+
         tblNewsMovieCollection newsMovieTbl = new tblNewsMovieCollection();
         newsMovieTbl.ReadList();
 
@@ -60,9 +60,62 @@ public partial class _Default : System.Web.UI.Page
 
         tblNewsHitCollection newsHitSportTbl = new tblNewsHitCollection();
         newsHitSportTbl.ReadList();
-        
+
 
         tblSliderCollection sliderNewsTbl = new tblSliderCollection();
+
+        #region slider
+        newsDetailsSportTbl.ReadList();
+
+        string sliderString = "<div id='owl-carousel-1' class='news-background-filler owl-carousel owl-theme center-owl-nav'>";
+        int counterFiles = 0;
+        if (newsDetailsSportTbl.Count > 5)
+        {
+            for (int i = newsDetailsSportTbl.Count - 1; i > newsDetailsSportTbl.Count - 6; i--)
+            {
+                sliderNewsTbl.ReadList(Criteria.NewCriteria(tblSlider.Columns.SliderLink, CriteriaOperators.Like, newsDetailsSportTbl[i].id.ToString()));
+
+                if ((newsDetailsSportTbl[i].topPageFileType == 0) && (sliderNewsTbl.Count == 0))
+                {
+                    sliderString += "<article class='article thumb-article'><div class='article-img'>" +
+                                    "<img class='head-news-img' src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>" +
+                                    "</div><div class='article-body'><ul class='article-info'>" +
+                                    "<li class='article-category'><a href='#'>News</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +
+                                    "<p class='sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
+                                    "<h2 class='farsi-position farsi-font farsi-slider-title article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h2>" +
+                                    "<ul class='article-meta'>" +
+                                    "<li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li>" +
+                                    "</ul></div></article>";
+                }
+                else
+                    counterFiles++;
+            }
+        }
+        else
+        {
+            for (int i = newsDetailsSportTbl.Count - 1; i > 0; i--)
+            {
+                sliderNewsTbl.ReadList(Criteria.NewCriteria(tblSlider.Columns.SliderLink, CriteriaOperators.Like, newsDetailsSportTbl[i].id.ToString()));
+
+                if ((newsDetailsSportTbl[i].topPageFileType == 0) && (sliderNewsTbl.Count == 0))
+                {
+                    sliderString += "<article class='article thumb-article'><div class='article-img'>" +
+                                    "<img class='head-news-img' src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>" +
+                                    "</div><div class='article-body'><ul class='article-info'>" +
+                                    "<li class='article-category'><a href='#'>News</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +
+                                     "<p class='sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
+                                    "<h2 class='farsi-position farsi-font farsi-slider-title article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h2>" +
+                                    "<ul class='article-meta'>" +
+                                    "<li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li>" +
+                                    "</ul></div></article>";
+                }
+                else
+                    counterFiles++;
+            }
+        }
+        sliderString += "</div></div>";
+        sliderHtml.InnerHtml = sliderString;
+        #endregion
 
 
         #region tabMenu
@@ -97,13 +150,13 @@ public partial class _Default : System.Web.UI.Page
                     newsTabBarString += "<div class='col-md-4 col-sm-6'><article class='article'><div class='article-img'>";
 
                     if (newsDetailsSportTbl[i].topPageFileType == 0)
-                        newsTabBarString += "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'><img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='" + newsDetailsSportTbl[i].topPageFileAddr + "'></a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i>";
+                        newsTabBarString += "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'><img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='" + newsDetailsSportTbl[i].topPageFileAddr + "'></a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i>";
                     else if (newsDetailsSportTbl[i].topPageFileType == 1)
-                        newsTabBarString += "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'><video id='video" + i + "'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></a><ul class='article-info'><li class='article-type'><i class='fa fa-video-camera'></i>";
+                        newsTabBarString += "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'><video id='video" + i + "'><source src='./movie/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></a><ul class='article-info'><li class='article-type'><i class='fa fa-video-camera'></i>";
                     else
                         newsTabBarString += "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].topPageFileAddr + "</a><ul class='article-info'><li class='article-type'><i class='fa fa-link'></i>";
 
-                    newsTabBarString += "</li></ul></div><div class='article-body'>" +
+                    newsTabBarString += "</li></ul></div><div class='article-body article-body-top'>" +
                                         "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
                                         "<h4 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h4>" +
                                         "<p>" + newsDetailsSportTbl[i].newsDetDetails + "</p>" +
@@ -116,8 +169,8 @@ public partial class _Default : System.Web.UI.Page
                 for (int i = 0; i < 5; i++)
                 {
                     newsTabBarString += "<div class='col-md-3 col-sm-6'><article class='article'><div class='article-img'>" +
-                                        "<a href='#'><img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='" + newsDetailsSportTbl[i].topPageFileAddr + "'></a>" +
-                                        "<ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div><div class='article-body'>" +
+                                        "<a href='#'><img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='" + newsDetailsSportTbl[i].topPageFileAddr + "'></a>" +
+                                        "<ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div><div class='article-body article-body-top'>" +
                                         "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
                                         "<h4 class='farsi-font farsi-position article-title'><a href='#'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h4>" +
                                         "<p>" + newsDetailsSportTbl[i].newsDetDetails + "</p>" +
@@ -132,7 +185,7 @@ public partial class _Default : System.Web.UI.Page
         #endregion
 
 
-        #region Hit Sport news
+        #region Hit news Left
         string hitNewsString = string.Empty;
         hitNewsString = "<div class='farsi-position section-title'><h2 class='farsi-font title'>خبرهای داغ ورزشی</h2></div>";
 
@@ -141,18 +194,18 @@ public partial class _Default : System.Web.UI.Page
             newsDetailsSportTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, newsHitSportTbl[newsHitSportTbl.Count - 1].newsId));
             if (newsDetailsSportTbl[0].topPageFileType == 0)
             {
-                hitNewsString += "<article class='article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'><img src='images/news/sport/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='" + newsDetailsSportTbl[0].newsDetTitle + "'></a>" +
+                hitNewsString += "<article class='article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'><img src='images/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='" + newsDetailsSportTbl[0].newsDetTitle + "'></a>" +
                                  "<ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div>" +
-                                 "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
+                                 "<div class='article-body article-body-2'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
                                  "<h3 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>" + newsDetailsSportTbl[0].newsDetTitle + "</a></h3>" +
                                  "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul>" +
                                  "<p>" + newsDetailsSportTbl[0].newsDetDetails + "</p></div></article>";
             }
             else
             {
-                hitNewsString += "<article class='article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'><img src='images/news/sport/default.jpg' alt='دنیای ورزشی و تماشا'></a>" +
+                hitNewsString += "<article class='article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'><img src='images/news/default.jpg' alt='دنیای ورزشی و تماشا'></a>" +
                                  "<ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div>" +
-                                 "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
+                                 "<div class='article-body article-body-2'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
                                  "<h3 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>" + newsDetailsSportTbl[0].newsDetTitle + "</a></h3>" +
                                  "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul>" +
                                  "<p>" + newsDetailsSportTbl[0].newsDetDetails + "</p></div></article>";
@@ -184,7 +237,7 @@ public partial class _Default : System.Web.UI.Page
         {
             newsDetailsSportTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, newsHitSportTbl[i].newsId));
 
-            hitNewsString += "<article class='article widget-article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'><img src='images/news/sport/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='" + newsDetailsSportTbl[0].newsDetTitle + "'></a></div><div class='article-body'>" +
+            hitNewsString += "<article class='article widget-article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'><img src='images/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='" + newsDetailsSportTbl[0].newsDetTitle + "'></a></div><div class='article-body'>" +
                              "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
                              "<h3 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>" + newsDetailsSportTbl[0].newsDetTitle + "</a></h3>" +
                              "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul></div></article>";
@@ -193,7 +246,8 @@ public partial class _Default : System.Web.UI.Page
         hitNewsSportHtml.InnerHtml = hitNewsString;
         #endregion
 
-        #region Hit Art news
+
+        #region Hit news Right
         string hitNewsArtString = string.Empty;
         hitNewsArtString = "<div class='farsi-position section-title'><h2 class='farsi-font title'>خبرهای داغ هنری</h2></div>";
 
@@ -202,18 +256,18 @@ public partial class _Default : System.Web.UI.Page
             newsDetailsSportTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, newsHitSportTbl[newsHitSportTbl.Count - 1].newsId));
             if (newsDetailsSportTbl[0].topPageFileType == 0)
             {
-                hitNewsArtString += "<article class='article'><div class='article-img'><a href='#'><img src='images/news/art/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='" + newsDetailsSportTbl[0].newsDetTitle + "'></a>" +
+                hitNewsArtString += "<article class='article'><div class='article-img'><a href='#'><img src='images/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='" + newsDetailsSportTbl[0].newsDetTitle + "'></a>" +
                                  "<ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div>" +
-                                 "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
+                                 "<div class='article-body article-body-2'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
                                  "<h3 class='farsi-font farsi-position article-title'><a href='#'>" + newsDetailsSportTbl[0].newsDetTitle + "</a></h3>" +
                                  "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul>" +
                                  "<p>" + newsDetailsSportTbl[0].newsDetDetails + "</p></div></article>";
             }
             else
             {
-                hitNewsArtString += "<article class='article'><div class='article-img'><a href='#'><img src='images/news/art/default.jpg' alt='دنیای ورزشی و تماشا'></a>" +
+                hitNewsArtString += "<article class='article'><div class='article-img'><a href='#'><img src='images/news/default.jpg' alt='دنیای ورزشی و تماشا'></a>" +
                                  "<ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div>" +
-                                 "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
+                                 "<div class='article-body article-body-2'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
                                  "<h3 class='farsi-font farsi-position article-title'><a href='#'>" + newsDetailsSportTbl[0].newsDetTitle + "</a></h3>" +
                                  "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul>" +
                                  "<p>" + newsDetailsSportTbl[0].newsDetDetails + "</p></div></article>";
@@ -221,74 +275,22 @@ public partial class _Default : System.Web.UI.Page
         }
 
         lengthTable = 0;
-        
+
 
         for (int i = newsHitSportTbl.Count - 1; i > 0; i--)
         {
-            newsDetailsSportTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, newsHitSportTbl[i].newsId));
+            newsDetailsSportTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, newsHitSportTbl[newsHitSportTbl.Count - 1].newsId));
 
-            hitNewsArtString += "<article class='article widget-article'><div class='article-img'><a href='#'><img src='images/news/art/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='" + newsDetailsSportTbl[0].newsDetTitle + "'></a></div><div class='article-body'>" +
-                                "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
+            hitNewsArtString += "<article class='article widget-article'><div class='article-img'><a href='#'><img src='images/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='" + newsDetailsSportTbl[0].newsDetTitle + "'></a></div><div class='article-body'>" +
+                                "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
                                 "<h3 class='farsi-font farsi-position article-title'><a href='#'>" + newsDetailsSportTbl[0].newsDetTitle + "</a></h3>" +
-                                "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li></ul></div></article>";
+                                "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul></div></article>";
         }
 
         hitNewsArtHtml.InnerHtml = hitNewsArtString;
 
         #endregion
 
-        #region slider
-        newsDetailsSportTbl.ReadList();
-
-        string sliderString = "<div id='owl-carousel-1' class='news-background-filler owl-carousel owl-theme center-owl-nav'>";
-        int counterFiles = 0;
-        if (newsDetailsSportTbl.Count > 5)
-        {
-            for (int i = newsDetailsSportTbl.Count - 1; i > newsDetailsSportTbl.Count - 6; i--)
-            {
-                sliderNewsTbl.ReadList(Criteria.NewCriteria(tblSlider.Columns.SliderLink, CriteriaOperators.Like, newsDetailsSportTbl[i].id.ToString()));
-
-                if ((newsDetailsSportTbl[i].topPageFileType == 0) && (sliderNewsTbl.Count == 0))
-                {
-                    sliderString += "<article class='article thumb-article'><div class='article-img'>" +
-                                    "<img class='head-news-img' src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>" +
-                                    "</div><div class='article-body'><ul class='article-info'>" +
-                                    "<li class='article-category'><a href='#'>News</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +
-                                    "<p class='sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
-                                    "<h2 class='farsi-position farsi-font farsi-slider-title article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h2>" +
-                                    "<ul class='article-meta'>" +
-                                    "<li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li>" +
-                                    "</ul></div></article>";
-                }
-                else
-                    counterFiles++;
-            }
-        }
-        else
-        {
-            for (int i = newsDetailsSportTbl.Count - 1; i > 0; i--)
-            {
-                sliderNewsTbl.ReadList(Criteria.NewCriteria(tblSlider.Columns.SliderLink, CriteriaOperators.Like, newsDetailsSportTbl[i].id.ToString()));
-
-                if ((newsDetailsSportTbl[i].topPageFileType == 0) && (sliderNewsTbl.Count == 0))
-                {
-                    sliderString += "<article class='article thumb-article'><div class='article-img'>" +
-                                    "<img class='head-news-img' src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>" +
-                                    "</div><div class='article-body'><ul class='article-info'>" +
-                                    "<li class='article-category'><a href='#'>News</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +
-                                     "<p class='sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
-                                    "<h2 class='farsi-position farsi-font farsi-slider-title article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h2>" +
-                                    "<ul class='article-meta'>" +
-                                    "<li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li>" +
-                                    "</ul></div></article>";
-                }
-                else
-                    counterFiles++;
-            }
-        }
-        sliderString += "</div></div>";
-        sliderHtml.InnerHtml = sliderString;
-        #endregion
 
         #region news
         //top and big news
@@ -301,17 +303,17 @@ public partial class _Default : System.Web.UI.Page
                               "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>";
 
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
-                    newsString += "<img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>" +
+                    newsString += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>" +
                                     "</a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div>";
                 else if (newsDetailsSportTbl[i].topPageFileType == 1)
-                    newsString += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>" +
+                    newsString += "<div><video id='video1'><source src='./movie/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>" +
                                   "</a><ul class='article-info'><li class='article-type'><i class='fa fa-video-camera'></i></li></ul></div>";
                 else
                     newsString += newsDetailsSportTbl[i].topPageFileAddr +
                                   "</a><ul class='article-info'><li class='article-type'><i class='fa fa-link'></i></li></ul></div>";
 
 
-                newsString += "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
+                newsString += "<div class='article-body article-body-3'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
                               "<h3 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h3>" +
                               "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li></ul>" +
                               "<p>" + newsDetailsSportTbl[i].newsDetDetails + "</p></div>" +
@@ -328,10 +330,10 @@ public partial class _Default : System.Web.UI.Page
                              "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>";
 
                 if (newsDetailsSportTbl[0].topPageFileType == 0)
-                    newsString += "<img src='./images/news/top/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[0].topPageFileAddr + "'>" +
+                    newsString += "<img src='./images/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[0].topPageFileAddr + "'>" +
                                     "</a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div>";
                 else if (newsDetailsSportTbl[0].topPageFileType == 1)
-                    newsString += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[0].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>" +
+                    newsString += "<div><video id='video1'><source src='./movie/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>" +
                                   "</a><ul class='article-info'><li class='article-type'><i class='fa fa-video-camera'></i></li></ul></div>";
                 else
                     newsString += newsDetailsSportTbl[0].topPageFileAddr +
@@ -339,7 +341,7 @@ public partial class _Default : System.Web.UI.Page
 
 
 
-                newsString += "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
+                newsString += "<div class='article-body article-body-3'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[0].newsDetSubtitle + "</p>" +
                              "<h3 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>" + newsDetailsSportTbl[0].newsDetTitle + "</a></h3>" +
                              "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul>" +
                              "<p>" + newsDetailsSportTbl[0].newsDetDetails + "</p></div>" +
@@ -355,9 +357,9 @@ public partial class _Default : System.Web.UI.Page
             {
                 smallNewsString += "<div class='col-md-4 col-sm-4'><article class='article'><div class='article-img'>";
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
-                    smallNewsString += "<img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
+                    smallNewsString += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
                 else if (newsDetailsSportTbl[0].topPageFileType == 1)
-                    smallNewsString += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
+                    smallNewsString += "<div><video id='video1'><source src='./movie/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
                 else
                     smallNewsString += newsDetailsSportTbl[i].topPageFileAddr;
                 smallNewsString += "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p><ul class='article-info'><li class='article-type'><i class='fa fa-file-text'></i></li></ul></div>" +
@@ -371,9 +373,9 @@ public partial class _Default : System.Web.UI.Page
             {
                 smallNewsString += "<div class='col-md-4 col-sm-4'><article class='article'><div class='article-img'>";
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
-                    smallNewsString += "<img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
+                    smallNewsString += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
                 else if (newsDetailsSportTbl[0].topPageFileType == 1)
-                    smallNewsString += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
+                    smallNewsString += "<div><video id='video1'><source src='./movie/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
                 else
                     smallNewsString += newsDetailsSportTbl[i].topPageFileAddr;
                 smallNewsString += "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p><ul class='article-info'><li class='article-type'><i class='fa fa-file-text'></i></li></ul></div>" +
@@ -383,6 +385,7 @@ public partial class _Default : System.Web.UI.Page
         }
         newsSmallHtml.InnerHtml = smallNewsString;
         #endregion
+
 
         #region popular News
         newsDetailsSportTbl.ReadList();
@@ -395,13 +398,13 @@ public partial class _Default : System.Web.UI.Page
                 popularNews += "<article class='article row-article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>";
 
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
-                    popularNews += "<img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
+                    popularNews += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
                 else if (newsDetailsSportTbl[0].topPageFileType == 1)
-                    popularNews += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
+                    popularNews += "<div><video id='video1'><source src='./movie/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
                 else
                     popularNews += newsDetailsSportTbl[i].topPageFileAddr;
 
-                popularNews += "</a></div><div class='article-body'>" +
+                popularNews += "</a></div><div class='article-body article-body-4'>" +
                             "<ul class='article-info'><li class='article-category'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>News</a></li><li class='article-type'><i class='fa fa-file-text'></i></li></ul>" +
                             "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
                             "<h4 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h4>" +
@@ -416,13 +419,13 @@ public partial class _Default : System.Web.UI.Page
                 popularNews += "<article class='article row-article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>";
 
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
-                    popularNews += "<img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
+                    popularNews += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
                 else if (newsDetailsSportTbl[0].topPageFileType == 1)
-                    popularNews += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
+                    popularNews += "<div><video id='video1'><source src='./movie/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
                 else
                     popularNews += newsDetailsSportTbl[i].topPageFileAddr;
 
-                popularNews += "</a></div><div class='article-body'>" +
+                popularNews += "</a></div><div class='article-body article-body-4'>" +
                             "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p><ul class='article-info'><li class='article-category'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>News</a></li><li class='article-type'><i class='fa fa-file-text'></i></li></ul>" +
                             "<h4 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h4>" +
                             "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li></ul>" +
@@ -431,6 +434,7 @@ public partial class _Default : System.Web.UI.Page
         }
         popularNewsHtml.InnerHtml = popularNews;
         #endregion
+
 
         #region Ad
         string dateNow = DateTime.Now.ToString("yyyyMMdd");
@@ -470,16 +474,26 @@ public partial class _Default : System.Web.UI.Page
         }
         #endregion
 
+
         #region More read in side bar
         newsDetailsSportTbl.ReadList();
+        string sideNewsSlider = "<div id='owl-carousel-3' class='owl-carousel owl-theme center-owl-nav'>";
+        int maxTopLoop = 0;
+        if (newsDetailsSportTbl.Count > 6)
+            maxTopLoop = newsDetailsSportTbl.Count - 6;
 
-        for (int i = newsDetailsSportTbl.Count - 1; i > newsDetailsSportTbl.Count - 6; i--)
+        for (int i = newsDetailsSportTbl.Count - 1; i > maxTopLoop; i--)
         {
-
+            sideNewsSlider += "<article class='article'><div class='article-img'>" +
+                              "<a href='#'><img src='./images//news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='Tamasha new " + newsDetailsSportTbl[i].topPageFileAddr + "'></a>" +
+                              "<ul class='article-info'><li class='article-type'><i class='fa fa-file-text'></i></li></ul></div><div class='article-body'>" +
+                              "<h4 class='farsi-font farsi-position article-title'><a href='#'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h4>" +
+                              "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li></ul></div></article>";
         }
-
-        //moreReadSideHtml.InnerHtml = "";
+        sideNewsSlider += "</div>";
+        moreReadSideHtml.InnerHtml = sideNewsSlider;
         #endregion
+
 
         #region popular News side
         string sideNews = string.Empty;
@@ -497,5 +511,7 @@ public partial class _Default : System.Web.UI.Page
         recentNewsSideHtml.InnerHtml = sideNews;
 
         #endregion
+
+
     }
 }
