@@ -60,7 +60,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <!-- Owl Carousel 1_Sldier -->
-    <div id="sliderHtml" clientidmode="static" runat="server">
+    <div id="sliderHtml" clientidmode="static" runat="server" style="width: 70%;margin: 0 auto;">
         <div id="owl-carousel-1" class="news-background-filler owl-carousel owl-theme center-owl-nav">
             <!-- ARTICLE -->
             <article class="article thumb-article">
