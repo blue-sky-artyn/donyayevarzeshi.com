@@ -25,10 +25,10 @@ public partial class archive : System.Web.UI.Page
                               "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>";
 
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
-                    newsString += "<img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>" +
+                    newsString += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>" +
                                     "</a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div>";
                 else if (newsDetailsSportTbl[i].topPageFileType == 1)
-                    newsString += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>" +
+                    newsString += "<div><video id='video1'><source src='../movie/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>" +
                                   "</a><ul class='article-info'><li class='article-type'><i class='fa fa-video-camera'></i></li></ul></div>";
                 else
                     newsString += newsDetailsSportTbl[i].topPageFileAddr +
@@ -51,10 +51,10 @@ public partial class archive : System.Web.UI.Page
                          "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[0].id + "'>";
 
             if (newsDetailsSportTbl[0].topPageFileType == 0)
-                newsString += "<img src='./images/news/top/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[0].topPageFileAddr + "'>" +
+                newsString += "<img src='./images/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[0].topPageFileAddr + "'>" +
                                 "</a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div>";
             else if (newsDetailsSportTbl[0].topPageFileType == 1)
-                newsString += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[0].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>" +
+                newsString += "<div><video id='video1'><source src='../movie/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>" +
                               "</a><ul class='article-info'><li class='article-type'><i class='fa fa-video-camera'></i></li></ul></div>";
             else
                 newsString += newsDetailsSportTbl[0].topPageFileAddr +
@@ -78,9 +78,9 @@ public partial class archive : System.Web.UI.Page
             {
                 smallNewsString += "<div class='col-md-4 col-sm-4'><article class='article'><div class='article-img'>";
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
-                    smallNewsString += "<img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
+                    smallNewsString += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
                 else if (newsDetailsSportTbl[0].topPageFileType == 1)
-                    smallNewsString += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
+                    smallNewsString += "<div><video id='video1'><source src='../movie/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
                 else
                     smallNewsString += newsDetailsSportTbl[i].topPageFileAddr;
                 smallNewsString += "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p><ul class='article-info'><li class='article-type'><i class='fa fa-file-text'></i></li></ul></div>" +
@@ -94,9 +94,9 @@ public partial class archive : System.Web.UI.Page
             {
                 smallNewsString += "<div class='col-md-4 col-sm-4'><article class='article'><div class='article-img'>";
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
-                    smallNewsString += "<img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
+                    smallNewsString += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
                 else if (newsDetailsSportTbl[0].topPageFileType == 1)
-                    smallNewsString += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
+                    smallNewsString += "<div><video id='video1'><source src='../movie/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
                 else
                     smallNewsString += newsDetailsSportTbl[i].topPageFileAddr;
                 smallNewsString += "<div class='article-body'><p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p><ul class='article-info'><li class='article-type'><i class='fa fa-file-text'></i></li></ul></div>" +

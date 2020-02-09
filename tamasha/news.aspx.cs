@@ -27,7 +27,7 @@ public partial class archive : System.Web.UI.Page
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
                     popularNews += "<img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
                 else if (newsDetailsSportTbl[0].topPageFileType == 1)
-                    popularNews += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
+                    popularNews += "<div><video id='video1'><source src='../movie/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
                 else
                     popularNews += newsDetailsSportTbl[i].topPageFileAddr;
 
@@ -46,7 +46,7 @@ public partial class archive : System.Web.UI.Page
                 popularNews += "<article class='article row-article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>";
 
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
-                    popularNews += "<img src='./images/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
+                    popularNews += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
                 else if (newsDetailsSportTbl[0].topPageFileType == 1)
                     popularNews += "<div><video id='video1'><source src='../movie/news/top/" + newsDetailsSportTbl[i].topPageFileAddr + "' type='video/mp4'>Your browser does not support HTML5 video.</video></div>";
                 else
