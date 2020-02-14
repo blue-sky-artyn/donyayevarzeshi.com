@@ -96,7 +96,7 @@
                             <li><a href="archive.aspx">آرشیو</a></li>
                             <li><a href="video.aspx">ویدیو</a></li>
                             <li><a href="ad.aspx">تبلیغات</a></li>
-                            <li><a href="gallary.aspx">گالری عکس</a></li>
+                            <li><a href="picture-gallery.aspx">گالری عکس</a></li>
                             <li><a href="about-toronto.aspx">درباره تورنتو</a></li>
                         </ul>
                     </nav>
@@ -331,8 +331,11 @@
 
 
         <!-- jQuery Plugins -->
-        <script src="js/jquery.min.js"></script>
+        <%--<script src="js/jquery.min.js"></script>--%>
 
+        <%--Datepicker jquery (have confilict with jquery min,top one)--%>
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         
         <script>

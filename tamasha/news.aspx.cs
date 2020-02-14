@@ -16,7 +16,7 @@ public partial class archive : System.Web.UI.Page
 
         #region archive News
         newsDetailsSportTbl.ReadList();
-        string popularNews = "<div class='farsi-position section-title'><h2 class='farsi-font title'>آرشیو اخبار</h2></div>";
+        string popularNews = "<div class='farsi-position section-title'><h2 class='farsi-font title'> اخبار</h2></div>";
 
         if (newsDetailsSportTbl.Count > 5)
         {

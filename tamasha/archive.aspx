@@ -5,6 +5,7 @@
         .datapicker {
             padding: 15px 0;
         }
+
         .datapicker-title {
             margin: 0 10px;
             font-weight: bold;
@@ -24,20 +25,44 @@
                         <h2 class="farsi-font title">اخبار</h2>
                     </div>
                     <div class="datapicker row">
+                        <div class="farsi-font farsi-align farsi-dir row">
+                            <h2>بازه را مشخص نمایید:</h2>
+                        </div>
+
                         <!-- Main Column -->
                         <div class="col-md-6">
-                            <span class="datapicker-title">From</span>
-                            <asp:Calendar ID="Calendar2" runat="server"></asp:Calendar>
+                            <div class="form-group">
+                                <blockquote>
+                                    <label for="exampleInputEmail1">Start date: </label>
+                                    <asp:TextBox ID="txtStartDate" ClientIDMode="Static" runat="server" Width="50%" placeholder="eg. 20190101" AutoCompleteType="Disabled" autocomplete="off"></asp:TextBox>
+                                    <p class="comment-text">* If leave it blank,it starts from today.</p>
+                                </blockquote>
+                            </div>
+                        </div>
 
-                        </div>
+
                         <div class="col-md-6">
-                            <span class="datapicker-title">To</span>
-                            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+                            <div class="form-group">
+                                <blockquote>
+                                    <label for="exampleInputEmail1">End date: </label>
+                                    <asp:TextBox ID="txtEndDate" ClientIDMode="Static" runat="server" Width="50%" placeholder="eg. 20190101" autocomplete="off"></asp:TextBox>
+                                    <p class="comment-text">* If leave it blank,there is no expiery day.</p>
+                                </blockquote>
+                            </div>
                         </div>
+
+
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <asp:Button ID="btnShow" runat="server" Text="نمایش" CssClass="farsi-font farsi-title input-btn" OnClick="btnShow_Click" />
+                            </div>
+                        </div>
+
+
+
                     </div>
-            <div class="row">
-                <asp:Button ID="btnShow" runat="server" Text="نمایش" CssClass="farsi-font farsi-title input-btn"/>
-            </div>
+
                 </div>
             </div>
             <!-- ROW -->
@@ -345,6 +370,53 @@
         <!-- /CONTAINER -->
     </div>
     <!-- /SECTION -->
+
+
+
+    <!-- Date picker jquer -->
+    <%--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">--%>
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <style>
+        .ui-datepicker-month, .ui-datepicker-year {
+            color: black;
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <%--<script src="js/datepicker-fa.js"></script>--%>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#txtStartDate").datepicker({
+                appendText: 'dd/mm/yyyy',
+                dateFormat: 'dd/mm/yy',
+
+                //showOn: 'both',
+                //buttonText: 'Calender',
+
+                numberOfMonths: 2,
+
+
+                changeMonth: true,
+                changeYear: true,
+                //minDate: new Date(2005, 1, 1),
+                //maxDate: new Date(2015,11,31)
+
+            });
+
+            $("#txtEndDate").datepicker({
+                appendText: 'dd/mm/yyyy',
+                dateFormat: 'dd/mm/yy',
+
+                numberOfMonths: 2,
+
+                changeMonth: true,
+                changeYear: true,
+            });
+        });
+    </script>
+
 </asp:Content>
 
 
