@@ -53,13 +53,33 @@
             height: 450px;
             overflow: hidden;
         }
-    </style>
+        /* Slider items */
+        .farsi-slider-title a {
+            color:white;
+        }
 
+        /* limiter of page*/
+        .container-limiter {
+            padding: 5px;
+            background-color: white;
+        }
+        body {
+            background: rgb(204,204,204);
+            background: linear-gradient(0deg, rgba(204,204,204,1) 73%, rgba(190,190,190,1) 100%);
+        }
+    </style>
+    <%-- Slider --%>
+    <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+	<link rel="stylesheet" type="text/css" href="engine/style.css" />
+	<script type="text/javascript" src="engine/jquery.js"></script>	
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+<!-- End WOWSlider.com HEAD section -->
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <!-- Owl Carousel 1_Sldier -->
+   <%-- <!-- Owl Carousel 1_Sldier -->
     <div id="sliderHtml" clientidmode="static" runat="server" style="width: 70%;margin: 0 auto;">
         <div id="owl-carousel-1" class="news-background-filler owl-carousel owl-theme center-owl-nav">
             <!-- ARTICLE -->
@@ -120,12 +140,41 @@
             <!-- /ARTICLE -->
         </div>
     </div>
-    <!-- /Owl Carousel 1 -->
+    <!-- /Owl Carousel 1 -->--%>
+
+
+    <%-- New slider  --%>
+
+    <!-- Start WOWSlider.com BODY section -->
+<div id="wowslider-container1">
+	<div class="ws_images"><ul id="sliderItemsHtml" runat="server" >
+		<li><img src="images/1.jpg" alt="1" title="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم" id="wows1_0"/>
+            <h2 class="farsi-position farsi-font farsi-slider-title" style="color:white;"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h2>
+		</li>
+		<li><img src="images/2.jpg" alt="2" title="slider 2" id="wows1_1"/></li>
+		<li><a><img src="images/3.jpg" alt="jquery carousel" title="slider 3" id="wows1_2"/></a></li>
+		<li><iframe width="100%" height="100%" src="https://www.youtube.com/embed/Y2ZryaogYIk?autoplay=0&rel=0&enablejsapi=1&playerapiid=ytplayer&wmode=transparent" frameborder="0" allowfullscreen></iframe><img src="images/y2zryaogyik.png" alt="SHALLOW - Lady GaGa & Bradley Cooper (Saxophone Cover)" title="SHALLOW - Lady GaGa & Bradley Cooper (Saxophone Cover)" id="wows1_3"/></li>
+		<li><a><img src="images/4.jpg" alt="jquery carousel" title="slider 4" id="wows1_4"/></a></li>
+	</ul></div>
+	<div class="ws_bullets"><div id="sliderToolTipHtml" runat="server">
+		<a href="#" title="1"><span><img src="images/1.jpg" alt="1" style="width:85px;"/>1</span></a>
+		<a href="#" title="2"><span><img src="images/2.jpg" alt="2" style="width:85px;"/>2</span></a>
+		<a href="#" title="3"><span><img src="images/3.jpg" alt="3" style="width:85px;"/>3</span></a>
+		<a href="#" title="SHALLOW - Lady GaGa & Bradley Cooper (Saxophone Cover)"><span><img src="images/tooltips/y2zryaogyik.png" alt="SHALLOW - Lady GaGa & Bradley Cooper (Saxophone Cover)"/>4</span></a>
+		<a href="#" title="3"><span><img src="images/4.jpg" alt="4" style="width:85px;"/>4</span></a>
+	</div></div>
+	<div class="ws_shadow"></div>
+	</div>	
+	<script type="text/javascript" src="engine/wowslider.js"></script>
+	<script type="text/javascript" src="engine/script.js"></script>
+<!-- End WOWSlider.com BODY section -->
+
+
 
     <!-- SECTION (TAB NEWS) -->
     <div class="section">
         <!-- CONTAINER -->
-        <div class="container">
+        <div class="container container-limiter">
             <!-- ROW -->
             <div class="row">
                 <div class="col-md-4">
@@ -498,7 +547,7 @@
     <!-- SECTION (HIT NEWS) -->
     <div class="section">
         <!-- CONTAINER -->
-        <div class="container">
+        <div class="container container-limiter">
             <!-- ROW -->
             <div class="row">
                 <!-- Main Column -->
@@ -946,7 +995,7 @@
     <!-- SECTION (POPULAR VIDEOS) -->
     <div class="section">
         <!-- CONTAINER -->
-        <div class="container">
+        <div class="container container-limiter">
             <!-- ROW -->
             <div class="row">
                 <!-- Main Column -->
@@ -1054,7 +1103,7 @@
     <!-- SECTION (NEWS / SIDE BAR) -->
     <div class="section">
         <!-- CONTAINER -->
-        <div class="container">
+        <div class="container container-limiter">
             <!-- ROW -->
             <div class="row">
                 <!-- Main Column -->

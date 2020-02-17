@@ -40,7 +40,7 @@
 <body>
     <form id="form1" runat="server">
         <!-- Header -->
-        <header id="header">
+        <header id="header" style="background-color: whitesmoke;">
             <!-- Top Header -->
             <div id="top-header">
                 <div class="container">

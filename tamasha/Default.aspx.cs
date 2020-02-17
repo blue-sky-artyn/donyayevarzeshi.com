@@ -64,7 +64,7 @@ public partial class _Default : System.Web.UI.Page
 
         tblSliderCollection sliderNewsTbl = new tblSliderCollection();
 
-        #region slider
+        #region slider old
         newsDetailsSportTbl.ReadList();
 
         string sliderString = "<div id='owl-carousel-1' class='news-background-filler owl-carousel owl-theme center-owl-nav'>";
@@ -114,9 +114,28 @@ public partial class _Default : System.Web.UI.Page
             }
         }
         sliderString += "</div></div>";
-        sliderHtml.InnerHtml = sliderString;
+        //sliderHtml.InnerHtml = sliderString;
         #endregion
 
+
+        #region New slider
+
+        string sliderStr = "";string slidertooltipStr = "";
+        newsHitSportTbl.ReadList();
+
+        for (int i = 0; i < newsHitSportTbl.Count; i++)
+        {
+            newsDetailsSportTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, newsHitSportTbl[i].newsId));
+
+            sliderStr += "<li><img src='images/news/"+ newsDetailsSportTbl[0].topPageFileAddr + "' alt='"+ newsDetailsSportTbl[0].topPageFileAddr + "' title='"+ newsDetailsSportTbl[0].newsDetTitle + "' />" +
+            "<h2 class='farsi-position farsi-font farsi-slider-title' style='color:white;'><a href='donyaye-varzeshi-news-details.aspx?itemId="+ newsDetailsSportTbl[0].id + "'>" + newsDetailsSportTbl[0].newsDetGist + "</a></h2></li>";
+
+            slidertooltipStr += "<a href='#' title='" + newsDetailsSportTbl[0].newsDetTitle + "'><span><img src='images/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='" + newsDetailsSportTbl[0].topPageFileAddr + "' style='width:85px;'/>" + newsDetailsSportTbl[0].newsDetTitle + "</span></a>";
+        }
+
+        sliderItemsHtml.InnerHtml = sliderStr;
+        sliderToolTipHtml.InnerHtml = slidertooltipStr;
+        #endregion
 
         #region tabMenu
         string tabsStrings = string.Empty;
@@ -405,7 +424,7 @@ public partial class _Default : System.Web.UI.Page
                     popularNews += newsDetailsSportTbl[i].topPageFileAddr;
 
                 popularNews += "</a></div><div class='article-body article-body-4'>" +
-                            "<ul class='article-info'><li class='article-category'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>News</a></li><li class='article-type'><i class='fa fa-file-text'></i></li></ul>" +
+                            //"<ul class='article-info'><li class='article-category'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>News</a></li><li class='article-type'><i class='fa fa-file-text'></i></li></ul>" +
                             "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
                             "<h4 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h4>" +
                             "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li></ul>" +
