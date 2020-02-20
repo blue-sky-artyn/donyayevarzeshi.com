@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.master" AutoEventWireup="true" CodeFile="archive.aspx.cs" Inherits="archive" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.master" AutoEventWireup="true" CodeFile="archive.aspx.cs" Inherits="archive" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
@@ -9,6 +9,9 @@
         .datapicker-title {
             margin: 0 10px;
             font-weight: bold;
+        }
+        .article-body p img {
+            width:100%;
         }
     </style>
 </asp:Content>
