@@ -211,7 +211,7 @@
                 <div class="col-md-8">
                     <!-- section title -->
                     <div class="farsi-position section-title">
-                        <h2 class="farsi-font title">اخبار مهم</h2>
+                        <h2 class="farsi-font title">آخرین اخبار </h2>
                         <!-- tab nav -->
                         <ul id="tabsHtml" runat="server" clientidmode="static" class="farsi-font farsi-float tab-nav pull-left">
                             <li><a data-toggle="tab" href="#tab1">مشاهیر</a></li>
@@ -555,7 +555,7 @@
                     <!-- row -->
                     <div class="row">
                         <!-- Column 1 -->
-                        <div id="hitNewsSportHtml" runat="server" class="col-md-6 col-sm-6">
+                        <div id="hitNewsSportHtml" runat="server" class="col-md-12 col-sm-6">
                             <!-- section title -->
                             <div class="farsi-position section-title">
                                 <h2 class="farsi-font title">اجتماعی</h2>
@@ -563,7 +563,26 @@
                             <!-- /section title -->
 
                             <!-- ARTICLE -->
-                            <article class="article">
+                            <article class="article col-md-6">
+                                <div class="article-img">
+                                    <a href="#">
+                                        <img src="./img/img-sm-1.jpg" alt="">
+                                    </a>
+                                    <ul class="article-info">
+                                        <li class="article-type"><i class="fa fa-camera"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="article-body">
+                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
+                                    <ul class="article-meta">
+                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
+                                        <li><i class="fa fa-comments"></i>33</li>
+                                    </ul>
+                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
+                                </div>
+                            </article>
+
+                            <article class="article col-md-6 ">
                                 <div class="article-img">
                                     <a href="#">
                                         <img src="./img/img-sm-1.jpg" alt="">
@@ -619,70 +638,7 @@
                         </div>
                         <!-- /Column 1 -->
 
-                        <!-- Column 2 -->
-                        <div id="hitNewsArtHtml" runat="server" class="col-md-6 col-sm-6">
-                            <!-- section title -->
-                            <div class="farsi-position section-title">
-                                <h2 class="farsi-font title">ورزشی</h2>
-                            </div>
-                            <!-- /section title -->
-
-                            <!-- ARTICLE -->
-                            <article class="article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-sm-2.jpg" alt="">
-                                    </a>
-                                    <ul class="article-info">
-                                        <li class="article-type"><i class="fa fa-file-text"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-
-                            <!-- ARTICLE -->
-                            <article class="article widget-article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-widget-9.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-
-                            <!-- ARTICLE -->
-                            <article class="article widget-article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-widget-10.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-                        </div>
-                        <!-- /Column 2 -->
+                       
                     </div>
                     <!-- /row -->
 

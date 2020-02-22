@@ -13,12 +13,67 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
 
+using System.Xml.Linq;
 
 
 
 
 public partial class _Default : System.Web.UI.Page
 {
+
+    private string PopulateRssFeed(string rssLink)
+    {
+        string RssFeedUrl = rssLink;
+        try
+        {
+            int counter = 1;
+            string newsString = "<div class='section-title row text-center'>" +
+                                "<div class='col-md-8 col-md-offset-2'>" +
+                                "<h3>RSS News</h3>" +
+                                "</div></div><div class='row'>";
+            XDocument xDoc = new XDocument();
+            xDoc = XDocument.Load(RssFeedUrl);
+            var items = (from x in xDoc.Descendants("item")
+                         select new
+                         {
+                             title = x.Element("title").Value,
+                             link = x.Element("link").Value,
+                             pubDate = x.Element("pubDate"),
+                             description = x.Element("description").Value
+                             // enclosure = x.Element("enclosure").Value
+                         });
+
+            if (items != null)
+            {
+
+
+                foreach (var i in items)
+                {
+
+                    if (counter == 3)
+                    {
+                        newsString += "</div><div class='row'>";
+                        counter = 0;
+                    }
+                    newsString += "<div class='col-md-4 col-sm-6 col-xs-12'><div class='icon-wrapper wow fadeIn' data-wow-duration='1s' data-wow-delay='0.2s'>" +
+                                  //"<img src='"+i.enclosure+ "' alt='" + i.enclosure + "' class='global-radius effect-1 alignleft' style='width: 180px;'/>" +
+                                  "<h3>" + i.title + "</h3></div>" +
+                                  "<p class='news-details'>" + i.description + "</p><small class='readme-font readmore'><a href='" + i.link + "'>Read more</a></small></div>";
+                    counter++;
+
+                }
+                newsString += "</div>";
+
+            }
+            return newsString;
+        }
+        catch (Exception ex)
+        {
+            string newsString = "error is ( " + ex.ToString() + " )";
+            return newsString;
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -262,7 +317,7 @@ public partial class _Default : System.Web.UI.Page
                              "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul></div></article>";
         }
 
-        hitNewsSportHtml.InnerHtml = hitNewsString;
+        //hitNewsSportHtml.InnerHtml = hitNewsString;
         #endregion
 
 
@@ -306,7 +361,7 @@ public partial class _Default : System.Web.UI.Page
                                 "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[0].incReview + "</li></ul></div></article>";
         }
 
-        hitNewsArtHtml.InnerHtml = hitNewsArtString;
+        //hitNewsArtHtml.InnerHtml = hitNewsArtString;
 
         #endregion
 
@@ -529,6 +584,27 @@ public partial class _Default : System.Web.UI.Page
         popularNewsSideHtml.InnerHtml = sideNews;
         recentNewsSideHtml.InnerHtml = sideNews;
 
+        #endregion
+
+
+
+        #region Rss news
+        newsString = "";
+        string RssFeedUrl;
+        tblNewsRssCollection rssNewsTbl = new tblNewsRssCollection();
+        rssNewsTbl.ReadList();
+
+        for (int i = 0; i < rssNewsTbl.Count; i++)
+        {
+            if (rssNewsTbl[i].RssLink.Trim().Length > 3)
+            {
+                RssFeedUrl = rssNewsTbl[i].RssLink;
+
+                newsString = PopulateRssFeed(RssFeedUrl);
+            }
+        }
+
+        //RssNewsHtml.InnerHtml = newsString;
         #endregion
 
 
