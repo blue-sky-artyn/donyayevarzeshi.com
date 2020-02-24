@@ -22,27 +22,6 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        #region SQL query
-        string databaseName = "[azhmang1_weather].[dbo].[tblUnitsPower]";
-        string ConStr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-        using (SqlConnection con = new SqlConnection(ConStr))
-        {
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM " + databaseName))    //select * from [azhmang1_weather].[dbo].[tblUnitsPower] where UnitDate = '20190721'  ORDER BY UnitId,UnitHour
-            {
-                using (SqlDataAdapter sda = new SqlDataAdapter())
-                {
-                    cmd.Connection = con;
-                    sda.SelectCommand = cmd;
-
-                    using (DataTable dt = new DataTable())
-                    {
-                        //sda.Fill(dt);
-                    }
-                }
-            }
-        }
-        #endregion
-
         tblGalleryPicturesCollection galleryTbl = new tblGalleryPicturesCollection();
         galleryTbl.ReadList();
         tblGalleryGroupCollection galleryGrpTbl = new tblGalleryGroupCollection();
@@ -111,7 +90,7 @@ public partial class _Default : System.Web.UI.Page
         string newsTabBarString = string.Empty;
         for (int j = 0; j < galleryGrpTbl.Count; j++)
         {
-            galleryTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.idGroup, CriteriaOperators.Equal, galleryGrpTbl[j].id));
+            galleryTbl.ReadList(Criteria.NewCriteria(tblGalleryPictures.Columns.idGroup, CriteriaOperators.Equal, galleryGrpTbl[j].id));
             if (j == 0)
                 newsTabBarString += "<div id='tab" + galleryGrpTbl[j].id + "' class='tab-pane fade in active'><div class='row'>";
             else
@@ -124,11 +103,11 @@ public partial class _Default : System.Web.UI.Page
                     newsTabBarString += "<div class='col-md-4 col-sm-6'><article class='article'><div class='article-img'>";
 
 
-                    newsTabBarString += "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + galleryTbl[i].id + "'><img src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt='" + galleryTbl[i].GalleryPicName + "'></a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i>";
+                    newsTabBarString += "<a><img src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt='" + galleryTbl[i].GalleryPicName + "'></a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i>";
 
                     newsTabBarString += "</li></ul></div><div class='article-body article-body-top'>" +
                                         "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + galleryTbl[i].GalleryPicTitle + "</p>" +
-                                        "<h4 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + galleryTbl[i].id + "'>" + galleryTbl[i].GalleryPicTitle + "</a></h4>" +
+                                        "<h4 class='farsi-font farsi-position article-title'><a>" + galleryTbl[i].GalleryPicTitle + "</a></h4>" +
                                         "<p>" + galleryTbl[i].GalleryPicDetail + "</p>" +
                                         "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + galleryTbl[i].GalleryInsertDate + "</li>" +
                                         //"<li><i class='fa fa-comments'></i>" + galleryTbl[i].incReview + "</li>" +
@@ -140,10 +119,10 @@ public partial class _Default : System.Web.UI.Page
                 for (int i = 0; i < 5; i++)
                 {
                     newsTabBarString += "<div class='col-md-3 col-sm-6'><article class='article'><div class='article-img'>" +
-                                        "<a href='#'><img src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt='" + galleryTbl[i].GalleryPicName + "'></a>" +
+                                        "<a><img src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt='" + galleryTbl[i].GalleryPicName + "'></a>" +
                                         "<ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div><div class='article-body article-body-top'>" +
                                         "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + galleryTbl[i].GalleryPicTitle + "</p>" +
-                                        "<h4 class='farsi-font farsi-position article-title'><a href='#'>" + galleryTbl[i].GalleryPicTitle + "</a></h4>" +
+                                        "<h4 class='farsi-font farsi-position article-title'><a>" + galleryTbl[i].GalleryPicTitle + "</a></h4>" +
                                         "<p>" + galleryTbl[i].GalleryPicDetail + "</p>" +
                                         "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + galleryTbl[i].GalleryInsertDate + "</li>" +
                                         //"<li><i class='fa fa-comments'></i>" + galleryTbl[i].incReview + "</li>" +

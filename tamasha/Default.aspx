@@ -35,7 +35,6 @@
         }
 
         .article-body-top {
-            height: 281px;
             overflow: hidden;
         }
 
@@ -641,144 +640,7 @@
                        
                     </div>
                     <!-- /row -->
-
-                    <!-- row -->
-                    <div id="newsHtml" runat="server" class="row">
-                        <!-- section title -->
-                        <div class="col-md-12">
-                            <div class="farsi-position section-title">
-                                <h2 class="farsi-font title">اخبار</h2>
-                            </div>
-                        </div>
-                        <!-- /section    title -->
-
-                        <!-- Column 1 -->
-                        <div class="col-md-6 col-sm-6">
-                            <!-- ARTICLE -->
-                            <article class="article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-sm-3.jpg" alt="">
-                                    </a>
-                                    <ul class="article-info">
-                                        <li class="article-type"><i class="fa fa-camera"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">1 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-                        </div>
-                        <!-- /Column 1 -->
-
-                        <!-- /Column 2 -->
-                        <div class="col-md-6 col-sm-6">
-                            <!-- ARTICLE -->
-                            <article class="article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-sm-4.jpg" alt="">
-                                    </a>
-                                    <ul class="article-info">
-                                        <li class="article-type"><i class="fa fa-camera"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">2 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-                        </div>
-                        <!-- /Column 2 -->
-                    </div>
-                    <!-- /row -->
-
-                    <!-- row -->
-                    <div id="newsSmallHtml" runat="server" class="row">
-                        <!-- Column 1 -->
-                        <div class="col-md-4 col-sm-4">
-                            <!-- ARTICLE -->
-                            <article class="article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-md-1.jpg" alt="">
-                                    </a>
-                                    <ul class="article-info">
-                                        <li class="article-type"><i class="fa fa-file-text"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-                        </div>
-                        <!-- /Column 1 -->
-
-                        <!-- Column 2 -->
-                        <div class="col-md-4 col-sm-4">
-                            <!-- ARTICLE -->
-                            <article class="article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-md-2.jpg" alt="">
-                                    </a>
-                                    <ul class="article-info">
-                                        <li class="article-type"><i class="fa fa-file-text"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-                        </div>
-                        <!-- /Column 2 -->
-
-                        <!-- Column 3 -->
-                        <div class="col-md-4 col-sm-4">
-                            <!-- ARTICLE -->
-                            <article class="article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-md-3.jpg" alt="">
-                                    </a>
-                                    <ul class="article-info">
-                                        <li class="article-type"><i class="fa fa-file-text"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-                        </div>
-                        <!-- /Column 3 -->
-                    </div>
-                    <!-- /row -->
+                                      
                 </div>
                 <!-- /Main Column -->
 
@@ -881,56 +743,7 @@
                             </div>
                             <!-- /owl carousel 3 -->
                         </div>
-                        <!-- ARTICLE -->
-                        <article class="article widget-article">
-                            <div class="article-img">
-                                <a href="#">
-                                    <img src="./img/img-widget-1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="article-body">
-                                <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <ul class="article-meta">
-                                    <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                    <li><i class="fa fa-comments"></i>33</li>
-                                </ul>
-                            </div>
-                        </article>
-                        <!-- /ARTICLE -->
-
-                        <!-- ARTICLE -->
-                        <article class="article widget-article">
-                            <div class="article-img">
-                                <a href="#">
-                                    <img src="./img/img-widget-2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="article-body">
-                                <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <ul class="article-meta">
-                                    <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                    <li><i class="fa fa-comments"></i>33</li>
-                                </ul>
-                            </div>
-                        </article>
-                        <!-- /ARTICLE -->
-
-                        <!-- ARTICLE -->
-                        <article class="article widget-article">
-                            <div class="article-img">
-                                <a href="#">
-                                    <img src="./img/img-widget-3.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="article-body">
-                                <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <ul class="article-meta">
-                                    <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                    <li><i class="fa fa-comments"></i>33</li>
-                                </ul>
-                            </div>
-                        </article>
-                        <!-- /ARTICLE -->
+                       
                     </div>
                     <!-- /article widget -->
                 </div>

@@ -508,7 +508,7 @@
                         <article class="article thumb-article">
                             <div class="article-img">
                                 <video id="video1">
-                                    <source src="video/CNN.mp4" type="video/mp4">
+                                    <source src="video/gallery/lines1.mp4" type="video/mp4">
                                     Your browser does not support HTML5 video.
                                 </video>
 
