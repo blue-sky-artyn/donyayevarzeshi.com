@@ -2,13 +2,22 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
+/*video slider start*/
         video {
             height: 370px;
         }
-
         .other-tabs {
             display: none;
         }
+        .article-video {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0px;
+        }
+        .new-video-attr {}
+        
+        .new-video-attr .video-pre-small {z-index: 99;}
+/*video slider end*/
 
         .sub-title {
             color: whitesmoke;
@@ -685,10 +694,10 @@
                         <div class="widget-title">
                             <h2 class="farsi-font title">عضویت در خبرنامه</h2>
                         </div>
-                        <form>
-                            <input class="input" type="email" placeholder="ایمیل را وارد نمایید">
-                            <button class="farsi-font farsi-title input-btn">عضویت</button>
-                        </form>
+                        <div>
+                            <input id="txtEmailSub1" runat="server" class="input" type="email" placeholder="ایمیل را وارد نمایید" style="color:white;">
+                            <asp:Button ID="btnSubmit1" runat="server" class="farsi-font farsi-title input-btn" Text="عضویت" OnClick="btnSubmit1_Click" />
+                        </div>
                     </div>
                     <!-- /subscribe widget -->
 
@@ -768,7 +777,7 @@
             <!-- ROW -->
             <div class="row">
                 <!-- Main Column -->
-                <div class="col-md-12">
+                <div id="popularVideoHtml" runat="server" class="col-md-12">
                     <!-- section title -->
                     <div class="farsi-position section-title">
                         <h2 class="farsi-font title">ویدیوهای محبوب</h2>
@@ -1124,8 +1133,25 @@
         <!-- /CONTAINER -->
     </div>
     <!-- /SECTION -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+          $(".article").mouseenter(function(){
+              $(this).addClass("new-video-attr");
+            });
+
+            $(".article").mouseleave(function(){
+              //alert("test");
+              //alert($(this).attr("class"));
+              $(this).removeClass("new-video-attr");
+            });
+
+        });
+    </script>
+
     <script> 
-        var myVideo = document.getElementById("video1");
+        var myvideo = document.getelementbyId("video1");
 
         function playPause() {
             if (myVideo.paused)

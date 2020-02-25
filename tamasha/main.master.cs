@@ -66,6 +66,7 @@ public partial class main : System.Web.UI.MasterPage
     {
         string dateInsert = DateTime.Now.ToString("yyyyMMdd");
         tblMemberOfDailyEmail dailyMemberTbl = new tblMemberOfDailyEmail();
+
         if (txtEmailSub.Value.Trim().Length > 0)
         {
             dailyMemberTbl.memberName = "";

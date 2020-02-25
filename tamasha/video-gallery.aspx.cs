@@ -35,7 +35,7 @@ public partial class _Default : System.Web.UI.Page
             for (int i = galleryTbl.Count - 1; i >= galleryTbl.Count - 6; i--)
             {
                 
-                    sliderString += "<article class='article thumb-article'><div class='video-pre''>" +
+                    sliderString += "<article class='article thumb-article'><div class='video-pre'>" +
                                     "<video controls><source src='" + galleryTbl[i].movieAddr + galleryTbl[i].movieName + "' type='video/mp4' />Your browser does not support HTML5 video.</video>" +
                                     "</div><div class='article-body'><ul class='article-info'>" +
                                     "<li class='article-category'><a>Play</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +

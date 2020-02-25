@@ -102,8 +102,13 @@ public partial class _Default : System.Web.UI.Page
         tblNewsHitCollection newsHitSportTbl = new tblNewsHitCollection();
         newsHitSportTbl.ReadList();
 
-
         tblSliderCollection sliderNewsTbl = new tblSliderCollection();
+
+        tblMovieGalleryCollection videoGalleryTbl = new tblMovieGalleryCollection();
+        videoGalleryTbl.ReadList();
+
+        tblMovieGalleryGroupCollection videoGalleryGrpTbl = new tblMovieGalleryGroupCollection();
+
 
         #region slider old
         newsDetailsSportTbl.ReadList();
@@ -578,5 +583,49 @@ public partial class _Default : System.Web.UI.Page
         #endregion
 
 
+
+        #region popular videos
+        string popularVideoStr = "<div class='farsi-position section-title'><h2 class='farsi-font title'>ویدیوهای محبوب</h2><div id='nav-carousel-2' class='custom-owl-nav pull-left'></div></div>";
+        int MaxLength = 0;
+        if (videoGalleryTbl.Count > 7)
+            MaxLength = videoGalleryTbl.Count - 7;
+
+        popularVideoStr += "<div id='owl-carousel-2' class='owl-carousel owl-theme'>";
+        for (int i = videoGalleryTbl.Count - 1; i >= MaxLength ; i--)
+        {
+            popularVideoStr += "<article class='article thumb-article'><div class='video-pre-small article-video'>" +
+                            "<video controls><source src='"+videoGalleryTbl[i].movieAddr + videoGalleryTbl[i].movieName + "' type='video/mp4'>Your browser does not support HTML5 video.</video>"+
+                            "</div><div class='article-body'><ul class='article-info'><li class='article-category'><a>Play</a></li>" +
+                            "<li class='article-type'><i class='fa fa-video-camera'></i></li></ul>"+
+                            "<h4 class='farsi-font farsi-position article-title'><a href='#'>" + videoGalleryTbl[i].movieTitle + "</a></h4>" +
+                            "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + videoGalleryTbl[i].insertDate + "</li></ul></div></article>";
+        }
+
+        popularVideoHtml.InnerHtml = popularVideoStr;
+        #endregion
+
+
+    }
+
+    protected void btnSubmit1_Click(object sender, EventArgs e)
+    {
+        string dateInsert = DateTime.Now.ToString("yyyyMMdd");
+        tblMemberOfDailyEmail dailySubTbl = new tblMemberOfDailyEmail();
+
+        if (txtEmailSub1.Value.Trim().Length > 0)
+        {
+            dailySubTbl.memberName = "";
+            dailySubTbl.memberSurname = "";
+            dailySubTbl.memberEmail = txtEmailSub1.Value;
+
+            dailySubTbl.memberInsDate = Convert.ToInt32(dateInsert);
+            dailySubTbl.memberExpDate = 0;
+            dailySubTbl.memberRequestToDea = "";
+            dailySubTbl.allow = "1";
+
+            dailySubTbl.Create();
+
+            Response.Redirect("default.aspx");
+        }
     }
 }

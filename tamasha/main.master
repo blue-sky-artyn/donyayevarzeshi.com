@@ -159,10 +159,10 @@
                                 <div class="widget-title">
                                     <h2 class="farsi-position farsi-font title">عضو خبرنامه شوید</h2>
                                 </div>
-                                
+                                <div>
                                     <input id="txtEmailSub" runat="server" class="farsi-position farsi-font input" type="email" placeholder="ایمیل خود را وارد نمایید" style="color: white;">
                                     <asp:Button ID="btnSub" runat="server" class="farsi-font input-btn" Text="عضویت" OnClick="btnSub_Click" />
-                                
+                                </div>
                             </div>
                             <!-- /footer subscribe -->
                         </div>
