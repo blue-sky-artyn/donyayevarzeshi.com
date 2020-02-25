@@ -26,11 +26,9 @@ public partial class _Default : System.Web.UI.Page
         string RssFeedUrl = rssLink;
         try
         {
-            int counter = 1;
-            string newsString = "<div class='section-title row text-center'>" +
-                                "<div class='col-md-8 col-md-offset-2'>" +
-                                "<h3>RSS News</h3>" +
-                                "</div></div><div class='row'>";
+            string newsString = "";
+
+            
             XDocument xDoc = new XDocument();
             xDoc = XDocument.Load(RssFeedUrl);
             var items = (from x in xDoc.Descendants("item")
@@ -45,25 +43,12 @@ public partial class _Default : System.Web.UI.Page
 
             if (items != null)
             {
-
-
                 foreach (var i in items)
                 {
-
-                    if (counter == 3)
-                    {
-                        newsString += "</div><div class='row'>";
-                        counter = 0;
-                    }
-                    newsString += "<div class='col-md-4 col-sm-6 col-xs-12'><div class='icon-wrapper wow fadeIn' data-wow-duration='1s' data-wow-delay='0.2s'>" +
-                                  //"<img src='"+i.enclosure+ "' alt='" + i.enclosure + "' class='global-radius effect-1 alignleft' style='width: 180px;'/>" +
-                                  "<h3>" + i.title + "</h3></div>" +
-                                  "<p class='news-details'>" + i.description + "</p><small class='readme-font readmore'><a href='" + i.link + "'>Read more</a></small></div>";
-                    counter++;
-
+                    newsString += "<li class='tweet'><i class='fa fa-bookmark'></i>" +
+                                "<div class='tweet-body'>" +
+                                "<h3>" + i.title + "</h3><p>" + i.description + "</p><small class='readme-font readmore'><a href='" + i.link + "'>Read more</a></small></div></li>"; 
                 }
-                newsString += "</div>";
-
             }
             return newsString;
         }
@@ -589,7 +574,7 @@ public partial class _Default : System.Web.UI.Page
             }
         }
 
-        //RssNewsHtml.InnerHtml = newsString;
+        rssNewsHtml.InnerHtml = newsString;
         #endregion
 
 

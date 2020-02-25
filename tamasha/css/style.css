@@ -1,45 +1,15 @@
-/*
-Template Name:  News & Magazine Template
-Author: yaminncco
 
-Colors:
-	Body 		: #2C2C2C
-	Headers 	: #07090C
-	Primary 	: #EF233C
-	Dark 		: #07090C #222
-	Grey 		: #DDD
+@import url(fontiran.css);
 
-Fonts: Open Sans Lato
-
-Table OF Contents
-------------------------------------
-1 > General
-2 > Header
-3 > Section
-4 > Article
-5 > Widget
-6 > Article Post
-7 > Footer
-8 > Owl Theme
-9 > Responsive
-10 > Back to Top
-------------------------------------*/
-
-/*=========================================================
-	GENERAL
-===========================================================*/
-/*----------------------------*\
-	typography
-\*----------------------------*/
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: IRANSans !important;
     color: #2C2C2C;
     font-size: 15px;
     font-weight: 300;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    /*font-family: 'Open Sans', sans-serif;*/
+h1, h2, h3, h4, h5, h6, input, textarea {
+    font-family: IRANSans !important;
     color: #07090C;
     font-weight: 700;
 }
@@ -649,7 +619,7 @@ textarea.input {
 .article .article-title {
     text-transform: uppercase;
     margin-top: 0px;
-    font-family: tahoma;
+    font-family: IRANSans !important;
     direction: rtl;
     text-align: right;
     font-size: 21px;
@@ -988,7 +958,7 @@ textarea.input {
 }
 
     .tweets-widget .tweet i {
-        float: left;
+        float: right;
         margin-right: 10px;
         width: 45px;
         height: 45px;
@@ -1439,7 +1409,7 @@ textarea.input {
 }
 
 .farsi-font {
-    font-family: Tahoma;
+    font-family: IRANSans !important;
 }
 
 .farsi-position {
@@ -1473,7 +1443,7 @@ textarea.input {
 }
 
 .article-body > p {
-    font-family: Tahoma;
+    font-family: IRANSans !important;
     text-align: justify;
     font-size: 12px;
     direction: rtl;
@@ -1501,12 +1471,12 @@ textarea.input {
 }
 /****  farsi font CSS  ****/
 .farsi-font-text {
-    font-family: tahoma;
+    font-family: IRANSans !important;
     font-size: 12px;
 }
 
 .farsi-font-title {
-    font-family: tahoma;
+    font-family: IRANSans !important;
     font-size: 22px;
 }
 

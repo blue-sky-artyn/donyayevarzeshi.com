@@ -61,4 +61,22 @@ public partial class main : System.Web.UI.MasterPage
         #endregion
 
     }
+
+    protected void btnSub_Click(object sender, EventArgs e)
+    {
+        string dateInsert = DateTime.Now.ToString("yyyyMMdd");
+        tblMemberOfDailyEmail dailyMemberTbl = new tblMemberOfDailyEmail();
+        if (txtEmailSub.Value.Trim().Length > 0)
+        {
+            dailyMemberTbl.memberName = "";
+            dailyMemberTbl.memberSurname = "";
+            dailyMemberTbl.memberEmail = txtEmailSub.Value;
+            dailyMemberTbl.memberInsDate = Convert.ToInt32(dateInsert);
+            dailyMemberTbl.memberExpDate = 0;
+            dailyMemberTbl.memberRequestToDea = "1";
+            dailyMemberTbl.allow = "1";
+
+            dailyMemberTbl.Create();
+        }
+    }
 }

@@ -21,26 +21,26 @@
 					<!-- Main Column -->
 					<div class="col-md-12">
 
-						<!-- breadcrumb -->
+						<%--<!-- breadcrumb -->
 						<ul class="article-breadcrumb">
 							<li><a href="default.aspx">Home</a></li>
 							<li>About Us</li>
 						</ul>
-						<!-- /breadcrumb -->
+						<!-- /breadcrumb -->--%>
 					
 						<!-- ARTICLE POST -->
 						<article class="article article-post">
-							<div class="article-share">
+							<div id="socialLinksHtml" runat="server" class="article-share">
 								<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
 								<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
 								<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 							</div>
 							<div class="row">
-					<div class="col-md-6">
+					<div id="googleMapHtml" runat="server" class="col-md-7">
 								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2880.6334123464253!2d-79.4168236846291!3d43.780467979117184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2d0e042bb041%3A0xe820c06392355a6!2sFinch%20Station!5e0!3m2!1sen!2sca!4v1582230185676!5m2!1sen!2sca" width="100%" height="20%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 					</div>
 							
-							<div class="article-body">
+							<div id="aboutCoHtml" runat="server" class="farsi-article farsi-direction farsi-font article-body" style="line-height: 35px;font-size: 14px;">
 								<h1 class="article-title">Duis urbanitas eam in, tempor consequat.</h1>
 								
 								<p>Facilisi complectitur eos eu. Est tritani argumentum in, ei suas ignota admodum vim, ipsum choro has ut. Ei vim noluisse luptatum, nominavi mandamus qui ut. Ne usu lucilius mnesarchum, vim ex nisl summo expetenda, in dicta appareat usu. Ea cum altera fuisset adipisci, in sed eius tacimates, eu duo magna numquam placerat.</p>
@@ -72,18 +72,16 @@
 						
 						<!-- reply form -->
 						<div class="article-reply-form">
-							<div class="section-title">
-								<h2 class="title">Leave a reply</h2>
+							<div class="farsi-position section-title">
+								<h2 class="farsi-font title">ارتباط مستقیم با مدیریت</h2>
 							</div>
 								
 							<form>
-								<input class="input" placeholder="Name" type="text" style="								        width: 25%;
-								        display: block;
-								">
-								<input class="input" placeholder="Email" type="email" style="width:25%;">
-								<input class="input" placeholder="Subject" type="text">
-								<textarea class="input" placeholder="Message" style="height:120px;"></textarea>
-								<button class="input-btn">Send Message</button>
+								<input id="txtName" runat="server" class="input" placeholder="Name" type="text" style="width: 25%;display: block;">
+								<input id="txtEmail" runat="server" class="input" placeholder="Email" type="email" style="width:25%;">
+								<input id="txtSubj" runat="server" class="input" placeholder="Subject" type="text">
+								<textarea id="txtDetails" runat="server" class="input" placeholder="Message" style="height:120px;"></textarea>
+                                <asp:Button ID="btnSend" runat="server" class="input-btn" Text="Send Message" OnClick="btnSend_Click" />
 							</form>
 						</div>
 						<!-- /reply form -->

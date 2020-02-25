@@ -35,10 +35,10 @@ public partial class _Default : System.Web.UI.Page
             for (int i = galleryTbl.Count - 1; i >= galleryTbl.Count - 6; i--)
             {
                 
-                    sliderString += "<article class='article thumb-article'><div class='article-img'>" +
-                                    "<video id='videoSlider" + galleryTbl[i].id +"'><source src='" + galleryTbl[i].movieAddr + galleryTbl[i].movieName + "' type='video/mp4'>Your browser does not support HTML5 video.</video>" +
+                    sliderString += "<article class='article thumb-article'><div class='video-pre''>" +
+                                    "<video controls><source src='" + galleryTbl[i].movieAddr + galleryTbl[i].movieName + "' type='video/mp4' />Your browser does not support HTML5 video.</video>" +
                                     "</div><div class='article-body'><ul class='article-info'>" +
-                                    "<li class='article-category'><a onclick='playPause($(\"#videoSlider" + galleryTbl[i].id + "\"));'>Play</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +
+                                    "<li class='article-category'><a>Play</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +
                                     //"<p class='sub-title' style='font-size: 9px;'>" + pictureGalleryTbl[i].GalleryPicTitle + "</p>" +
                                     "<h2 class='farsi-position farsi-font farsi-slider-title article-title'><a>" + galleryTbl[i].movieTitle + "</a></h2>" +
                                     "<ul class='article-meta'>" +
@@ -54,10 +54,10 @@ public partial class _Default : System.Web.UI.Page
         {
             for (int i = galleryTbl.Count - 1; i >= 0; i--)
             {
-                    sliderString += "<article class='article thumb-article'><div class='article-img'>" +
-                                    "<video id='videoSlider" + galleryTbl[i].id + "'><source src='" + galleryTbl[i].movieAddr + galleryTbl[i].movieName + "' type='video/mp4'>Your browser does not support HTML5 video.</video>" +
+                    sliderString += "<article class='article thumb-article'><div class='video-pre'>" +
+                                    "<video controls><source src='" + galleryTbl[i].movieAddr + galleryTbl[i].movieName + "' type='video/mp4' />Your browser does not support HTML5 video.</video>" +
                                     "</div><div class='article-body'><ul class='article-info'>" +
-                                    "<li class='article-category'><a onclick=\"playPause($(\'#videoSlider1\'));\" >Play</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +
+                                    "<li class='article-category'><a>Play</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +
                                      //"<p class='sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
                                      "<h2 class='farsi-position farsi-font farsi-slider-title article-title'><a>" + galleryTbl[i].movieTitle + "</a></h2>" +
                                     "<ul class='article-meta'>" +
@@ -100,12 +100,12 @@ public partial class _Default : System.Web.UI.Page
             {
                 for (int i = 0; i < galleryTbl.Count; i++)
                 {
-                    newsTabBarString += "<div class='col-md-4 col-sm-6'><article class='article'><div class='article-img'>";
+                    newsTabBarString += "<div class='col-md-4 col-sm-6'><article class='article'><div class='video-pre-small'>";
 
 
-                    newsTabBarString += "<a><video id='video11'><source src='" + galleryTbl[i].movieAddr + galleryTbl[i].movieName + "' type='video/mp4'>Your browser does not support HTML5 video.</video>" +
-                                        "</a><ul class='article-info'>"+
-                                    "<li class='article-category'><a onclick='playPause()'>Play</a></li>"+
+                    newsTabBarString += "<video controls><source src='" + galleryTbl[i].movieAddr + galleryTbl[i].movieName + "' type='video/mp4' />Your browser does not support HTML5 video.</video>" +
+                                        "<ul class='article-info'>"+
+                                    "<li class='article-category'><a onclick='playPause()'>Play</a></li>" +
                                         "<li class='article-type'><i class='fa fa-video-camera'></i></li>"+
                                 "</ul></div><div class='article-body article-body-top'>" +
                                         "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + galleryTbl[i].movieTitle + "</p>" +

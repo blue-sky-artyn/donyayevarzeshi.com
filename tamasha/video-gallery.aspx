@@ -10,7 +10,13 @@
         .other-tabs {
             display: none;
         }
-
+        .new-video-attr {}
+        .new-video-attr .video-pre {
+            position: relative;
+            z-index: 99;
+            zoom: 1.5;
+        }
+        .new-video-attr .video-pre-small video {zoom: 1.2;}
         .sub-title {
             color: whitesmoke;
             font-weight: bold;
@@ -483,22 +489,43 @@
   
 
     <!-- AD SECTION -->
-    <div id="adMiddle" runat="server" class="visible-lg visible-md">
+    <div id="adMiddle" runat="server" class="visible-lg visible-md" style="margin: 15px 0;">
         <img class="center-block" src="./img/headadmiddle.jpg" alt="">
     </div>
     <!-- /AD SECTION -->
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
 
+          $(".article").mouseenter(function(){
+              $(this).addClass("new-video-attr");
+            });
+
+            $(".article").mouseleave(function(){
+              //alert("test");
+              //alert($(this).attr("class"));
+              $(this).removeClass("new-video-attr");
+          });
+        });
+    </script>
+    
+    
+    
+    
+    
     <script> 
+        
         //var myVideo = document.getElementById("video1");
         //myVideo = this.
         
+        //var myVideo = document.getElementById("videoSlider1");
+            
 
-        function playPause(myVideoPost) {
 
 
-            var myVideo = document.getElementById("videoSlider1");
-
-            alert(myVideo.attr("id"));
+        function playPause1() {
 
             if (myVideo.paused)
                 myVideo.play();

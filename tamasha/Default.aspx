@@ -1062,7 +1062,7 @@
                     </div>
                     <!-- /galery widget -->
 
-                    <!-- tweets widget -->
+                  <%--  <!-- tweets widget -->
                     <div class="widget tweets-widget">
                         <div class="widget-title">
                             <h2 class="farsi-font title">لینک ها</h2>
@@ -1088,7 +1088,34 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- /tweets widget -->
+                    <!-- /tweets widget -->--%>
+
+                    <div class="widget tweets-widget">
+                        <div class="widget-title">
+                            <h2 class="farsi-font title">لینک خبرها</h2>
+                        </div>
+                        <ul id="rssNewsHtml" runat="server">
+                            <li class="tweet">
+                                <i class="fa fa-bookmark"></i>
+                                <div class="tweet-body">
+                                    <p><a href="#">@magnews</a> Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis <a href="#">https://t.co/DwsTbsmxTP</a></p>
+                                </div>
+                            </li>
+                            <li class="tweet">
+                                <i class="fa fa-bookmark"></i>
+                                <div class="tweet-body">
+                                    <p><a href="#">@magnews</a> Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis <a href="#">https://t.co/DwsTbsmxTP</a></p>
+                                </div>
+                            </li>
+                            <li class="tweet">
+                                <i class="fa fa-bookmark"></i>
+                                <div class="tweet-body">
+                                    <p><a href="#">@magnews</a> Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis <a href="#">https://t.co/DwsTbsmxTP</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
                 <!-- /Aside Column -->
             </div>
