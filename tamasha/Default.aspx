@@ -75,6 +75,11 @@
             background: rgb(204,204,204);
             background: linear-gradient(0deg, rgba(204,204,204,1) 73%, rgba(190,190,190,1) 100%);
         }
+        .box-show-slider {
+            box-shadow: grey 1px 1px 3px;
+            background: #ffffff38;
+            padding: 20px;
+        }
     </style>
     <%-- Slider --%>
     <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->

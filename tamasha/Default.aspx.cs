@@ -173,8 +173,8 @@ public partial class _Default : System.Web.UI.Page
         {
             newsDetailsSportTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, newsHitSportTbl[i].newsId));
 
-            sliderStr += "<li><img src='images/news/"+ newsDetailsSportTbl[0].topPageFileAddr + "' alt='"+ newsDetailsSportTbl[0].topPageFileAddr + "' title='"+ newsDetailsSportTbl[0].newsDetTitle + "' />" +
-            "<h2 class='farsi-position farsi-font farsi-slider-title' style='color:white;'><a href='donyaye-varzeshi-news-details.aspx?itemId="+ newsDetailsSportTbl[0].id + "'>" + newsDetailsSportTbl[0].newsDetGist + "</a></h2></li>";
+            sliderStr += "<li class='farsi-font'><img src='images/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='"+ newsDetailsSportTbl[0].topPageFileAddr + "' title='"+ newsDetailsSportTbl[0].newsDetTitle + "' />" +
+            "<h2 class='box-show-slider farsi-position farsi-font farsi-slider-title' style='color:white;'><a href='donyaye-varzeshi-news-details.aspx?itemId="+ newsDetailsSportTbl[0].id + "'>" + newsDetailsSportTbl[0].newsDetGist + "</a></h2></li>";
 
             slidertooltipStr += "<a href='#' title='" + newsDetailsSportTbl[0].newsDetTitle + "'><span><img src='images/news/" + newsDetailsSportTbl[0].topPageFileAddr + "' alt='" + newsDetailsSportTbl[0].topPageFileAddr + "' style='width:85px;'/>" + newsDetailsSportTbl[0].newsDetTitle + "</span></a>";
         }
