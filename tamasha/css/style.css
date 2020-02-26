@@ -653,7 +653,8 @@ textarea.input {
 \*------------------------------------*/
 .article.thumb-article {
     margin-bottom: 0px;
-    height: 370px;
+    height: max-content;
+    
 }
 
     .article.thumb-article .article-img {
@@ -926,6 +927,8 @@ textarea.input {
 
         .galery-widget ul li a img {
             width: 100%;
+            width: 85.66px;
+            height: 85.66px;
             -webkit-transition: 0.5s -webkit-transform;
             transition: 0.5s -webkit-transform;
             transition: 0.5s transform;
@@ -1448,7 +1451,8 @@ textarea.input {
     font-size: 12px;
     direction: rtl;
     max-height: 200px;
-    overflow: hidden
+    overflow: hidden;
+    line-height: 24px;
 }
 /* logo font */
 .logo-font {

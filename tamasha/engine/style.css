@@ -7,7 +7,8 @@
     position: relative;
     width: 60%;
     /*max-width: 640px;*/
-    height: 560px;
+    /*height: 560px;*/
+    height:fit-content;
     margin: 0px auto 0px;
     z-index: 90;
     text-align: left; /* reset align=center */
@@ -300,10 +301,10 @@ _:-ms-input-placeholder, :root #wowslider-container1 a.ws_prev > span:before {li
 _:-ms-input-placeholder, :root #wowslider-container1 a.ws_playpause > span:before {line-height: 3.2em;}
 
 #wowslider-container1 .ws_play > span:before {
-	content:"\e800";
+    content: "\2590\A0\258C";
 }
 #wowslider-container1 .ws_pause > span:before {
-	content:"\e801";
+    content:"\25B6";
 }
 #wowslider-container1 a.ws_next > span:before {
 	content:'\e803';

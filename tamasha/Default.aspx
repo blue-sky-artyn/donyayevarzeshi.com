@@ -701,6 +701,7 @@
                         </div>
                         <div>
                             <input id="txtEmailSub1" runat="server" class="input" type="email" placeholder="ایمیل را وارد نمایید" style="color:white;">
+                            <p id="txtErrorHtml" runat="server"></p>
                             <asp:Button ID="btnSubmit1" runat="server" class="farsi-font farsi-title input-btn" Text="عضویت" OnClick="btnSubmit1_Click" />
                         </div>
                     </div>
@@ -1001,7 +1002,7 @@
                 <!-- Aside Column -->
                 <div class="col-md-4">
                     <!-- article widget -->
-                    <div class="widget">
+                    <div id="hitNewsSliderHtml" runat="server" class="widget">
                         <div class="widget-title">
                             <h2 class="farsi-font title">اخبار بر جسته</h2>
                         </div>
@@ -1055,7 +1056,7 @@
                         <div class="widget-title">
                             <h2 class="farsi-font title">گالری تصاویر</h2>
                         </div>
-                        <ul>
+                        <ul id="gallery1Html" runat="server">
                             <li><a href="#">
                                 <img src="./img/img-widget-3.jpg" alt=""></a></li>
                             <li><a href="#">
@@ -1072,6 +1073,11 @@
                                 <img src="./img/img-widget-9.jpg" alt=""></a></li>
                             <li><a href="#">
                                 <img src="./img/img-widget-10.jpg" alt=""></a></li>
+                            <li><a href="#">
+                                <img src="./img/img-widget-10.jpg" alt=""></a></li>
+                            <li><a href="#">
+                                <img src="./img/img-widget-10.jpg" alt=""></a></li>
+
                         </ul>
                     </div>
                     <!-- /galery widget -->

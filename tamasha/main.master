@@ -143,7 +143,7 @@
                                 <div class="widget-title">
                                     <h3 class="farsi-position farsi-font title">ما را دنبال کنید</h3>
                                 </div>
-                                <ul>
+                                <ul id="socialFooterHtml" runat="server">
                                     <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#" class="google"><i class="fa fa-google"></i></a></li>
@@ -161,6 +161,7 @@
                                 </div>
                                 <div>
                                     <input id="txtEmailSub" runat="server" class="farsi-position farsi-font input" type="email" placeholder="ایمیل خود را وارد نمایید" style="color: white;">
+                                    <p id="txtErrorHtml" runat="server"></p>
                                     <asp:Button ID="btnSub" runat="server" class="farsi-font input-btn" Text="عضویت" OnClick="btnSub_Click" />
                                 </div>
                             </div>
@@ -171,61 +172,12 @@
                         <!-- Column 2 -->
                         <div class="farsi-float col-md-4">
                             <!-- footer article -->
-                            <div class="footer-widget">
+                            <div id="hitNewsFooterHtml" runat="server" class="footer-widget">
                                 <div class="widget-title">
                                     <h2 class="farsi-position farsi-font title">اخبار پرحاشیه</h2>
                                 </div>
 
-                                <!-- ARTICLE -->
-                                <article class="article widget-article">
-                                    <div class="farsi-float article-img">
-                                        <a href="#">
-                                            <img src="./img/img-widget-1.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="article-body">
-                                        <h4 class="farsi-position farsi-font article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                        <ul class="article-meta">
-                                            <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                            <li><i class="fa fa-comments"></i>33</li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <!-- /ARTICLE -->
-
-                                <!-- ARTICLE -->
-                                <article class="article widget-article">
-                                    <div class="article-img">
-                                        <a href="#">
-                                            <img src="./img/img-widget-2.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="article-body">
-                                        <h4 class="farsi-position farsi-font article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                        <ul class="article-meta">
-                                            <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                            <li><i class="fa fa-comments"></i>33</li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <!-- /ARTICLE -->
-
-                                <!-- ARTICLE -->
-                                <article class="article widget-article">
-                                    <div class="article-img">
-                                        <a href="#">
-                                            <img src="./img/img-widget-3.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="article-body">
-                                        <h4 class="farsi-position farsi-font article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                        <ul class="article-meta">
-                                            <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                            <li><i class="fa fa-comments"></i>33</li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <!-- /ARTICLE -->
+                                
                             </div>
                             <!-- /footer article -->
                         </div>
@@ -238,7 +190,7 @@
                                 <div class="widget-title">
                                     <h2 class="farsi-position farsi-font title">گالری عکس</h2>
                                 </div>
-                                <ul>
+                                <ul id="gallery1Html" runat="server">
                                     <li><a href="#">
                                         <img src="./img/img-widget-3.jpg" alt=""></a></li>
                                     <li><a href="#">
@@ -253,6 +205,10 @@
                                         <img src="./img/img-widget-8.jpg" alt=""></a></li>
                                     <li><a href="#">
                                         <img src="./img/img-widget-9.jpg" alt=""></a></li>
+                                    <li><a href="#">
+                                        <img src="./img/img-widget-10.jpg" alt=""></a></li>
+                                    <li><a href="#">
+                                        <img src="./img/img-widget-10.jpg" alt=""></a></li>
                                     <li><a href="#">
                                         <img src="./img/img-widget-10.jpg" alt=""></a></li>
                                 </ul>
@@ -292,10 +248,10 @@
                         <!-- footer links -->
                         <div class="col-md-6 col-md-push-6">
                             <ul class="footer-links">
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Advertisement</a></li>
-                                <li><a href="#">Privacy</a></li>
+                                <li><a href="about-us.aspx">About us</a></li>
+                                <li><a href="about-us.aspx">Contact</a></li>
+                                <li><a href="ad.aspx">Advertisement</a></li>
+                                <li><a href="default.aspx">Main Page</a></li>
                             </ul>
                         </div>
                         <!-- /footer links -->

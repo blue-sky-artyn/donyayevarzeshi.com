@@ -32,11 +32,31 @@ public partial class main : System.Web.UI.MasterPage
         //menuHtml.InnerHtml = menuString;
         //subMenuHtml.InnerHtml = subMenuString;
 
+        #region footer details
+
         // ---------------- footer -----------------
+        string socialFooterStr = "";
         tblCompanyCollection companyDetailTbl = new tblCompanyCollection();
         companyDetailTbl.ReadList();
+        if (companyDetailTbl.Count > 0)
+        {
+            coDetailHtml.InnerHtml = companyDetailTbl[0].CoDetail;
+            if (companyDetailTbl[0].Facebook.Trim().Length > 0)
+                socialFooterStr += "<li><a href='"+ companyDetailTbl[0].Facebook + "' class='facebook'><i class='fa fa-facebook'></i></a></li>";
+            if (companyDetailTbl[0].Twitter.Trim().Length > 0)
+                socialFooterStr += "<li><a href='" + companyDetailTbl[0].Twitter + "' class='twitter'><i class='fa fa-twitter'></i></a></li>";
+            if (companyDetailTbl[0].GooglePlus.Trim().Length > 0)
+                socialFooterStr += "<li><a href='" + companyDetailTbl[0].GooglePlus + "' class='google'><i class='fa fa-google'></i></a></li>";
+            if (companyDetailTbl[0].Instagram.Trim().Length > 0)
+                socialFooterStr += "<li><a href='" + companyDetailTbl[0].Instagram + "' class='instagram'><i class='fa fa-instagram'></i></a></li>";
+            if (companyDetailTbl[0].youtube.Trim().Length > 0)
+                socialFooterStr += "<li><a href='" + companyDetailTbl[0].youtube + "' class='youtube'><i class='fa fa-youtube'></i></a></li>";
+            if (companyDetailTbl[0].Linkedin.Trim().Length > 0)
+                socialFooterStr += "<li><a href='" + companyDetailTbl[0].Linkedin + "' class='rss'><i class='fa fa-linkedin-square'></i></a></li>";
+        }
 
-        //coDetailHtml.InnerHtml = companyDetailTbl[0].CoDetail;
+        socialFooterHtml.InnerHtml = socialFooterStr;
+        #endregion
 
         #region Ad
         string dateNow = DateTime.Now.ToString("yyyyMMdd");
@@ -60,6 +80,51 @@ public partial class main : System.Web.UI.MasterPage
 
         #endregion
 
+        tblGalleryPicturesCollection galleryTbl = new tblGalleryPicturesCollection();
+        galleryTbl.ReadList();
+
+        #region footer gallery
+        string pictureGalleriesStr = "";
+        int minLengthGallery = 0;
+
+        if (galleryTbl.Count > 12)
+            minLengthGallery = galleryTbl.Count - 13;
+
+        for (int i = galleryTbl.Count - 1; i > minLengthGallery; i--)
+            pictureGalleriesStr += "<li><a href='picture-gallery.aspx'><img src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt=''></a></li>";
+
+        gallery1Html.InnerHtml = pictureGalleriesStr;
+        #endregion
+
+        tblNewsHitCollection hitNewsTbl = new tblNewsHitCollection();
+        hitNewsTbl.ReadList();
+
+        tblNewsDetailsCollection newsDetailsTbl = new tblNewsDetailsCollection();
+
+        #region hit news footer
+
+        string hitNewsFooterStr = "";
+        int minLength = 0;
+        if (hitNewsTbl.Count > 5)
+            minLength = hitNewsTbl.Count - 6;
+
+        for (int i = hitNewsTbl.Count - 1; i >= minLength; i--)
+        {
+            newsDetailsTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, hitNewsTbl[i].newsId));
+
+            hitNewsFooterStr += "<article class='article widget-article'><div class='farsi-float article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsTbl[0].id + "'>" +
+                                "<img src='images/news/" + newsDetailsTbl[0].topPageFileAddr + "' alt=''>" +
+                                "</a></div><div class='article-body'>" +
+                                "<h4 class='farsi-position farsi-font article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsTbl[0].id + "'>" + newsDetailsTbl[0].newsDetTitle + "</a></h4>" +
+                                "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsTbl[0].incReview + "</li></ul>" +
+                                "</div></article>";
+
+
+        }
+
+        hitNewsFooterHtml.InnerHtml += hitNewsFooterStr;
+        #endregion
+
     }
 
     protected void btnSub_Click(object sender, EventArgs e)
@@ -67,11 +132,19 @@ public partial class main : System.Web.UI.MasterPage
         string dateInsert = DateTime.Now.ToString("yyyyMMdd");
         tblMemberOfDailyEmail dailyMemberTbl = new tblMemberOfDailyEmail();
 
-        if (txtEmailSub.Value.Trim().Length > 0)
+        #region check existance
+        bool flag = true;
+        tblMemberOfDailyEmailCollection checkEmailTbl = new tblMemberOfDailyEmailCollection();
+        checkEmailTbl.ReadList(Criteria.NewCriteria(tblMemberOfDailyEmail.Columns.memberEmail, CriteriaOperators.Like, txtEmailSub.Value.Trim()));
+        if (checkEmailTbl.Count > 0)
+            flag = false;
+        #endregion
+
+        if (txtEmailSub.Value.Trim().Length > 0 && flag)
         {
             dailyMemberTbl.memberName = "";
             dailyMemberTbl.memberSurname = "";
-            dailyMemberTbl.memberEmail = txtEmailSub.Value;
+            dailyMemberTbl.memberEmail = txtEmailSub.Value.Trim();
             dailyMemberTbl.memberInsDate = Convert.ToInt32(dateInsert);
             dailyMemberTbl.memberExpDate = 0;
             dailyMemberTbl.memberRequestToDea = "1";
@@ -79,5 +152,10 @@ public partial class main : System.Web.UI.MasterPage
 
             dailyMemberTbl.Create();
         }
+        else
+            if (flag == false)
+            txtErrorHtml.InnerText = "ایمیل قبلا ثبت شده است";
+        else
+            txtErrorHtml.InnerText = "ایمیل را وارد نمایید";
     }
 }
