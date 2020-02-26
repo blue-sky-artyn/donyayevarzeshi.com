@@ -75,7 +75,7 @@ public partial class tamasha_news_details : System.Web.UI.Page
             imagesString += "<div class='article-main-img'>" + newsDetailsTbl[0].topPageFileAddr + "</div>";
         else
         {
-            otherPopPageString += "<li><img src='images/news/top/" + newsDetailsTbl[0].topPageFileAddr + "' alt='اخبار دنیای ورزشی " + newsDetailsTbl[0].id + "' title='دنیای ورزشی' id='wows1_" + idCounter + "'/></li>";
+            otherPopPageString += "<li><img src='images/news/" + newsDetailsTbl[0].topPageFileAddr + "' alt='اخبار دنیای ورزشی " + newsDetailsTbl[0].id + "' title='دنیای ورزشی' id='wows1_" + idCounter + "'/></li>";
             picThumbString += "<a href='#wows1_" + idCounter + "' title='اخبار دنیای ورزشی'><img src='images/news/" + newsDetailsTbl[0].topPageFileAddr + "' alt='اخبار دنیای ورزشی " + newsDetailsTbl[0].id + "' title='دنیای ورزشی' /></a>";
 
         }
@@ -90,7 +90,7 @@ public partial class tamasha_news_details : System.Web.UI.Page
             }
             for (int i = 0; i < newsPicTbl.Count; i++)
             {
-                imagesString += "<li><img src='images/news/sport/" + newsPicTbl[i].picName + "' alt='اخبار دنیای ورزشی " + newsPicTbl[i].id + "' title='دنیای ورزشی' id='wows1_" + idCounter + "'/></li>";
+                imagesString += "<li><img src='images/news/" + newsPicTbl[i].picName + "' alt='اخبار دنیای ورزشی " + newsPicTbl[i].id + "' title='دنیای ورزشی' id='wows1_" + idCounter + "'/></li>";
                 picThumbString += "<a href='#wows1_" + idCounter + "' title='اخبار دنیای ورزشی'><img src='images/news/" + newsPicTbl[i].picName + "' alt='اخبار دنیای ورزشی " + newsPicTbl[i].id + "' title='دنیای ورزشی' /></a>";
                 idCounter++;
             }
