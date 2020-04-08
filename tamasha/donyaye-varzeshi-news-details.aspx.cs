@@ -40,28 +40,7 @@ public partial class tamasha_news_details : System.Web.UI.Page
         newsDetailsIncTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, itemGet));
 
         int numberOfReview = Convert.ToInt32(newsDetailsTbl[0].incReview) + 1;
-        int idGrp = newsDetailsTbl[0].idGroup;
-        string title = newsDetailsTbl[0].newsDetTitle;
-        string details = newsDetailsTbl[0].newsDetDetails; 
-        string subTitle = newsDetailsTbl[0].newsDetSubtitle; 
-        string insDate = newsDetailsTbl[0].newsDetInsertDate; 
-        string insTime = newsDetailsTbl[0].newsDetInsertTime; 
-        int fileType = Convert.ToInt32(newsDetailsTbl[0].topPageFileType.ToString());
-        string fileAddr = newsDetailsTbl[0].topPageFileAddr;
-
         newsDetailsIncTbl[0].incReview = numberOfReview;
-        newsDetailsIncTbl[0].idGroup = idGrp;
-        newsDetailsIncTbl[0].idAcceptedAdmin = 1;
-        newsDetailsIncTbl[0].idStaffCreator = 5;
-        newsDetailsIncTbl[0].newsDetTitle = title;
-        newsDetailsIncTbl[0].newsDetDetails = details;
-        newsDetailsIncTbl[0].newsDetSubtitle = subTitle;
-        newsDetailsIncTbl[0].newsDetInsertDate = insDate;
-        newsDetailsIncTbl[0].newsDetInsertTime = insTime;
-        newsDetailsIncTbl[0].topPageFileType = fileType;
-        newsDetailsIncTbl[0].topPageFileAddr = fileAddr;
-        newsDetailsIncTbl[0].allow = "1";
-
 
         newsDetailsIncTbl[0].Update();
         #endregion

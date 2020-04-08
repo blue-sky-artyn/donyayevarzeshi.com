@@ -16,7 +16,7 @@ public partial class archive : System.Web.UI.Page
 
         #region archive News
         newsDetailsSportTbl.ReadList();
-        string popularNews = "<div class='farsi-position section-title'><h2 class='farsi-font title'> اخبار</h2></div>";
+        string popularNews = "<div class='farsi-position section-title' style='border-bottom: 1px solid #ededed;'><h2 class='farsi-font title'> اخبار</h2></div>";
 
         if (newsDetailsSportTbl.Count > 5)
         {
@@ -32,7 +32,7 @@ public partial class archive : System.Web.UI.Page
                     popularNews += newsDetailsSportTbl[i].topPageFileAddr;
 
                 popularNews += "</a></div><div class='article-body'>" +
-                            "<ul class='article-info'><li class='article-category'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>News</a></li><li class='article-type'><i class='fa fa-file-text'></i></li></ul>" +
+                            //"<ul class='article-info'><li class='article-category'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>News</a></li><li class='article-type'><i class='fa fa-file-text'></i></li></ul>" +
                             "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
                             "<h4 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h4>" +
                             "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li></ul>" +

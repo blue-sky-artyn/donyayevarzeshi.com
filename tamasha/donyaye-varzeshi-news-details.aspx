@@ -17,6 +17,8 @@
             top: 22px;
         }
         /* news */
+
+		.article-body p img {width:100%;}
     </style>
 </asp:Content>
 
@@ -28,28 +30,14 @@
 				<!-- ROW -->
 				<div class="row">
                     	<!-- Aside Column -->
-					<div class="col-md-4">
+					<div class="col-md-4" style="background-color: white;padding: 15px;margin: 0 25px;">
 						<!-- Ad widget -->
 						<div class="widget center-block hidden-xs">
 							<img class="center-block" src="./img/ad-1.jpg" alt=""> 
 						</div>
 						<!-- /Ad widget -->
 						
-						<!-- social widget -->
-						<div class="widget social-widget">
-							<div class="widget-title">
-								<h2 class="farsi-font title">با ما در ارتباط باشید</h2>
-							</div>
-							<ul>
-								<li><a href="#" class="facebook"><i class="fa fa-facebook"></i><br><span>Facebook</span></a></li>
-								<li><a href="#" class="twitter"><i class="fa fa-twitter"></i><br><span>Twitter</span></a></li>
-								<li><a href="#" class="google"><i class="fa fa-google"></i><br><span>Google+</span></a></li>
-								<li><a href="#" class="instagram"><i class="fa fa-instagram"></i><br><span>Instagram</span></a></li>
-								<li><a href="#" class="youtube"><i class="fa fa-youtube"></i><br><span>Youtube</span></a></li>
-								<li><a href="#" class="rss"><i class="fa fa-rss"></i><br><span>RSS</span></a></li>
-							</ul>
-						</div>
-						<!-- /social widget -->
+						
 						
 						<!-- subscribe widget -->
 						<div class="widget subscribe-widget">
@@ -170,7 +158,7 @@
 					<!-- /Aside Column -->
 
 					<!-- Main Column -->
-					<div class="col-md-8">
+					<div class="col-md-7" style="background-color: white;">
 
 						<!-- breadcrumb -->
 						<ul class="article-breadcrumb">

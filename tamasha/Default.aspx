@@ -58,27 +58,11 @@
         }
 
         .article-body-4 {
-            height: 450px;
             overflow: hidden;
         }
         /* Slider items */
         .farsi-slider-title a {
             color:white;
-        }
-
-        /* limiter of page*/
-        .container-limiter {
-            padding: 5px;
-            background-color: white;
-        }
-        body {
-            background: rgb(204,204,204);
-            background: linear-gradient(0deg, rgba(204,204,204,1) 73%, rgba(190,190,190,1) 100%);
-        }
-        .box-show-slider {
-            box-shadow: grey 1px 1px 3px;
-            background: #ffffff38;
-            padding: 20px;
         }
     </style>
     <%-- Slider --%>

@@ -1450,9 +1450,14 @@ textarea.input {
     text-align: justify;
     font-size: 12px;
     direction: rtl;
-    max-height: 200px;
     overflow: hidden;
     line-height: 24px;
+}
+
+
+
+.article-body > p img{
+    width: 100%;
 }
 /* logo font */
 .logo-font {
@@ -1481,7 +1486,8 @@ textarea.input {
 
 .farsi-font-title {
     font-family: IRANSans !important;
-    font-size: 22px;
+    font-size: 15px;
+    line-height: 26px;
 }
 
 .farsi-direction {

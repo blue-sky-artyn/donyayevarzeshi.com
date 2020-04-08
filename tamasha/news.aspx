@@ -1,4 +1,4 @@
-﻿ew<%@ Page Title="" Language="C#" MasterPageFile="~/main.master" AutoEventWireup="true" CodeFile="news.aspx.cs" Inherits="archive" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.master" AutoEventWireup="true" CodeFile="news.aspx.cs" Inherits="archive" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
         <style>
@@ -41,7 +41,7 @@
             <!-- ROW -->
             <div class="row">
                 <!-- Main Column -->
-                <div id="popularNewsHtml" runat="server" class="col-md-8">
+                <div id="popularNewsHtml" runat="server" class="col-md-7" style="background: white;margin-right: 15px;">
                     <!-- section title -->
                     <div class="farsi-position section-title">
                         <h2 class="farsi-font title">اخبار محبوب</h2>
@@ -150,7 +150,7 @@
                 <!-- /Main Column -->
 
                 <!-- Aside Column -->
-                <div class="col-md-4">
+                <div class="col-md-4" style="background: white;padding: 15px;">
                     <!-- article widget -->
                     <div class="widget">
                         <div class="widget-title">

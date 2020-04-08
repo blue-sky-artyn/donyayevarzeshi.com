@@ -34,6 +34,28 @@
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+    <style>
+        /* limiter of page*/
+        .container-limiter {
+            padding: 5px;
+            background-color: white;
+        }
+
+        body {
+            background: rgb(204,204,204);
+            background: linear-gradient(0deg, rgba(204,204,204,1) 73%, rgba(190,190,190,1) 100%);
+            background-image: url(images/pat1.jpg);
+            background-size: 200px 200px;
+        }
+
+        .box-show-slider {
+            box-shadow: grey 1px 1px 3px;
+            background: #ffffff38;
+            padding: 20px;
+        }
+    </style>
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -46,18 +68,16 @@
                 <div class="container">
                     <div class="header-links">
                         <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Advertisement</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="login.aspx"><i class="fa fa-sign-in"></i>Login</a></li>
+                            <li><a href="ad.aspx">تبلیفات</a></li>
+                            <li><a href="terms.aspx">قوانین</a></li>
+                            <li><a href="login.aspx"><i class="fa fa-sign-in"></i>ورود</a></li>
                         </ul>
                     </div>
                     <div class="header-social">
                         <ul>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                           <%-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li>--%>
+                            <%-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li>--%>
                             <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                             <li><a href="#"><i class="fa fa-youtube"></i></a></li>
                         </ul>
@@ -73,7 +93,8 @@
                         <a href="#" class="logo">
                             <img src="./img/logo-tamasha.png" alt="tamasha magazine">
                         </a>
-                        <p class="logo-font">هفته نامه تماشا<br /><span class="sub-logo">دنیای ورزشی</span></p>
+                        <p class="logo-font">هفته نامه تماشا<br />
+                            <span class="sub-logo">دنیای ورزشی</span></p>
                     </div>
                     <div id="adHeader" runat="server" class="header-sell-ads">
                         <img class="center-block" src="./img/headad.jpg" alt="tamasha advertisment">
@@ -90,7 +111,7 @@
                             <a href="#" class="logo">
                                 <img src="./img/logo-tamasha.png" alt=""></a>
                         </div>
-                        <ul id="menuHtml" runat="server" ClientIDMode="static" class="farsi-float farsi-dir farsi-font main-nav nav navbar-nav">
+                        <ul id="menuHtml" runat="server" clientidmode="static" class="farsi-float farsi-dir farsi-font main-nav nav navbar-nav">
                             <li <%--class="active"--%>><a href="default.aspx">اصلی</a></li>
                             <li><a href="news.aspx">اخبار</a></li>
                             <li><a href="archive.aspx">آرشیو</a></li>
@@ -133,7 +154,7 @@
                                 <div class="farsi-position footer-logo">
                                     <a href="#" class="logo">
                                         <img src="./img/logo-tamasha.png" alt=""></a>
-                                    <p id="coDetailHtml" ClientIDMode="static" runat="server" class="farsi-font farsi-position-justify farsi-dir">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                                    <p id="coDetailHtml" clientidmode="static" runat="server" class="farsi-font farsi-position-justify farsi-dir">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
                                 </div>
                             </div>
                             <!-- /footer about -->
@@ -177,7 +198,7 @@
                                     <h2 class="farsi-position farsi-font title">اخبار پرحاشیه</h2>
                                 </div>
 
-                                
+
                             </div>
                             <!-- /footer article -->
                         </div>
@@ -248,10 +269,9 @@
                         <!-- footer links -->
                         <div class="col-md-6 col-md-push-6">
                             <ul class="footer-links">
-                                <li><a href="about-us.aspx">About us</a></li>
-                                <li><a href="about-us.aspx">Contact</a></li>
-                                <li><a href="ad.aspx">Advertisement</a></li>
-                                <li><a href="default.aspx">Main Page</a></li>
+                                <li><a href="about-us.aspx">درباره ما</a></li>
+                                <li><a href="ad.aspx">تبلیغات</a></li>
+                                <li><a href="default.aspx">صفحه اصلی</a></li>
                             </ul>
                         </div>
                         <!-- /footer links -->
@@ -293,7 +313,7 @@
         <script src="//code.jquery.com/jquery-1.12.4.js"></script>
         <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        
+
         <script>
             $(document).ready(function () {
                 //close everywhere
@@ -342,9 +362,9 @@
         </script>
 
     </form>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/main.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
 

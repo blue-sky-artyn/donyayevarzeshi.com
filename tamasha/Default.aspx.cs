@@ -46,8 +46,8 @@ public partial class _Default : System.Web.UI.Page
                 foreach (var i in items)
                 {
                     newsString += "<li class='tweet'><i class='fa fa-bookmark'></i>" +
-                                "<div class='tweet-body'>" +
-                                "<h3>" + i.title + "</h3><p>" + i.description + "</p><small class='readme-font readmore'><a href='" + i.link + "'>ادامه مطلب</a></small></div></li>"; 
+                                "<div class='tweet-body article-body'>" +
+                                "<h3 class='farsi-font-title farsi-dir' style='text-align: center;'>" + i.title + "</h3><p class='farsi-direction farsi-align' style='width: 86%;'>" + i.description + "</p><small class='readme-font readmore'><a href='" + i.link + "'>ادامه مطلب</a></small></div></li>"; 
                 }
             }
             return newsString;
@@ -466,7 +466,7 @@ public partial class _Default : System.Web.UI.Page
                             "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
                             "<h4 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h4>" +
                             "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li></ul>" +
-                            "<p>" + newsDetailsSportTbl[i].newsDetDetails + "</p></div></article>";
+                            "<p>" + newsDetailsSportTbl[i].newsDetGist + "</p></div></article>";
             }
         }
         else
@@ -486,7 +486,7 @@ public partial class _Default : System.Web.UI.Page
                             "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p><ul class='article-info'><li class='article-category'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>News</a></li><li class='article-type'><i class='fa fa-file-text'></i></li></ul>" +
                             "<h4 class='farsi-font farsi-position article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>" + newsDetailsSportTbl[i].newsDetTitle + "</a></h4>" +
                             "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsSportTbl[i].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsSportTbl[i].incReview + "</li></ul>" +
-                            "<p>" + newsDetailsSportTbl[i].newsDetDetails + "</p></div></article>";
+                            "<p>" + newsDetailsSportTbl[i].newsDetGist + "</p></div></article>";
             }
         }
         popularNewsHtml.InnerHtml = popularNews;
