@@ -47,12 +47,6 @@
             background-image: url(images/pat1.jpg);
             background-size: 200px 200px;
         }
-
-        .box-show-slider {
-            box-shadow: grey 1px 1px 3px;
-            background: #ffffff38;
-            padding: 20px;
-        }
     </style>
 
 
@@ -93,8 +87,10 @@
                         <a href="#" class="logo">
                             <img src="./img/logo-tamasha.png" alt="tamasha magazine">
                         </a>
-                        <p class="logo-font">هفته نامه تماشا<br />
-                            <span class="sub-logo">دنیای ورزشی</span></p>
+                        <p class="logo-font">
+                            هفته نامه تماشا<br />
+                            <span class="sub-logo">دنیای ورزشی</span>
+                        </p>
                     </div>
                     <div id="adHeader" runat="server" class="header-sell-ads">
                         <img class="center-block" src="./img/headad.jpg" alt="tamasha advertisment">
@@ -235,6 +231,12 @@
                                 </ul>
                             </div>
                             <!-- /footer galery -->
+
+                            <!-- Ad widget -->
+                            <div id="adSide" runat="server" class="widget center-block hidden-xs">
+                                <img class="center-block" src="./img/headadbox.jpg" alt="">
+                            </div>
+                            <!-- /Ad widget -->
 
                             <!-- footer tweets -->
                             <div class="footer-widget tweets-widget">

@@ -27,26 +27,46 @@ public partial class _Default : System.Web.UI.Page
         tblGalleryGroupCollection galleryGrpTbl = new tblGalleryGroupCollection();
         galleryGrpTbl.ReadList();
 
-
         #region slider
-        int sliderCount = 0;
-        string sliderString = "";
+
+        string sliderString = "<div id='owl-carousel-1' class='news-background-filler owl-carousel owl-theme center-owl-nav'>";
         if (galleryTbl.Count > 5)
         {
             for (int i = galleryTbl.Count - 1; i > galleryTbl.Count - 6; i--)
             {
-                sliderString += "<li><img src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt='دنیای ورزشی" + galleryTbl[i].GalleryPicName + "' title='" + galleryTbl[i].GalleryPicTitle + "' id='wows1_" + sliderCount + "' /></li>";
-                sliderCount++;
+                
+                    sliderString += "<article class='article thumb-article'><div class='article-img'>" +
+                                    "<img class='head-news-img' src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt='دنیای ورزشی " + galleryTbl[i].GalleryPicName + "'>" +
+                                    "</div><div class='article-body'><ul class='article-info'>" +
+                                    "<li class='article-category'><a href='#'>Archive</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +
+                                    //"<p class='sub-title' style='font-size: 9px;'>" + pictureGalleryTbl[i].GalleryPicTitle + "</p>" +
+                                    "<h2 class='farsi-position farsi-font farsi-slider-title article-title'><a href='#?picId=" + galleryTbl[i].id + "'>" + galleryTbl[i].GalleryPicTitle + "</a></h2>" +
+                                    "<ul class='article-meta'>" +
+                                    "<li><i class='fa fa-clock-o'></i>" + galleryTbl[i].GalleryInsertDate + "</li>" +
+                                    //"<li><i class='fa fa-comments'></i>" + pictureGalleryTbl[i].incReview + "</li>" +
+                                    "</ul></div></article>";
+                
+
+
             }
         }
         else
         {
             for (int i = galleryTbl.Count - 1; i > 0; i--)
             {
-                sliderString += "<li><img src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt='دنیای ورزشی" + galleryTbl[i].GalleryPicName + "' title='" + galleryTbl[i].GalleryPicTitle + "' id='wows1_" + sliderCount + "' /></li>";
-                sliderCount++;
+                    sliderString += "<article class='article thumb-article'><div class='article-img'>" +
+                                    "<img class='head-news-img' src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt='دنیای ورزشی " + galleryTbl[i].GalleryPicName + "'>" +
+                                    "</div><div class='article-body'><ul class='article-info'>" +
+                                    "<li class='article-category'><a href='#'>Archive</a></li><li class='article-type'><i class='fa fa-camera'></i></li></ul>" +
+                                     //"<p class='sub-title' style='font-size: 9px;'>" + newsDetailsSportTbl[i].newsDetSubtitle + "</p>" +
+                                     "<h2 class='farsi-position farsi-font farsi-slider-title article-title'><a href='#?picId=" + galleryTbl[i].id + "'>" + galleryTbl[i].GalleryPicTitle + "</a></h2>" +
+                                    "<ul class='article-meta'>" +
+                                    "<li><i class='fa fa-clock-o'></i>" + galleryTbl[i].GalleryInsertDate + "</li>" +
+                                    //"<li><i class='fa fa-comments'></i>" + pictureGalleryTbl[i].incReview + "</li>" +
+                                    "</ul></div></article>";
             }
         }
+        sliderString += "</div></div>";
         sliderHtml.InnerHtml = sliderString;
         #endregion
 
@@ -66,7 +86,7 @@ public partial class _Default : System.Web.UI.Page
         #endregion
 
 
-        #region tab content
+        #region news in tab
         string newsTabBarString = string.Empty;
         for (int j = 0; j < galleryGrpTbl.Count; j++)
         {
@@ -80,7 +100,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 for (int i = 0; i < galleryTbl.Count; i++)
                 {
-                    newsTabBarString += "<div class='col-md-4 col-sm-6'><article class='article'><div class='article2-img'>";
+                    newsTabBarString += "<div class='col-md-4 col-sm-6'><article class='article'><div class='article-img'>";
 
 
                     newsTabBarString += "<a><img src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt='" + galleryTbl[i].GalleryPicName + "'></a><ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i>";
@@ -98,7 +118,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    newsTabBarString += "<div class='col-md-3 col-sm-6'><article class='article'><div class='article2-img'>" +
+                    newsTabBarString += "<div class='col-md-3 col-sm-6'><article class='article'><div class='article-img'>" +
                                         "<a><img src='" + galleryTbl[i].GalleryPicAddr + galleryTbl[i].GalleryPicName + "' alt='" + galleryTbl[i].GalleryPicName + "'></a>" +
                                         "<ul class='article-info'><li class='article-type'><i class='fa fa-camera'></i></li></ul></div><div class='article-body article-body-top'>" +
                                         "<p class='sub-title-news sub-title' style='font-size: 9px;'>" + galleryTbl[i].GalleryPicTitle + "</p>" +
@@ -114,6 +134,7 @@ public partial class _Default : System.Web.UI.Page
         }
         tabNewsDetailsHtml.InnerHtml = newsTabBarString;
         #endregion
+
 
     }
 }

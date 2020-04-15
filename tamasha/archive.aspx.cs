@@ -51,7 +51,7 @@ public partial class archive : System.Web.UI.Page
             {
                 for (int i = newsTbl.Count - 1; i > newsTbl.Count - 3; i--)
                 {
-                    newsString += "<div class='col-md-6 col-sm-6'><article class='article'><div class='article-img'>" +
+                    newsString += "<div class='col-md-6 col-sm-6'><article class='article'><div class='article2-img'>" +
                                   "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsTbl[i].id + "'>";
 
                     if (newsTbl[i].topPageFileType == 0)
@@ -77,7 +77,7 @@ public partial class archive : System.Web.UI.Page
                 if (newsTbl.Count > 0)
                 {
 
-                    newsString += "<div class='col-md-6 col-sm-6'><article class='article'><div class='article-img'>" +
+                    newsString += "<div class='col-md-6 col-sm-6'><article class='article'><div class='article2-img'>" +
                                  "<a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsTbl[0].id + "'>";
 
                     if (newsTbl[0].topPageFileType == 0)
@@ -106,7 +106,7 @@ public partial class archive : System.Web.UI.Page
             {
                 for (int i = newsTbl.Count - 1; i > newsTbl.Count - 4; i--)
                 {
-                    smallNewsString += "<div class='col-md-4 col-sm-4'><article class='article'><div class='article-img'>";
+                    smallNewsString += "<div class='col-md-4 col-sm-4'><article class='article'><div class='article2-img'>";
                     if (newsTbl[i].topPageFileType == 0)
                         smallNewsString += "<img src='./images/news/" + newsTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsTbl[i].topPageFileAddr + "'>";
                     else if (newsTbl[0].topPageFileType == 1)
@@ -122,7 +122,7 @@ public partial class archive : System.Web.UI.Page
             {
                 for (int i = newsTbl.Count - 1; i >= 0; i--)
                 {
-                    smallNewsString += "<div class='col-md-4 col-sm-4'><article class='article'><div class='article-img'>";
+                    smallNewsString += "<div class='col-md-4 col-sm-4'><article class='article'><div class='article2-img'>";
                     if (newsTbl[i].topPageFileType == 0)
                         smallNewsString += "<img src='./images/news/" + newsTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsTbl[i].topPageFileAddr + "'>";
                     else if (newsTbl[0].topPageFileType == 1)

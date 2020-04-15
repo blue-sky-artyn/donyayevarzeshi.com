@@ -22,7 +22,7 @@ public partial class archive : System.Web.UI.Page
         {
             for (int i = 0; i < 5; i++)
             {
-                popularNews += "<article class='article row-article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>";
+                popularNews += "<article class='article row-article'><div class='article3-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>";
 
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
                     popularNews += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";
@@ -43,7 +43,7 @@ public partial class archive : System.Web.UI.Page
         {
             for (int i = 0; i < newsDetailsSportTbl.Count; i++)
             {
-                popularNews += "<article class='article row-article'><div class='article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>";
+                popularNews += "<article class='article row-article'><div class='article3-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsSportTbl[i].id + "'>";
 
                 if (newsDetailsSportTbl[i].topPageFileType == 0)
                     popularNews += "<img src='./images/news/" + newsDetailsSportTbl[i].topPageFileAddr + "' alt='دنیای ورزشی " + newsDetailsSportTbl[i].topPageFileAddr + "'>";

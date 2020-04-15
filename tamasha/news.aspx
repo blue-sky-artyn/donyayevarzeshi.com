@@ -10,22 +10,6 @@
             display: none;
         }
 
-        .sub-title {
-            color: whitesmoke;
-            font-weight: bold;
-            font-style: italic;
-            margin: 0 25px;
-        }
-
-        .sub-title-news {
-            font-size: 9px;
-            color: #ef233c;
-            margin: 7px 10px;
-            /* text-decoration: underline; */
-            border-bottom: #ef233c solid 1px;
-        }
-
-
         /*#menuHtml:first-child {*/
         /*#menuHtml:nth-child(2n) {
           background-color: red ;

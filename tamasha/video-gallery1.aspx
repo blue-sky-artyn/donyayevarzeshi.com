@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.master" AutoEventWireup="true" CodeFile="video-gallery.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <!-- Start WOWSlider.com HEAD section -->
+    <!-- add to the <head> of your page -->
+    <link rel="stylesheet" type="text/css" href="engine_video/style.css" />
+    <script type="text/javascript" src="engine_video/jquery.js"></script>
+    <!-- End WOWSlider.com HEAD section -->
     <style>
         video {
             /*height: 370px;*/
@@ -10,27 +15,19 @@
         .other-tabs {
             display: none;
         }
-        .new-video-attr {}
-        .new-video-attr .video-pre {
-            position: relative;
-            z-index: 99;
-            zoom: 1.5;
-        }
-        .new-video-attr .video-pre-small video {zoom: 1.2;}
-        .sub-title {
-            color: whitesmoke;
-            font-weight: bold;
-            font-style: italic;
-            margin: 0 25px;
+
+        .new-video-attr {
         }
 
-        .sub-title-news {
-            font-size: 9px;
-            color: #ef233c;
-            margin: 7px 10px;
-            /* text-decoration: underline; */
-            border-bottom: #ef233c solid 1px;
-        }
+            .new-video-attr .video-pre {
+                position: relative;
+                z-index: 99;
+                zoom: 1.5;
+            }
+
+            .new-video-attr .video-pre-small video {
+                zoom: 1.2;
+            }
 
         .title-block {
             display: block;
@@ -60,23 +57,22 @@
             height: 450px;
             overflow: hidden;
         }
+
         .head-news-img {
             min-height: inherit;
             max-height: inherit;
         }
+
         .article.thumb-article {
             height: initial;
         }
+
         .news-background-filler {
             background-color: transparent;
         }
 
         .clear-float {
-            clear:both;
-        }
-        .owl-carousel {
-            width: 75%;
-            margin: 0 auto;
+            clear: both;
         }
     </style>
 
@@ -84,77 +80,40 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <!-- Owl Carousel 1_Sldier -->
-    <div id="sliderHtml" clientidmode="static" runat="server">
-        <div id="owl-carousel-1" class="news-background-filler owl-carousel owl-theme center-owl-nav">
-            <!-- ARTICLE -->
-            <article class="article thumb-article">
-                <div class="article-img">
-                    <img class="head-news-img" src="./img/news/1.jpg" alt="">
-                </div>
-                <div class="article-body">
-                    <ul class="article-info">
-                        <li class="article-category"><a href="#">News</a></li>
-                        <li class="article-type"><i class="fa fa-camera"></i></li>
-                    </ul>
-                    <h2 class="farsi-position farsi-font farsi-slider-title article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h2>
-                    <ul class="article-meta">
-                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                        <li><i class="fa fa-comments"></i>33</li>
-                    </ul>
-                </div>
-            </article>
-            <!-- /ARTICLE -->
+    <!-- Start WOWSlider.com BODY section -->
+    <!-- add to the <body> of your page -->
+    <div id="wowslider-container1">
+        <div class="ws_images">
+            <ul id="sliderHtml" runat="server">
 
-            <!-- ARTICLE -->
-            <article class="article thumb-article">
-                <div class="article-img">
-                    <img class="head-news-img" src="./img/news/2.jpg" alt="">
-                </div>
-                <div class="article-body">
-                    <ul class="article-info">
-                        <li class="article-category"><a href="#">News</a></li>
-                        <li class="article-type"><i class="fa fa-file-text"></i></li>
-                    </ul>
-                    <h2 class="farsi-position farsi-font farsi-slider-title article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h2>
-                    <ul class="article-meta">
-                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                        <li><i class="fa fa-comments"></i>33</li>
-                    </ul>
-                </div>
-            </article>
-            <!-- /ARTICLE -->
-
-            <!-- ARTICLE -->
-            <article class="article thumb-article">
-                <div class="article-img">
-                    <img class="head-news-img" src="./img/news/3.jpg" alt="">
-                </div>
-                <div class="article-body">
-                    <ul class="article-info">
-                        <li class="article-category"><a href="#">News</a></li>
-                        <li class="article-type"><i class="fa fa-camera"></i></li>
-                    </ul>
-                    <h2 class="farsi-position farsi-font farsi-slider-title article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h2>
-                    <ul class="article-meta">
-                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                        <li><i class="fa fa-comments"></i>33</li>
-                    </ul>
-                </div>
-            </article>
-            <!-- /ARTICLE -->
+                <li><video controls="" __idm_id__="858097665"><source src="video/gallery/Lines2.mp4" type="video/mp4">Your browser does not support HTML5 video.</video></li>
+            </ul>
         </div>
     </div>
-    <!-- /Owl Carousel 1 -->
+    <script type="text/javascript" src="engine_video/wowslider.js"></script>
+    <script type="text/javascript" src="engine_video/script.js"></script>
+    <!-- End WOWSlider.com BODY section -->
 
- 
-     <!-- SECTION (TAB NEWS) -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- SECTION (TAB NEWS) -->
     <div class="section">
         <!-- CONTAINER -->
         <div class="container">
             <!-- ROW -->
             <div class="row">
-                
+
                 <!-- Main Column -->
                 <div class="col-md-12">
                     <!-- section title -->
@@ -490,42 +449,42 @@
         <!-- /CONTAINER -->
     </div>
     <!-- /SECTION -->
-  
+
 
     <!-- AD SECTION -->
     <div id="adMiddle" runat="server" class="visible-lg visible-md" style="margin: 15px 0;">
         <img class="center-block" src="./img/headadmiddle.jpg" alt="">
     </div>
     <!-- /AD SECTION -->
-    
-    
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
 
-          $(".article").mouseenter(function(){
-              $(this).addClass("new-video-attr");
+            $(".article").mouseenter(function () {
+                $(this).addClass("new-video-attr");
             });
 
-            $(".article").mouseleave(function(){
-              //alert("test");
-              //alert($(this).attr("class"));
-              $(this).removeClass("new-video-attr");
-          });
+            $(".article").mouseleave(function () {
+                //alert("test");
+                //alert($(this).attr("class"));
+                $(this).removeClass("new-video-attr");
+            });
         });
     </script>
-    
-    
-    
-    
-    
+
+
+
+
+
     <script> 
-        
+
         //var myVideo = document.getElementById("video1");
         //myVideo = this.
-        
+
         //var myVideo = document.getElementById("videoSlider1");
-            
+
 
 
 

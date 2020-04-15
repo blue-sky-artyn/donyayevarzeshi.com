@@ -323,12 +323,13 @@ _:-ms-input-placeholder, :root #wowslider-container1 a.ws_playpause > span:befor
 #wowslider-container1 .ws-title {
     font: 1em IRANSans !important;
     position: absolute;
-    left: 20px;
+    left: -15px;
     margin-right: 10em;
     z-index: 50;
     bottom: 45px;
     top: auto;
     opacity: 1;
+	text-align: right;
 }
 #wowslider-container1 .ws-title div,#wowslider-container1 .ws-title span{
 	display:inline-block;

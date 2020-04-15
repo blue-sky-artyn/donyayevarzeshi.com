@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.master" AutoEventWireup="true" CodeFile="picture-gallery.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <!-- Start WOWSlider.com HEAD section -->
+    <!-- add to the <head> of your page -->
+    <link rel="stylesheet" type="text/css" href="engine2/style.css" />
+    <script type="text/javascript" src="engine2/jquery.js"></script>
+    <!-- End WOWSlider.com HEAD section -->
+
+
     <style>
         video {
             height: 370px;
@@ -8,21 +15,6 @@
 
         .other-tabs {
             display: none;
-        }
-
-        .sub-title {
-            color: whitesmoke;
-            font-weight: bold;
-            font-style: italic;
-            margin: 0 25px;
-        }
-
-        .sub-title-news {
-            font-size: 9px;
-            color: #ef233c;
-            margin: 7px 10px;
-            /* text-decoration: underline; */
-            border-bottom: #ef233c solid 1px;
         }
 
         .title-block {
@@ -53,19 +45,22 @@
             height: 450px;
             overflow: hidden;
         }
+
         .head-news-img {
             min-height: inherit;
             max-height: inherit;
         }
+
         .article.thumb-article {
             height: initial;
         }
+
         .news-background-filler {
             background-color: transparent;
         }
 
         .clear-float {
-            clear:both;
+            clear: both;
         }
     </style>
 
@@ -74,9 +69,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <!-- Owl Carousel 1_Sldier -->
-    <div id="sliderHtml" clientidmode="static" runat="server">
+    <%-- <div id="sliderHtml" clientidmode="static" runat="server">
         <div id="owl-carousel-1" class="news-background-filler owl-carousel owl-theme center-owl-nav">
-            <!-- ARTICLE -->
             <article class="article thumb-article">
                 <div class="article-img">
                     <img class="head-news-img" src="./img/news/1.jpg" alt="">
@@ -93,9 +87,6 @@
                     </ul>
                 </div>
             </article>
-            <!-- /ARTICLE -->
-
-            <!-- ARTICLE -->
             <article class="article thumb-article">
                 <div class="article-img">
                     <img class="head-news-img" src="./img/news/2.jpg" alt="">
@@ -112,9 +103,6 @@
                     </ul>
                 </div>
             </article>
-            <!-- /ARTICLE -->
-
-            <!-- ARTICLE -->
             <article class="article thumb-article">
                 <div class="article-img">
                     <img class="head-news-img" src="./img/news/3.jpg" alt="">
@@ -131,19 +119,44 @@
                     </ul>
                 </div>
             </article>
-            <!-- /ARTICLE -->
         </div>
-    </div>
+    </div>--%>
     <!-- /Owl Carousel 1 -->
 
- 
-     <!-- SECTION (TAB NEWS) -->
+
+
+
+
+
+    <!-- Start WOWSlider.com BODY section -->
+    <!-- add to the <body> of your page -->
+    <div id="wowslider-container1">
+        <div class="ws_images">
+            <ul id="sliderHtml" runat="server">
+                <li><img src="data1/images/1.jpg" alt="1" title="1" id="wows1_0" /></li>
+                <li><img src="data1/images/2.jpg" alt="2" title="2" id="wows1_1" /></li>
+                <li><img src="data1/images/3.jpg" alt="3" title="3" id="wows1_2" /></li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="engine2/wowslider.js"></script>
+    <script type="text/javascript" src="engine2/script.js"></script>
+    <!-- End WOWSlider.com BODY section -->
+
+
+
+
+
+
+
+    <!-- SECTION (TAB NEWS) -->
     <div class="section">
         <!-- CONTAINER -->
         <div class="container">
             <!-- ROW -->
             <div class="row">
-                
+
                 <!-- Main Column -->
                 <div class="col-md-12">
                     <!-- section title -->
@@ -479,7 +492,7 @@
         <!-- /CONTAINER -->
     </div>
     <!-- /SECTION -->
-  
+
 
     <!-- AD SECTION -->
     <div id="adMiddle" runat="server" class="visible-lg visible-md">
@@ -487,135 +500,6 @@
     </div>
     <!-- /AD SECTION -->
 
-    <!-- SECTION (POPULAR VIDEOS) -->
-    <div class="section">
-        <!-- CONTAINER -->
-        <div class="container">
-            <!-- ROW -->
-            <div class="row">
-                <!-- Main Column -->
-                <div class="col-md-12">
-                    <!-- section title -->
-                    <div class="farsi-position section-title">
-                        <h2 class="farsi-font title">ویدیوهای محبوب</h2>
-                        <div id="nav-carousel-2" class="custom-owl-nav pull-left"></div>
-                    </div>
-                    <!-- /section title -->
 
-                    <!-- owl carousel 2 -->
-                    <div id="owl-carousel-2" class="owl-carousel owl-theme">
-                        <!-- ARTICLE -->
-                        <article class="article thumb-article">
-                            <div class="article-img">
-                                <video id="video1">
-                                    <source src="video/gallery/lines1.mp4" type="video/mp4">
-                                    Your browser does not support HTML5 video.
-                                </video>
 
-                                <%--<img src="./img/img-thumb-1.jpg" alt="">--%>
-                            </div>
-                            <div class="article-body">
-                                <ul class="article-info">
-                                    <li class="article-category"><a onclick="playPause()">Play</a></li>
-                                    <li class="article-type"><i class="fa fa-video-camera"></i></li>
-                                </ul>
-                                <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <ul class="article-meta">
-                                    <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                    <li><i class="fa fa-comments"></i>33</li>
-                                </ul>
-                            </div>
-                        </article>
-                        <!-- /ARTICLE -->
-
-                        <!-- ARTICLE -->
-                        <article class="article thumb-article">
-                            <div class="article-img">
-                                <img src="./img/img-thumb-2.jpg" alt="">
-                            </div>
-                            <div class="article-body">
-                                <ul class="article-info">
-                                    <li class="article-category"><a href="#">News</a></li>
-                                    <li class="article-type"><i class="fa fa-video-camera"></i></li>
-                                </ul>
-                                <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <ul class="article-meta">
-                                    <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                    <li><i class="fa fa-comments"></i>33</li>
-                                </ul>
-                            </div>
-                        </article>
-                        <!-- /ARTICLE -->
-
-                        <!-- ARTICLE -->
-                        <article class="article thumb-article">
-                            <div class="article-img">
-                                <img src="./img/img-thumb-3.jpg" alt="">
-                            </div>
-                            <div class="article-body">
-                                <ul class="article-info">
-                                    <li class="article-category"><a href="#">News</a></li>
-                                    <li class="article-type"><i class="fa fa-video-camera"></i></li>
-                                </ul>
-                                <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <ul class="article-meta">
-                                    <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                    <li><i class="fa fa-comments"></i>33</li>
-                                </ul>
-                            </div>
-                        </article>
-                        <!-- /ARTICLE -->
-
-                        <!-- ARTICLE -->
-                        <article class="article thumb-article">
-                            <div class="article-img">
-                                <img src="./img/img-thumb-4.jpg" alt="">
-                            </div>
-                            <div class="article-body">
-                                <ul class="article-info">
-                                    <li class="article-category"><a href="#">News</a></li>
-                                    <li class="article-type"><i class="fa fa-video-camera"></i></li>
-                                </ul>
-                                <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                <ul class="article-meta">
-                                    <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                    <li><i class="fa fa-comments"></i>33</li>
-                                </ul>
-                            </div>
-                        </article>
-                        <!-- /ARTICLE -->
-                    </div>
-                    <!-- /owl carousel 2 -->
-                </div>
-                <!-- /Main Column -->
-            </div>
-            <!-- /ROW -->
-        </div>
-        <!-- /CONTAINER -->
-    </div>
-    <!-- /SECTION -->
-
- 
-    <script> 
-        var myVideo = document.getElementById("video1");
-
-        function playPause() {
-            if (myVideo.paused)
-                myVideo.play();
-            else
-                myVideo.pause();
-        }
-
-        function makeBig() {
-            myVideo.width = 560;
-        }
-
-        function makeSmall() {
-            myVideo.width = 320;
-        }
-
-        function makeNormal() {
-            myVideo.width = 420;
-        }
-    </script>
 </asp:Content>

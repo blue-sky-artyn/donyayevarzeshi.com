@@ -1,23 +1,30 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/main.master" AutoEventWireup="true" CodeFile="picture-gallery.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
-/*video slider start*/
         video {
             height: 370px;
         }
+
         .other-tabs {
             display: none;
         }
-        .article-video {
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 0px;
+
+        .sub-title {
+            color: whitesmoke;
+            font-weight: bold;
+            font-style: italic;
+            margin: 0 25px;
         }
-        .new-video-attr {}
-        
-        .new-video-attr .video-pre-small {z-index: 99;}
-/*video slider end*/
+
+        .sub-title-news {
+            font-size: 9px;
+            color: #ef233c;
+            margin: 7px 10px;
+            /* text-decoration: underline; */
+            border-bottom: #ef233c solid 1px;
+        }
+
         .title-block {
             display: block;
             font-size: 12px;
@@ -28,6 +35,7 @@
         }
 
         .article-body-top {
+            height: 281px;
             overflow: hidden;
         }
 
@@ -42,34 +50,31 @@
         }
 
         .article-body-4 {
+            height: 450px;
             overflow: hidden;
         }
-        /* Slider items */
-        .farsi-slider-title a {
-            color:black;
-            line-height: 22px;
-            font-size: 10px;
-
+        .head-news-img {
+            min-height: inherit;
+            max-height: inherit;
         }
-        .box-show-slider {
-            box-shadow: grey 1px 1px 3px;
-            background: #ffffffed;
-            padding: 20px;
+        .article.thumb-article {
+            height: initial;
+        }
+        .news-background-filler {
+            background-color: transparent;
+        }
+
+        .clear-float {
+            clear:both;
         }
     </style>
-    <%-- Slider --%>
-    <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
-	<link rel="stylesheet" type="text/css" href="engine/style.css" />
-	<script type="text/javascript" src="engine/jquery.js"></script>	
-    <script src="https://www.youtube.com/iframe_api"></script>
 
-<!-- End WOWSlider.com HEAD section -->
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-   <%-- <!-- Owl Carousel 1_Sldier -->
-    <div id="sliderHtml" clientidmode="static" runat="server" style="width: 70%;margin: 0 auto;">
+    <!-- Owl Carousel 1_Sldier -->
+    <div id="sliderHtml" clientidmode="static" runat="server">
         <div id="owl-carousel-1" class="news-background-filler owl-carousel owl-theme center-owl-nav">
             <!-- ARTICLE -->
             <article class="article thumb-article">
@@ -129,84 +134,22 @@
             <!-- /ARTICLE -->
         </div>
     </div>
-    <!-- /Owl Carousel 1 -->--%>
+    <!-- /Owl Carousel 1 -->
 
-
-    <%-- New slider  --%>
-
-    <!-- Start WOWSlider.com BODY section -->
-<div id="wowslider-container1">
-	<div class="ws_images"><ul id="sliderItemsHtml" runat="server" >
-		<li><img src="images/1.jpg" alt="1" title="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم" id="wows1_0"/>
-            <h2 class="farsi-position farsi-font farsi-slider-title" style="color:white;"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h2>
-		</li>
-		<li><img src="images/2.jpg" alt="2" title="slider 2" id="wows1_1"/></li>
-		<li><a><img src="images/3.jpg" alt="jquery carousel" title="slider 3" id="wows1_2"/></a></li>
-		<li><iframe width="100%" height="100%" src="https://www.youtube.com/embed/Y2ZryaogYIk?autoplay=0&rel=0&enablejsapi=1&playerapiid=ytplayer&wmode=transparent" frameborder="0" allowfullscreen></iframe><img src="images/y2zryaogyik.png" alt="SHALLOW - Lady GaGa & Bradley Cooper (Saxophone Cover)" title="SHALLOW - Lady GaGa & Bradley Cooper (Saxophone Cover)" id="wows1_3"/></li>
-		<li><a><img src="images/4.jpg" alt="jquery carousel" title="slider 4" id="wows1_4"/></a></li>
-	</ul></div>
-	<div class="ws_bullets"><div id="sliderToolTipHtml" runat="server">
-		<a href="#" title="1"><span><img src="images/1.jpg" alt="1" style="width:85px;"/>1</span></a>
-		<a href="#" title="2"><span><img src="images/2.jpg" alt="2" style="width:85px;"/>2</span></a>
-		<a href="#" title="3"><span><img src="images/3.jpg" alt="3" style="width:85px;"/>3</span></a>
-		<a href="#" title="SHALLOW - Lady GaGa & Bradley Cooper (Saxophone Cover)"><span><img src="images/tooltips/y2zryaogyik.png" alt="SHALLOW - Lady GaGa & Bradley Cooper (Saxophone Cover)"/>4</span></a>
-		<a href="#" title="3"><span><img src="images/4.jpg" alt="4" style="width:85px;"/>4</span></a>
-	</div></div>
-	<div class="ws_shadow"></div>
-	</div>	
-	<script type="text/javascript" src="engine/wowslider.js"></script>
-	<script type="text/javascript" src="engine/script.js"></script>
-<!-- End WOWSlider.com BODY section -->
-
-    <!-- AD SECTION -->
-    <div id="Div2" runat="server" class="center-ad visible-lg visible-md">
-        <img class="center-block" src="./img/headadmiddle.jpg" alt="">
-    </div>
-    <!-- /AD SECTION -->
-
-    <!-- SECTION (TAB NEWS) -->
+ 
+     <!-- SECTION (TAB NEWS) -->
     <div class="section">
         <!-- CONTAINER -->
-        <div class="container container-limiter">
+        <div class="container">
             <!-- ROW -->
             <div class="row">
-                <div class="col-md-4">
-                    <div class="farsi-position section-title">
-                        <h2 class="farsi-font title">اخبار برجسته</h2>
-                        <!-- tab nav -->
-                        <ul class="farsi-font farsi-float tab-nav pull-left">
-                            <li><a data-toggle="tab" href="#tabNews2">پربازدید</a></li>
-                            <li class="active"><a data-toggle="tab" href="#tabNews1">جدبدترین ها</a></li>
-                        </ul>
-                        <!-- /tab nav -->
-                    </div>
-
-                    <div id="sideNewsHtml" runat="server" class="tab-content" style="border: 1px solid #80808047; overflow: hidden;">
-                        <!-- tab1 -->
-                        <div id="tabNews2" class="tab-pane fade in">
-                            <div id="popularNewsSideHtml" runat="server" class="row">
-                                <!-- Column 1 -->
-                                <a class="title-block farsi-font farsi-position article-title" href="#">Testtttttt</a>
-                            </div>
-                        </div>
-
-                        <div id="tabNews1" class="tab-pane fade in active">
-                            <!-- row -->
-                            <div id="recentNewsSideHtml" runat="server" class="row">
-                            </div>
-                            <!-- /row -->
-                        </div>
-                        <!-- /tab1 -->
-                    </div>
-
-                </div>
+                
                 <!-- Main Column -->
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <!-- section title -->
                     <div class="farsi-position section-title">
-                        <h2 class="farsi-font title">آخرین اخبار </h2>
                         <!-- tab nav -->
-                        <ul id="tabsHtml" runat="server" clientidmode="static" class="farsi-font farsi-float tab-nav pull-left">
+                        <ul id="tabsHtml" runat="server" clientidmode="static" class="farsi-font farsi-float tab-nav">
                             <li><a data-toggle="tab" href="#tab1">مشاهیر</a></li>
                             <li><a data-toggle="tab" href="#tab2">سینما</a></li>
                             <li><a data-toggle="tab" href="#tab1">موسیقی</a></li>
@@ -219,7 +162,7 @@
                     <!-- /section title -->
 
                     <!-- Tab content -->
-                    <div id="tabNewsDetailsHtml" runat="server" class="tab-content">
+                    <div id="tabNewsDetailsHtml" runat="server" class="clear-float tab-content">
                         <!-- tab1 -->
                         <div id="tab2" class="tab-pane fade in active">
                             <div class="row">
@@ -536,228 +479,10 @@
         <!-- /CONTAINER -->
     </div>
     <!-- /SECTION -->
+  
 
     <!-- AD SECTION -->
-    <div id="Div3" runat="server" class="center-ad visible-lg visible-md">
-        <img class="center-block" src="./img/headadmiddle.jpg" alt="">
-    </div>
-    <!-- /AD SECTION -->
-
-    <!-- SECTION (HIT NEWS) -->
-    <div class="section">
-        <!-- CONTAINER -->
-        <div class="container container-limiter">
-            <!-- ROW -->
-            <div class="row">
-                <!-- Main Column -->
-                <div class="col-md-8">
-                    <!-- row -->
-                    <div class="row">
-                        <!-- Column 1 -->
-                        <div id="hitNewsSportHtml" runat="server" class="col-md-12 col-sm-6">
-                            <!-- section title -->
-                            <div class="farsi-position section-title">
-                                <h2 class="farsi-font title">اجتماعی</h2>
-                            </div>
-                            <!-- /section title -->
-
-                            <!-- ARTICLE -->
-                            <article class="article col-md-6">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-sm-1.jpg" alt="">
-                                    </a>
-                                    <ul class="article-info">
-                                        <li class="article-type"><i class="fa fa-camera"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                                </div>
-                            </article>
-
-                            <article class="article col-md-6 ">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-sm-1.jpg" alt="">
-                                    </a>
-                                    <ul class="article-info">
-                                        <li class="article-type"><i class="fa fa-camera"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-
-                            <!-- ARTICLE -->
-                            <article class="article widget-article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-widget-7.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-
-                            <!-- ARTICLE -->
-                            <article class="article widget-article">
-                                <div class="article-img">
-                                    <a href="#">
-                                        <img src="./img/img-widget-8.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="article-body">
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-                        </div>
-                        <!-- /Column 1 -->
-
-                       
-                    </div>
-                    <!-- /row -->
-                                      
-                </div>
-                <!-- /Main Column -->
-
-                <!-- Aside Column -->
-                <div class="col-md-4">
-                    <!-- Ad widget -->
-                    <div id="adSide" runat="server" class="widget center-block hidden-xs">
-                        <img class="center-block" src="./img/headadbox.jpg" alt="">
-                    </div>
-                    <!-- /Ad widget -->
-
-                    <!-- social widget -->
-                    <%--<div class="widget social-widget">
-                        <div class="widget-title">
-                            <h2 class="farsi-font title">با ما در ارتباط باشید</h2>
-                        </div>
-                        <ul>
-                            <li><a href="#" class="facebook"><i class="fa fa-facebook"></i>
-                                <br>
-                                <span>Facebook</span></a></li>
-                            <li><a href="#" class="twitter"><i class="fa fa-twitter"></i>
-                                <br>
-                                <span>Twitter</span></a></li>
-                            <li><a href="#" class="google"><i class="fa fa-google"></i>
-                                <br>
-                                <span>Google+</span></a></li>
-                            <li><a href="#" class="instagram"><i class="fa fa-instagram"></i>
-                                <br>
-                                <span>Instagram</span></a></li>
-                            <li><a href="#" class="youtube"><i class="fa fa-youtube"></i>
-                                <br>
-                                <span>Youtube</span></a></li>
-                            <li><a href="#" class="rss"><i class="fa fa-rss"></i>
-                                <br>
-                                <span>RSS</span></a></li>
-                        </ul>
-                    </div>--%>
-                    <!-- /social widget -->
-
-                    <!-- subscribe widget -->
-                    <div class="widget subscribe-widget">
-                        <div class="widget-title">
-                            <h2 class="farsi-font title">عضویت در خبرنامه</h2>
-                        </div>
-                        <div>
-                            <input id="txtEmailSub1" runat="server" class="input" type="email" placeholder="ایمیل را وارد نمایید" style="color:white;">
-                            <p id="txtErrorHtml" runat="server"></p>
-                            <asp:Button ID="btnSubmit1" runat="server" class="farsi-font farsi-title input-btn" Text="عضویت" OnClick="btnSubmit1_Click" />
-                        </div>
-                    </div>
-                    <!-- /subscribe widget -->
-
-                    <!-- article widget -->
-                    <div class="widget">
-                        <div class="widget-title">
-                            <h2 class="farsi-font title">بیشتر خوانده شده</h2>
-                        </div>
-
-                        <div id="moreReadSideHtml" runat="server">
-                            <!-- owl carousel 3 -->
-                            <div id="owl-carousel-3" class="owl-carousel owl-theme center-owl-nav">
-                                <!-- ARTICLE -->
-                                <article class="article">
-                                    <div class="article-img">
-                                        <a href="#">
-                                            <img src="./img/img-md-3.jpg" alt="">
-                                        </a>
-                                        <ul class="article-info">
-                                            <li class="article-type"><i class="fa fa-file-text"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="article-body">
-                                        <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                        <ul class="article-meta">
-                                            <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                            <li><i class="fa fa-comments"></i>33</li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <!-- /ARTICLE -->
-
-                                <!-- ARTICLE -->
-                                <article class="article">
-                                    <div class="article-img">
-                                        <a href="#">
-                                            <img src="./img/img-md-4.jpg" alt="">
-                                        </a>
-                                        <ul class="article-info">
-                                            <li class="article-type"><i class="fa fa-file-text"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="article-body">
-                                        <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                                        <ul class="article-meta">
-                                            <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                            <li><i class="fa fa-comments"></i>33</li>
-                                        </ul>
-                                    </div>
-                                </article>
-                                <!-- /ARTICLE -->
-                            </div>
-                            <!-- /owl carousel 3 -->
-                        </div>
-                       
-                    </div>
-                    <!-- /article widget -->
-                </div>
-                <!-- /Aside Column -->
-            </div>
-            <!-- /ROW -->
-        </div>
-        <!-- /CONTAINER -->
-    </div>
-    <!-- /SECTION -->
-
-    <!-- AD SECTION -->
-    <div id="adMiddle" runat="server" class="center-ad visible-lg visible-md">
+    <div id="adMiddle" runat="server" class="visible-lg visible-md">
         <img class="center-block" src="./img/headadmiddle.jpg" alt="">
     </div>
     <!-- /AD SECTION -->
@@ -765,11 +490,11 @@
     <!-- SECTION (POPULAR VIDEOS) -->
     <div class="section">
         <!-- CONTAINER -->
-        <div class="container container-limiter">
+        <div class="container">
             <!-- ROW -->
             <div class="row">
                 <!-- Main Column -->
-                <div id="popularVideoHtml" runat="server" class="col-md-12">
+                <div class="col-md-12">
                     <!-- section title -->
                     <div class="farsi-position section-title">
                         <h2 class="farsi-font title">ویدیوهای محبوب</h2>
@@ -783,7 +508,7 @@
                         <article class="article thumb-article">
                             <div class="article-img">
                                 <video id="video1">
-                                    <source src="video/CNN.mp4" type="video/mp4">
+                                    <source src="video/gallery/lines1.mp4" type="video/mp4">
                                     Your browser does not support HTML5 video.
                                 </video>
 
@@ -870,298 +595,9 @@
     </div>
     <!-- /SECTION -->
 
-    <!-- AD SECTION -->
-    <div id="Div1" runat="server" class="center-ad visible-lg visible-md">
-        <img class="center-block" src="./img/headadmiddle.jpg" alt="">
-    </div>
-    <!-- /AD SECTION -->
-
-    <!-- SECTION (NEWS / SIDE BAR) -->
-    <div class="section">
-        <!-- CONTAINER -->
-        <div class="container container-limiter">
-            <!-- ROW -->
-            <div class="row">
-                <!-- Main Column -->
-                <div id="popularNewsHtml" runat="server" class="col-md-8">
-                    <!-- section title -->
-                    <div class="farsi-position section-title">
-                        <h2 class="farsi-font title">اخبار</h2>
-                    </div>
-                    <!-- /section title -->
-
-                    <!-- ARTICLE -->
-                    <article class="article row-article">
-                        <div class="article-img">
-                            <a href="#">
-                                <img src="./img/img-md-1.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="article-body">
-                            <ul class="article-info">
-                                <li class="article-category"><a href="#">News</a></li>
-                                <li class="article-type"><i class="fa fa-file-text"></i></li>
-                            </ul>
-                            <h4 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h4>
-                            <ul class="article-meta">
-                                <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                <li><i class="fa fa-comments"></i>33</li>
-                            </ul>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                        </div>
-                    </article>
-                    <!-- /ARTICLE -->
-
-                    <!-- ARTICLE -->
-                    <article class="article row-article">
-                        <div class="article-img">
-                            <a href="#">
-                                <img src="./img/img-md-2.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="article-body">
-                            <ul class="article-info">
-                                <li class="article-category"><a href="#">News</a></li>
-                                <li class="article-type"><i class="fa fa-file-text"></i></li>
-                            </ul>
-                            <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                            <ul class="article-meta">
-                                <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                <li><i class="fa fa-comments"></i>33</li>
-                            </ul>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                        </div>
-                    </article>
-                    <!-- /ARTICLE -->
-
-                    <!-- ARTICLE -->
-                    <article class="article row-article">
-                        <div class="article-img">
-                            <a href="#">
-                                <img src="./img/img-md-3.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="article-body">
-                            <ul class="article-info">
-                                <li class="article-category"><a href="#">News</a></li>
-                                <li class="article-type"><i class="fa fa-file-text"></i></li>
-                            </ul>
-                            <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                            <ul class="article-meta">
-                                <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                <li><i class="fa fa-comments"></i>33</li>
-                            </ul>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                        </div>
-                    </article>
-                    <!-- /ARTICLE -->
-
-                    <!-- ARTICLE -->
-                    <article class="article row-article">
-                        <div class="article-img">
-                            <a href="#">
-                                <img src="./img/img-md-4.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="article-body">
-                            <ul class="article-info">
-                                <li class="article-category"><a href="#">News</a></li>
-                                <li class="article-type"><i class="fa fa-file-text"></i></li>
-                            </ul>
-                            <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                            <ul class="article-meta">
-                                <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                <li><i class="fa fa-comments"></i>33</li>
-                            </ul>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                        </div>
-                    </article>
-                    <!-- /ARTICLE -->
-
-                    <!-- pagination -->
-                    <div class="article-pagination">
-                        <ul>
-                            <li class="active"><a href="#" class="active">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- /pagination -->
-                </div>
-                <!-- /Main Column -->
-
-                <!-- Aside Column -->
-                <div class="col-md-4">
-                    <!-- article widget -->
-                    <div id="hitNewsSliderHtml" runat="server" class="widget">
-                        <div class="widget-title">
-                            <h2 class="farsi-font title">اخبار بر جسته</h2>
-                        </div>
-
-                        <!-- owl carousel 4 -->
-                        <div id="owl-carousel-4" class="owl-carousel owl-theme">
-                            <!-- ARTICLE -->
-                            <article class="article thumb-article">
-                                <div class="article-img">
-                                    <img src="./img/img-thumb-1.jpg" alt="">
-                                </div>
-                                <div class="article-body">
-                                    <ul class="article-info">
-                                        <li class="article-category"><a href="#">News</a></li>
-                                        <li class="article-type"><i class="fa fa-video-camera"></i></li>
-                                    </ul>
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-
-                            <!-- ARTICLE -->
-                            <article class="article thumb-article">
-                                <div class="article-img">
-                                    <img src="./img/img-thumb-2.jpg" alt="">
-                                </div>
-                                <div class="article-body">
-                                    <ul class="article-info">
-                                        <li class="article-category"><a href="#">News</a></li>
-                                        <li class="article-type"><i class="fa fa-video-camera"></i></li>
-                                    </ul>
-                                    <h3 class="farsi-font farsi-position article-title"><a href="#">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم</a></h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-clock-o"></i>January 31, 2017</li>
-                                        <li><i class="fa fa-comments"></i>33</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <!-- /ARTICLE -->
-                        </div>
-                        <!-- /owl carousel 4 -->
-                    </div>
-                    <!-- /article widget -->
-
-                    <!-- galery widget -->
-                    <div class="widget galery-widget">
-                        <div class="widget-title">
-                            <h2 class="farsi-font title">گالری تصاویر</h2>
-                        </div>
-                        <ul id="gallery1Html" runat="server">
-                            <li><a href="#">
-                                <img src="./img/img-widget-3.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="./img/img-widget-4.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="./img/img-widget-5.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="./img/img-widget-6.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="./img/img-widget-7.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="./img/img-widget-8.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="./img/img-widget-9.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="./img/img-widget-10.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="./img/img-widget-10.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="./img/img-widget-10.jpg" alt=""></a></li>
-
-                        </ul>
-                    </div>
-                    <!-- /galery widget -->
-
-                  <%--  <!-- tweets widget -->
-                    <div class="widget tweets-widget">
-                        <div class="widget-title">
-                            <h2 class="farsi-font title">لینک ها</h2>
-                        </div>
-                        <ul>
-                            <li class="tweet">
-                                <i class="fa fa-bookmark"></i>
-                                <div class="tweet-body">
-                                    <p><a href="#">@magnews</a> Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis <a href="#">https://t.co/DwsTbsmxTP</a></p>
-                                </div>
-                            </li>
-                            <li class="tweet">
-                                <i class="fa fa-bookmark"></i>
-                                <div class="tweet-body">
-                                    <p><a href="#">@magnews</a> Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis <a href="#">https://t.co/DwsTbsmxTP</a></p>
-                                </div>
-                            </li>
-                            <li class="tweet">
-                                <i class="fa fa-bookmark"></i>
-                                <div class="tweet-body">
-                                    <p><a href="#">@magnews</a> Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis <a href="#">https://t.co/DwsTbsmxTP</a></p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /tweets widget -->--%>
-
-                    <div class="widget tweets-widget">
-                        <div class="widget-title">
-                            <h2 class="farsi-font title">لینک خبرها</h2>
-                        </div>
-                        <ul id="rssNewsHtml" runat="server">
-                            <li class="tweet">
-                                <i class="fa fa-bookmark"></i>
-                                <div class="tweet-body">
-                                    <p><a href="#">@magnews</a> Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis <a href="#">https://t.co/DwsTbsmxTP</a></p>
-                                </div>
-                            </li>
-                            <li class="tweet">
-                                <i class="fa fa-bookmark"></i>
-                                <div class="tweet-body">
-                                    <p><a href="#">@magnews</a> Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis <a href="#">https://t.co/DwsTbsmxTP</a></p>
-                                </div>
-                            </li>
-                            <li class="tweet">
-                                <i class="fa fa-bookmark"></i>
-                                <div class="tweet-body">
-                                    <p><a href="#">@magnews</a> Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis <a href="#">https://t.co/DwsTbsmxTP</a></p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-                <!-- /Aside Column -->
-            </div>
-            <!-- /ROW -->
-        </div>
-        <!-- /CONTAINER -->
-    </div>
-    <!-- /SECTION -->
-
-    <!-- AD SECTION -->
-    <div id="Div4" runat="server" class="center-ad visible-lg visible-md">
-        <img class="center-block" src="./img/headadmiddle.jpg" alt="">
-    </div>
-    <!-- /AD SECTION -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-
-          $(".article").mouseenter(function(){
-              $(this).addClass("new-video-attr");
-            });
-
-            $(".article").mouseleave(function(){
-              //alert("test");
-              //alert($(this).attr("class"));
-              $(this).removeClass("new-video-attr");
-            });
-
-        });
-    </script>
-
+ 
     <script> 
-        var myvideo = document.getelementbyId("video1");
+        var myVideo = document.getElementById("video1");
 
         function playPause() {
             if (myVideo.paused)

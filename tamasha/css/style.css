@@ -545,11 +545,74 @@ textarea.input {
     .article:hover .article-img > a:after {
         opacity: 0.3;
     }
+    .article .article2-img > a {
+        display: block;
+    }
+
+        .article .article2-img > a:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: #222;
+            opacity: 0;
+            -webkit-transition: 0.2s opacity;
+            transition: 0.2s opacity;
+        }
+
+    .article:hover .article2-img > a:after {
+        opacity: 0.3;
+    }
+
+    .article .article3-img > a {
+        display: block;
+    }
+
+        .article .article3-img > a:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: #222;
+            opacity: 0;
+            -webkit-transition: 0.2s opacity;
+            transition: 0.2s opacity;
+        }
+
+    .article:hover .article3-img > a:after {
+        opacity: 0.3;
+    }
+
+    .article .article4-img > a {
+        display: block;
+    }
+
+        .article .article4-img > a:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: #222;
+            opacity: 0;
+            -webkit-transition: 0.2s opacity;
+            transition: 0.2s opacity;
+        }
+
+    .article:hover .article4-img > a:after {
+        opacity: 0.3;
+    }
 
     .article .article-img {
         position: relative;
         overflow: hidden;
         margin-bottom: 15px;
+        height: 112px;
     }
 
         .article .article-img img {
@@ -558,8 +621,55 @@ textarea.input {
             transition: 0.5s -webkit-transform;
             transition: 0.5s transform;
             transition: 0.5s transform, 0.5s -webkit-transform;
+            height: 112px;
         }
 
+    .article .article2-img {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 15px;
+        height: 200px;
+    }
+
+        .article .article2-img img {
+            width: 100%;
+            -webkit-transition: 0.5s -webkit-transform;
+            transition: 0.5s -webkit-transform;
+            transition: 0.5s transform;
+            transition: 0.5s transform, 0.5s -webkit-transform;
+            height: 200px;
+        }
+
+    .article .article3-img {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 15px;
+        height: 250px;
+    }
+
+        .article .article3-img img {
+            width: 100%;
+            -webkit-transition: 0.5s -webkit-transform;
+            transition: 0.5s -webkit-transform;
+            transition: 0.5s transform;
+            transition: 0.5s transform, 0.5s -webkit-transform;
+            height: 250px;
+        }
+    .article .article4-img {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 15px;
+        height: 80px;
+    }
+
+        .article .article4-img img {
+            width: 100%;
+            -webkit-transition: 0.5s -webkit-transform;
+            transition: 0.5s -webkit-transform;
+            transition: 0.5s transform;
+            transition: 0.5s transform, 0.5s -webkit-transform;
+            height: 80px;
+        }
 .head-news-img {
     min-height: 560px;
     max-height: 570px;
@@ -581,7 +691,18 @@ textarea.input {
     right: 0px;
     z-index: 22;
 }
+.article:hover .article2-img img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
 
+.article .article2-img .article-info {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    z-index: 22;
+}
 .article .article-body .article-info {
     margin-bottom: 15px;
 }
@@ -705,7 +826,7 @@ textarea.input {
     clear: both;
 }
 
-.article.widget-article .article-img {
+.article.widget-article .article4-img {
     float: right;
     width: 80px;
     margin-left: 15px;
@@ -732,11 +853,20 @@ textarea.input {
     margin-bottom: 0px;
 }
 
+.article.row-article .article3-img {
+    width: 50%;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 0px;
+}
+
 @media only screen and (max-width: 767px) {
     .article.row-article .article-img {
         width: 180px;
     }
-
+    .article.row-article .article3-img {
+        width: 180px;
+    }
     .article.row-article .article-body p {
         display: none;
     }
@@ -744,6 +874,10 @@ textarea.input {
 
 @media only screen and (max-width: 480px) {
     .article.row-article .article-img {
+        float: none;
+        margin-bottom: 15px;
+    }
+    .article.row-article .article3-img {
         float: none;
         margin-bottom: 15px;
     }
@@ -1497,7 +1631,21 @@ textarea.input {
 .farsi-align {
     text-align: right;
 }
+.sub-title {
+    color: whitesmoke;
+    font-weight: bold;
+    margin: 0 25px;
+}
 
+.sub-title-news {
+    font-size: 9px;
+    color: #b5b4b4;
+    margin: 7px 10px;
+}
+/* Advertisments */
+.center-ad {
+    margin: 15px 0;
+}
 
 
 

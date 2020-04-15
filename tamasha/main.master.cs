@@ -112,8 +112,8 @@ public partial class main : System.Web.UI.MasterPage
         {
             newsDetailsTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.id, CriteriaOperators.Equal, hitNewsTbl[i].newsId));
 
-            hitNewsFooterStr += "<article class='article widget-article'><div class='farsi-float article-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsTbl[0].id + "'>" +
-                                "<img src='images/news/" + newsDetailsTbl[0].topPageFileAddr + "' alt=''>" +
+            hitNewsFooterStr += "<article class='article widget-article'><div class='farsi-float article4-img'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsTbl[0].id + "'>" +
+                                "<img src='images/news/" + newsDetailsTbl[0].topPageFileAddr + "' alt='" + newsDetailsTbl[0].topPageFileAddr + "'>" +
                                 "</a></div><div class='article-body'>" +
                                 "<h4 class='farsi-position farsi-font article-title'><a href='donyaye-varzeshi-news-details.aspx?newsId=" + newsDetailsTbl[0].id + "'>" + newsDetailsTbl[0].newsDetTitle + "</a></h4>" +
                                 "<ul class='article-meta'><li><i class='fa fa-clock-o'></i>" + newsDetailsTbl[0].newsDetInsertDate + "</li><li><i class='fa fa-comments'></i>" + newsDetailsTbl[0].incReview + "</li></ul>" +

@@ -74,10 +74,6 @@
         .clear-float {
             clear:both;
         }
-        .owl-carousel {
-            width: 75%;
-            margin: 0 auto;
-        }
     </style>
 
 </asp:Content>
