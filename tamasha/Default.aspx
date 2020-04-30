@@ -159,8 +159,8 @@
 <!-- End WOWSlider.com BODY section -->
 
     <!-- AD SECTION -->
-    <div id="Div2" runat="server" class="center-ad visible-lg visible-md">
-        <img class="center-block" src="./img/headadmiddle.jpg" alt="">
+    <div class="center-ad visible-lg visible-md">
+        <img id="ad1Html" runat="server" class="center-block" src="./img/headadmiddle.jpg" alt="تبلیغات دنیای ورزشی">
     </div>
     <!-- /AD SECTION -->
 
@@ -538,8 +538,8 @@
     <!-- /SECTION -->
 
     <!-- AD SECTION -->
-    <div id="Div3" runat="server" class="center-ad visible-lg visible-md">
-        <img class="center-block" src="./img/headadmiddle.jpg" alt="">
+    <div class="center-ad visible-lg visible-md">
+        <img id="ad2Html" runat="server" class="center-block" src="./img/headadmiddle.jpg" alt="تبلیغات دنیای ورزشی">
     </div>
     <!-- /AD SECTION -->
 
@@ -647,8 +647,8 @@
                 <!-- Aside Column -->
                 <div class="col-md-4">
                     <!-- Ad widget -->
-                    <div id="adSide" runat="server" class="widget center-block hidden-xs">
-                        <img class="center-block" src="./img/headadbox.jpg" alt="">
+                    <div class="widget center-block hidden-xs">
+                        <img id="adSquareMiddleHtml" runat="server" class="center-block" src="./img/headadbox.jpg" alt="تبلیغات دنیای ورزشی" style="max-width: 100%;">
                     </div>
                     <!-- /Ad widget -->
 
@@ -757,8 +757,8 @@
     <!-- /SECTION -->
 
     <!-- AD SECTION -->
-    <div id="adMiddle" runat="server" class="center-ad visible-lg visible-md">
-        <img class="center-block" src="./img/headadmiddle.jpg" alt="">
+    <div class="center-ad visible-lg visible-md">
+        <img id="ad3Html" runat="server" class="center-block" src="./img/headadmiddle.jpg" alt="تبلیغات دنیای ورزشی">
     </div>
     <!-- /AD SECTION -->
 
@@ -871,8 +871,8 @@
     <!-- /SECTION -->
 
     <!-- AD SECTION -->
-    <div id="Div1" runat="server" class="center-ad visible-lg visible-md">
-        <img class="center-block" src="./img/headadmiddle.jpg" alt="">
+    <div class="center-ad visible-lg visible-md">
+        <img id="ad4Html" runat="server" class="center-block" src="./img/headadmiddle.jpg" alt="تبلیغات دنیای ورزشی">
     </div>
     <!-- /AD SECTION -->
 
@@ -1138,8 +1138,8 @@
     <!-- /SECTION -->
 
     <!-- AD SECTION -->
-    <div id="Div4" runat="server" class="center-ad visible-lg visible-md">
-        <img class="center-block" src="./img/headadmiddle.jpg" alt="">
+    <div class="center-ad visible-lg visible-md">
+        <img id="ad5Html" runat="server" class="center-block" src="./img/headadmiddle.jpg" alt="تبلیغات دنیای ورزشی">
     </div>
     <!-- /AD SECTION -->
 

@@ -16,10 +16,40 @@ using System.IO;
 using System.Xml.Linq;
 
 
-
-
 public partial class _Default : System.Web.UI.Page
 {
+
+    private string giveMeAd(int adStyleId) {
+        string dateNow = DateTime.Now.ToString("yyyyMMdd");
+        Random ranNumber = new Random();
+        int ranNum = 0;string ret = "";
+
+        tblAdCollection AdTbl = new tblAdCollection();
+        AdTbl.ReadList(Criteria.NewCriteria(tblAd.Columns.idStyleGrp, CriteriaOperators.Equal, adStyleId));
+        
+        tblAdPicCollection adPicTbl = new tblAdPicCollection();
+
+        if (AdTbl.Count > 0)
+        {
+            while (true)
+            {
+                ranNum = ranNumber.Next(0, AdTbl.Count);
+                int dateAd = Convert.ToInt32(AdTbl[ranNum].dateStart.Substring(0, 2) + AdTbl[ranNum].dateStart.Substring(3, 2) + AdTbl[ranNum].dateStart.Substring(6, 4));
+
+                if (dateAd >= Convert.ToInt32(dateNow))
+                {
+                    adPicTbl.ReadList(Criteria.NewCriteria(tblAdPic.Columns.idAd, CriteriaOperators.Equal, AdTbl[ranNum].id));
+                    ret = adPicTbl[0].picAddr + adPicTbl[0].picName;
+                    break;
+                }
+            }
+            return (ret);
+        }
+        else
+            return ("none");
+            //return ("./img/headadmiddle.jpg");
+
+    }
 
     private string PopulateRssFeed(string rssLink)
     {
@@ -64,7 +94,6 @@ public partial class _Default : System.Web.UI.Page
 
         #region SQL query
         string dateInsert = DateTime.Now.ToString("yyyyMMdd");
-        string[] hotNewsList;
 
         string ConStr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         using (SqlConnection con = new SqlConnection(ConStr))
@@ -492,45 +521,51 @@ public partial class _Default : System.Web.UI.Page
         popularNewsHtml.InnerHtml = popularNews;
         #endregion
 
-
         #region Ad
-        string dateNow = DateTime.Now.ToString("yyyyMMdd");
-        tblAdCollection AdTbl = new tblAdCollection();
-        AdTbl.ReadList();
-        tblAdPicCollection adPicTbl = new tblAdPicCollection();
-
-        for (int i = 0; i < AdTbl.Count; i++)
+        string ret = "none";
+        tblAdStyleCollection adStyleTbl = new tblAdStyleCollection();
+        adStyleTbl.ReadList();
+        
+        for (int i = 0; i < adStyleTbl.Count; i++)
         {
-            if (Convert.ToInt32(AdTbl[i].dateStart.Trim()) >= Convert.ToInt32(dateNow))
+            // ----------------- FOR POSITION OF 980*120 --------------------
+            if (adStyleTbl[i].styleWidth > 600 && adStyleTbl[i].styleHeight > 105)
             {
-                #region right side
-                if (AdTbl[i].adPosition.Trim() == "right")
-                {
-                    adPicTbl.ReadList(Criteria.NewCriteria(tblAdPic.Columns.idAd, CriteriaOperators.Equal, AdTbl[i].id));
-                    adSide.InnerHtml = "<img class='center-block' src='./images/ad/" + adPicTbl[0].picName + "' alt='" + adPicTbl[0].picName + "'>";
-                }
-                #endregion
+                ret = giveMeAd(adStyleTbl[i].id);
+                if (ret != "none")
+                    ad1Html.Src = ret;
 
-                #region middle
-                if (AdTbl[i].adPosition.Trim() == "middle")
-                {
-                    adPicTbl.ReadList(Criteria.NewCriteria(tblAdPic.Columns.idAd, CriteriaOperators.Equal, AdTbl[i].id));
-                    adMiddle.InnerHtml = "<img class='center-block' src='./images/ad/" + adPicTbl[0].picName + "' alt='" + adPicTbl[0].picName + "'>";
-                }
-                #endregion
+                ret = giveMeAd(adStyleTbl[i].id);
+                if (ret != "none")
+                    ad2Html.Src = ret;
 
-                #region bottom
-                if (AdTbl[i].adPosition.Trim() == "bottom")
-                {
-                    adPicTbl.ReadList(Criteria.NewCriteria(tblAdPic.Columns.idAd, CriteriaOperators.Equal, AdTbl[i].id));
-                    //adBottom.InnerHtml = "<img class='center-block' src='./images/ad/" + adPicTbl[0].picName + "' alt='" + adPicTbl[0].picName + "'>";
-                }
-                #endregion
+                ret = giveMeAd(adStyleTbl[i].id);
+                if (ret != "none")
+                    ad3Html.Src = ret;
+
+                ret = giveMeAd(adStyleTbl[i].id);
+                if (ret != "none")
+                    ad4Html.Src = ret;
+
+                ret = giveMeAd(adStyleTbl[i].id);
+                if (ret != "none")
+                    ad5Html.Src = ret;
+            }
+            // ----------------- FOR POSITION OF 980*90 --------------------
+            else if (adStyleTbl[i].styleWidth > 600 && adStyleTbl[i].styleHeight <= 105)
+            {
 
             }
+            // ----------------- FOR POSITION OF 300*250 --------------------
+            else if (adStyleTbl[i].styleWidth <= 600 && adStyleTbl[i].styleHeight >= 250)
+            {
+                ret = giveMeAd(adStyleTbl[i].id);
+                if (ret != "none")
+                    adSquareMiddleHtml.Src = ret;
+            }
         }
-        #endregion
 
+        #endregion
 
         #region More read in side bar
         newsDetailsSportTbl.ReadList(Criteria.NewCriteria(tblNewsDetails.Columns.incReview, CriteriaOperators.IsNotNull));

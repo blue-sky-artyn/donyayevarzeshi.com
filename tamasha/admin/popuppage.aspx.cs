@@ -143,7 +143,7 @@ public partial class admin_need_to_know : System.Web.UI.Page
 
             tblAdStyle popupAdStyle = new tblAdStyle();
 
-            popupAdStyle.idAd = popupAdCountIdTbl[popupAdCountIdTbl.Count - 1].id;
+            //popupAdStyle.idAd = popupAdCountIdTbl[popupAdCountIdTbl.Count - 1].id;
             popupAdStyle.styleTitle = rbStyle.SelectedValue;
             popupAdStyle.styleContent = "";
             popupAdStyle.styleDetails = "";

@@ -92,8 +92,8 @@
                             <span class="sub-logo">دنیای ورزشی</span>
                         </p>
                     </div>
-                    <div id="adHeader" runat="server" class="header-sell-ads">
-                        <img class="center-block" src="./img/headad.jpg" alt="tamasha advertisment">
+                    <div class="header-sell-ads">
+                        <img id="adHeaderHtml" runat="server" class="center-block" src="./img/headad.jpg" alt="تبلیغات دنیای ورزشی" style="max-height: 90px;">
                     </div>
                 </div>
             </div>
@@ -234,7 +234,7 @@
 
                             <!-- Ad widget -->
                             <div id="adSide" runat="server" class="widget center-block hidden-xs">
-                                <img class="center-block" src="./img/headadbox.jpg" alt="">
+                                <img id="adSquareHtml" runat="server" class="center-block" src="./img/headadbox.jpg" alt="تبلیغات دنیای ورزشی" style="max-width: 100%;">
                             </div>
                             <!-- /Ad widget -->
 

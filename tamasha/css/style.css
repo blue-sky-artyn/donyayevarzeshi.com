@@ -195,7 +195,7 @@ textarea.input {
 }
 
     .header-sell-ads > img {
-        width: 100%;
+        max-width: 100%;
     }
 /*----------------------------*\
 	Nav Header
@@ -545,6 +545,7 @@ textarea.input {
     .article:hover .article-img > a:after {
         opacity: 0.3;
     }
+
     .article .article2-img > a {
         display: block;
     }
@@ -655,6 +656,7 @@ textarea.input {
             transition: 0.5s transform, 0.5s -webkit-transform;
             height: 250px;
         }
+
     .article .article4-img {
         position: relative;
         overflow: hidden;
@@ -670,6 +672,7 @@ textarea.input {
             transition: 0.5s transform, 0.5s -webkit-transform;
             height: 80px;
         }
+
 .head-news-img {
     min-height: 560px;
     max-height: 570px;
@@ -691,6 +694,7 @@ textarea.input {
     right: 0px;
     z-index: 22;
 }
+
 .article:hover .article2-img img {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
@@ -703,6 +707,7 @@ textarea.input {
     right: 0px;
     z-index: 22;
 }
+
 .article .article-body .article-info {
     margin-bottom: 15px;
 }
@@ -775,7 +780,6 @@ textarea.input {
 .article.thumb-article {
     margin-bottom: 0px;
     height: max-content;
-    
 }
 
     .article.thumb-article .article-img {
@@ -864,9 +868,11 @@ textarea.input {
     .article.row-article .article-img {
         width: 180px;
     }
+
     .article.row-article .article3-img {
         width: 180px;
     }
+
     .article.row-article .article-body p {
         display: none;
     }
@@ -877,6 +883,7 @@ textarea.input {
         float: none;
         margin-bottom: 15px;
     }
+
     .article.row-article .article3-img {
         float: none;
         margin-bottom: 15px;
@@ -1590,9 +1597,9 @@ textarea.input {
 
 
 
-.article-body > p img{
-    width: 100%;
-}
+    .article-body > p img {
+        width: 100%;
+    }
 /* logo font */
 .logo-font {
     font-weight: 900;
@@ -1631,6 +1638,7 @@ textarea.input {
 .farsi-align {
     text-align: right;
 }
+
 .sub-title {
     color: whitesmoke;
     font-weight: bold;
@@ -1646,6 +1654,11 @@ textarea.input {
 .center-ad {
     margin: 15px 0;
 }
+
+    .center-ad img {
+        max-width: 100%;
+        max-height:120px;
+    }
 
 
 

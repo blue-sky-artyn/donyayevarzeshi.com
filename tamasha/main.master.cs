@@ -10,6 +10,41 @@ using bluesky.artyn;
 
 public partial class main : System.Web.UI.MasterPage
 {
+    private string giveMeAd(int adStyleId)
+    {
+        string dateNow = DateTime.Now.ToString("yyyyMMdd");
+        Random ranNumber = new Random();
+        int ranNum = 0; string ret = "";
+
+        tblAdCollection AdTbl = new tblAdCollection();
+        AdTbl.ReadList(Criteria.NewCriteria(tblAd.Columns.idStyleGrp, CriteriaOperators.Equal, adStyleId));
+
+        tblAdPicCollection adPicTbl = new tblAdPicCollection();
+
+        if (AdTbl.Count > 0)
+        {
+            while (true)
+            {
+                ranNum = ranNumber.Next(0, AdTbl.Count);
+                int dateAd = Convert.ToInt32(AdTbl[ranNum].dateStart.Substring(0, 2) + AdTbl[ranNum].dateStart.Substring(3, 2) + AdTbl[ranNum].dateStart.Substring(6, 4));
+
+                if (dateAd >= Convert.ToInt32(dateNow))
+                {
+                    adPicTbl.ReadList(Criteria.NewCriteria(tblAdPic.Columns.idAd, CriteriaOperators.Equal, AdTbl[ranNum].id));
+                    ret = adPicTbl[0].picAddr + adPicTbl[0].picName;
+                    break;
+                }
+            }
+            return (ret);
+        }
+        else
+            return ("none");
+
+        //return ("./img/headad.jpg");
+        //  return ("./img/headadbox.jpg");
+
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         //Menu
@@ -59,23 +94,31 @@ public partial class main : System.Web.UI.MasterPage
         #endregion
 
         #region Ad
-        string dateNow = DateTime.Now.ToString("yyyyMMdd");
-        tblAdCollection AdTbl = new tblAdCollection();       
-        AdTbl.ReadList();
+        string ret = "none";
+        tblAdStyleCollection adStyleTbl = new tblAdStyleCollection();
+        adStyleTbl.ReadList();
 
-        tblAdPicCollection adPicTbl = new tblAdPicCollection();
-
-        for (int i = 0; i < AdTbl.Count; i++)
+        for (int i = 0; i < adStyleTbl.Count; i++)
         {
-            if (Convert.ToInt32(AdTbl[i].dateStart.Trim()) >= Convert.ToInt32(dateNow))
+            // ----------------- FOR POSITION OF 980*120 --------------------
+            if (adStyleTbl[i].styleWidth > 600 && adStyleTbl[i].styleHeight > 105)
             {
-                if (AdTbl[i].adPosition.Trim() == "top")
-                {
-                    adPicTbl.ReadList(Criteria.NewCriteria(tblAdPic.Columns.idAd, CriteriaOperators.Equal, AdTbl[i].id));
-                    adHeader.InnerHtml = "<img class='center-block' src='./images/ad/" + adPicTbl[0].picName + "' alt='" + adPicTbl[0].picName + "'>";
-                }
+
             }
-            
+            // ----------------- FOR POSITION OF 980*90 --------------------
+            else if (adStyleTbl[i].styleWidth > 600 && adStyleTbl[i].styleHeight <= 105)
+            {
+                ret = giveMeAd(adStyleTbl[i].id);
+                if (ret != "none")
+                    adHeaderHtml.Src = ret;
+            }
+            // ----------------- FOR POSITION OF 300*250 --------------------
+            else if (adStyleTbl[i].styleWidth <= 600 && adStyleTbl[i].styleHeight >= 250)
+            {
+                ret = giveMeAd(adStyleTbl[i].id);
+                if (ret != "none")
+                    adSquareHtml.Src = ret;
+            }
         }
 
         #endregion
