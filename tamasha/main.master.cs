@@ -26,8 +26,12 @@ public partial class main : System.Web.UI.MasterPage
             while (true)
             {
                 ranNum = ranNumber.Next(0, AdTbl.Count);
-                int dateAd = Convert.ToInt32(AdTbl[ranNum].dateStart.Substring(0, 2) + AdTbl[ranNum].dateStart.Substring(3, 2) + AdTbl[ranNum].dateStart.Substring(6, 4));
+                int dateAd = 0;
 
+                if (AdTbl[ranNum].periodOfShow == 0)
+                    dateAd = Convert.ToInt32(AdTbl[ranNum].dateStart.Substring(0, 2) + AdTbl[ranNum].dateStart.Substring(3, 2) + AdTbl[ranNum].dateStart.Substring(6, 4));
+                //else
+                //    dateAd = AdTbl[ranNum].dateInsert; //DateTime.Now.AddDays()
                 if (dateAd >= Convert.ToInt32(dateNow))
                 {
                     adPicTbl.ReadList(Criteria.NewCriteria(tblAdPic.Columns.idAd, CriteriaOperators.Equal, AdTbl[ranNum].id));
